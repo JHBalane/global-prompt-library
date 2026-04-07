@@ -1,0 +1,80 @@
+TextDeck Community License
+Version 1.0, January 2025
+
+Copyright (c) 2025 TextDeck and Contributors
+
+DEFINITIONS
+
+"Prompts" refers to the AI prompt templates, collections, and related content
+in this repository.
+
+"Community Prompts" refers to all Prompts contributed to this repository.
+
+"App" refers to any software application, service, or system that uses the
+Prompts.
+
+"Paywall" refers to any mechanism that requires payment to access Community
+Prompts.
+
+GRANT OF LICENSE
+
+Permission is hereby granted, free of charge, to any person or organization
+obtaining a copy of the Prompts to:
+
+1. USE the Prompts in any App, whether free, freemium, or commercial
+2. MODIFY the Prompts for their own use
+3. DISTRIBUTE the Prompts as part of their App
+4. CREATE derivative works based on the Prompts
+
+Subject to the following conditions:
+
+OBLIGATIONS
+
+1. ATTRIBUTION: You must give appropriate credit to the original authors,
+   provide a link to this repository, and indicate if changes were made.
+   You may do so in any reasonable manner, but not in any way that suggests
+   the authors endorse you or your use.
+
+2. FREE ACCESS: Community Prompts must remain freely accessible to all users
+   of your App. You may NOT:
+   - Place Community Prompts behind a Paywall
+   - Require payment to access Community Prompts
+   - Restrict access to Community Prompts based on subscription tiers
+   - Advertise Community Prompts as a premium or paid feature
+
+3. SHARE ALIKE: If you distribute modified versions of the Prompts, you must
+   distribute them under this same license.
+
+PERMITTED MONETIZATION
+
+You MAY monetize:
+- Services that enhance or process user-created prompts (not Community Prompts)
+- Features unrelated to Community Prompts
+- Optional donations or tips
+- Advertisements shown alongside (but not gating) Community Prompts
+- Premium features that don't restrict Community Prompt access
+
+DISCLAIMER
+
+THE PROMPTS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE PROMPTS OR THE USE OR OTHER DEALINGS IN THE
+PROMPTS.
+
+TERMINATION
+
+This license automatically terminates if you fail to comply with its terms.
+Upon termination, you must cease all use and distribution of the Prompts.
+
+INTERPRETATION
+
+This license shall be interpreted to maximize the free availability of
+Community Prompts while allowing sustainable App development. When in doubt,
+interpret in favor of free access for end users.
+
+---
+
+For questions about this license, please open an issue in the repository.

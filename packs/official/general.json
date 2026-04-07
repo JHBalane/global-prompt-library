@@ -1,0 +1,187 @@
+{
+  "id": "general-productivity",
+  "name": "General Productivity Prompts",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck Team",
+    "github": "textdeck"
+  },
+  "description": "Essential prompts for everyday productivity and task management",
+  "category": "productivity",
+  "language": "en",
+  "license": "TextDeck-Community-1.0",
+  "created": "2025-01-15",
+  "updated": "2025-01-15",
+  "tags": ["productivity", "general", "essential", "beginner"],
+  "prompts": [
+    {
+      "id": "task-breakdown",
+      "title": "Task Breakdown Assistant",
+      "description": "Break down complex tasks into manageable steps",
+      "content": "Help me break down this complex task into smaller, actionable steps: {{task_description}}. Consider the timeline: {{timeline}} and available resources: {{resources}}. Provide a clear step-by-step plan with priorities.",
+      "variables": [
+        {
+          "name": "task_description",
+          "description": "The complex task you want to break down",
+          "example": "Launch a new product website",
+          "required": true
+        },
+        {
+          "name": "timeline",
+          "description": "How much time you have",
+          "example": "3 weeks",
+          "required": true
+        },
+        {
+          "name": "resources",
+          "description": "Available resources and team",
+          "example": "2 developers, 1 designer, $5000 budget",
+          "required": false
+        }
+      ],
+      "examples": [
+        {
+          "input": {
+            "task_description": "Organize a team retreat",
+            "timeline": "6 weeks",
+            "resources": "HR team, $10,000 budget"
+          },
+          "output": "Team Retreat Planning - 6 Week Timeline:\n\nWeek 1-2: Planning & Research\n1. Survey team for preferences and dates\n2. Research venues within budget\n3. Create preliminary agenda\n\nWeek 3-4: Booking & Coordination\n4. Book venue and accommodations\n5. Arrange transportation\n6. Confirm speakers/facilitators\n\n..."
+        }
+      ],
+      "tags": ["planning", "project-management", "productivity"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "email-summary",
+      "title": "Email Summarizer",
+      "description": "Summarize long emails or email threads into key points",
+      "content": "Please summarize this email/email thread into key points and action items:\n\n{{email_content}}\n\nFocus on: main decisions, action items, deadlines, and important information. Format as bullet points.",
+      "variables": [
+        {
+          "name": "email_content",
+          "description": "The email or email thread content to summarize",
+          "example": "Long email conversation about project updates",
+          "required": true
+        }
+      ],
+      "examples": [
+        {
+          "input": {
+            "email_content": "Hi team, following up on yesterday's meeting about the Q2 marketing campaign. Sarah mentioned we need to finalize the budget by Friday. Tom will handle the creative brief and needs input from design by Tuesday. The launch date is still set for March 15th but we might need to push to March 22nd if the legal review takes longer..."
+          },
+          "output": "**Key Points:**\n• Q2 marketing campaign planning in progress\n• Budget finalization required\n• Creative brief in development\n• Launch date under review\n\n**Action Items:**\n• Sarah: Finalize budget by Friday\n• Tom: Complete creative brief\n• Design team: Provide input by Tuesday\n• Legal: Complete review ASAP\n\n**Important Dates:**\n• March 15th: Target launch date\n• March 22nd: Backup launch date"
+        }
+      ],
+      "tags": ["email", "summary", "communication"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "meeting-agenda",
+      "title": "Meeting Agenda Generator",
+      "description": "Create structured meeting agendas with time allocations",
+      "content": "Create a detailed meeting agenda for: {{meeting_purpose}}\n\nDuration: {{duration}}\nAttendees: {{attendees}}\nKey topics to cover: {{topics}}\n\nStructure the agenda with time allocations, clear objectives, and action item sections.",
+      "variables": [
+        {
+          "name": "meeting_purpose",
+          "description": "The main purpose or goal of the meeting",
+          "example": "Weekly team standup",
+          "required": true
+        },
+        {
+          "name": "duration",
+          "description": "How long the meeting will be",
+          "example": "60 minutes",
+          "required": true
+        },
+        {
+          "name": "attendees",
+          "description": "Who will attend the meeting",
+          "example": "Development team, Product Manager, Designer",
+          "required": true
+        },
+        {
+          "name": "topics",
+          "description": "Key topics or issues to discuss",
+          "example": "Sprint progress, blockers, next week planning",
+          "required": true
+        }
+      ],
+      "tags": ["meetings", "planning", "agenda"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "decision-framework",
+      "title": "Decision Making Framework",
+      "description": "Structured approach to making difficult decisions",
+      "content": "Help me make a decision about: {{decision}}\n\nUsing this framework:\n1. Define the decision clearly\n2. List all viable options\n3. Identify key criteria for evaluation\n4. Weigh pros and cons for each option\n5. Consider risks and mitigation strategies\n6. Provide a recommendation with reasoning\n\nContext: {{context}}\nConstraints: {{constraints}}",
+      "variables": [
+        {
+          "name": "decision",
+          "description": "The decision you need to make",
+          "example": "Which marketing channel to invest in",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background information relevant to the decision",
+          "example": "B2B SaaS startup, limited budget, need leads",
+          "required": true
+        },
+        {
+          "name": "constraints",
+          "description": "Any limitations or requirements",
+          "example": "Budget under $10k, must show ROI within 3 months",
+          "required": false
+        }
+      ],
+      "tags": ["decision-making", "analysis", "strategy"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "learning-plan",
+      "title": "Learning Plan Creator",
+      "description": "Design a structured learning plan for acquiring new skills",
+      "content": "Create a comprehensive learning plan for: {{skill_or_topic}}\n\nCurrent level: {{current_level}}\nGoal: {{learning_goal}}\nAvailable time: {{time_commitment}}\nPreferred learning style: {{learning_style}}\n\nInclude: learning milestones, recommended resources, practice exercises, and progress tracking methods.",
+      "variables": [
+        {
+          "name": "skill_or_topic",
+          "description": "What you want to learn",
+          "example": "Python programming",
+          "required": true
+        },
+        {
+          "name": "current_level",
+          "description": "Your starting knowledge level",
+          "example": "Complete beginner",
+          "required": true
+        },
+        {
+          "name": "learning_goal",
+          "description": "What you want to achieve",
+          "example": "Build a web application",
+          "required": true
+        },
+        {
+          "name": "time_commitment",
+          "description": "How much time you can dedicate",
+          "example": "2 hours per day",
+          "required": true
+        },
+        {
+          "name": "learning_style",
+          "description": "How you prefer to learn",
+          "example": "Visual learner, hands-on practice",
+          "required": false
+        }
+      ],
+      "tags": ["learning", "education", "skill-development"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    }
+  ]
+}

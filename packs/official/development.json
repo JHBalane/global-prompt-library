@@ -1,0 +1,232 @@
+{
+  "id": "development-toolkit",
+  "name": "Development Toolkit",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck Team",
+    "github": "textdeck"
+  },
+  "description": "Essential prompts for software development, debugging, and code documentation",
+  "category": "development",
+  "language": "en",
+  "license": "TextDeck-Community-1.0",
+  "created": "2025-01-15",
+  "updated": "2025-01-15",
+  "tags": ["programming", "development", "debugging", "documentation"],
+  "prompts": [
+    {
+      "id": "code-review",
+      "title": "Code Review Assistant",
+      "description": "Comprehensive code review focusing on best practices and improvements",
+      "content": "Please review this {{language}} code and provide feedback:\n\n```{{language}}\n{{code}}\n```\n\nFocus on:\n- Code quality and readability\n- Performance optimizations\n- Security considerations\n- Best practices adherence\n- Potential bugs or edge cases\n- Maintainability improvements\n\nProvide specific suggestions with explanations and example improvements where applicable.",
+      "variables": [
+        {
+          "name": "language",
+          "description": "Programming language of the code",
+          "example": "JavaScript, Python, Swift, Java",
+          "required": true
+        },
+        {
+          "name": "code",
+          "description": "The code to be reviewed",
+          "example": "function calculateTotal(items) { ... }",
+          "required": true
+        }
+      ],
+      "examples": [
+        {
+          "input": {
+            "language": "JavaScript",
+            "code": "function getUserData(id) {\n  return fetch('/api/users/' + id).then(res => res.json())\n}"
+          },
+          "output": "**Code Review for JavaScript Function**\n\n**Strengths:**\n- Simple and focused function\n- Uses modern Promise syntax\n\n**Improvements Needed:**\n\n1. **Error Handling**: No error handling for failed requests\n2. **Input Validation**: Should validate the `id` parameter\n3. **Async/Await**: Consider using async/await for better readability\n\n**Suggested Improvements:**\n```javascript\nasync function getUserData(id) {\n  if (!id) {\n    throw new Error('User ID is required');\n  }\n  \n  try {\n    const response = await fetch(`/api/users/${id}`);\n    if (!response.ok) {\n      throw new Error(`HTTP error! status: ${response.status}`);\n    }\n    return await response.json();\n  } catch (error) {\n    console.error('Failed to fetch user data:', error);\n    throw error;\n  }\n}\n```"
+        }
+      ],
+      "tags": ["code-review", "best-practices", "quality"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "api-documentation",
+      "title": "API Documentation Generator",
+      "description": "Generate comprehensive API documentation",
+      "content": "Generate complete API documentation for this {{api_type}} endpoint:\n\n**Endpoint**: {{endpoint}}\n**Method**: {{method}}\n**Purpose**: {{purpose}}\n**Parameters**: {{parameters}}\n**Authentication**: {{auth_type}}\n\nInclude:\n1. Overview and purpose\n2. Request format with examples\n3. Response format with examples\n4. Error codes and handling\n5. Rate limiting information\n6. Code examples in {{language}}\n\nFormat using markdown with proper sections and code blocks.",
+      "variables": [
+        {
+          "name": "api_type",
+          "description": "Type of API (REST, GraphQL, etc.)",
+          "example": "REST API",
+          "required": true
+        },
+        {
+          "name": "endpoint",
+          "description": "The API endpoint URL",
+          "example": "/api/v1/users",
+          "required": true
+        },
+        {
+          "name": "method",
+          "description": "HTTP method",
+          "example": "GET, POST, PUT, DELETE",
+          "required": true
+        },
+        {
+          "name": "purpose",
+          "description": "What this endpoint does",
+          "example": "Creates a new user account",
+          "required": true
+        },
+        {
+          "name": "parameters",
+          "description": "Required and optional parameters",
+          "example": "email (required), name (required), age (optional)",
+          "required": true
+        },
+        {
+          "name": "auth_type",
+          "description": "Authentication method",
+          "example": "Bearer token, API key, OAuth",
+          "required": true
+        },
+        {
+          "name": "language",
+          "description": "Programming language for examples",
+          "example": "JavaScript, Python, cURL",
+          "required": false
+        }
+      ],
+      "tags": ["api", "documentation", "backend"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "debug-helper",
+      "title": "Debugging Assistant",
+      "description": "Help troubleshoot code issues and find bugs",
+      "content": "Help me debug this {{language}} code issue:\n\n**Problem Description**: {{problem}}\n\n**Code**: \n```{{language}}\n{{code}}\n```\n\n**Error Message**: {{error_message}}\n\n**Expected Behavior**: {{expected_behavior}}\n\n**Steps to Reproduce**: {{steps}}\n\nPlease:\n1. Analyze the potential causes\n2. Identify the likely bug location\n3. Provide step-by-step debugging approach\n4. Suggest specific fixes with code examples\n5. Recommend prevention strategies",
+      "variables": [
+        {
+          "name": "language",
+          "description": "Programming language",
+          "example": "Python, JavaScript, Java, Swift",
+          "required": true
+        },
+        {
+          "name": "problem",
+          "description": "Brief description of the issue",
+          "example": "Function returns undefined instead of expected value",
+          "required": true
+        },
+        {
+          "name": "code",
+          "description": "The problematic code",
+          "example": "function getData() { ... }",
+          "required": true
+        },
+        {
+          "name": "error_message",
+          "description": "Any error messages received",
+          "example": "TypeError: Cannot read property 'length' of undefined",
+          "required": false
+        },
+        {
+          "name": "expected_behavior",
+          "description": "What should happen",
+          "example": "Should return an array of user objects",
+          "required": true
+        },
+        {
+          "name": "steps",
+          "description": "How to reproduce the issue",
+          "example": "1. Call getData() 2. Check return value",
+          "required": false
+        }
+      ],
+      "tags": ["debugging", "troubleshooting", "problem-solving"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "test-generator",
+      "title": "Unit Test Generator",
+      "description": "Generate comprehensive unit tests for functions",
+      "content": "Generate unit tests for this {{language}} function:\n\n```{{language}}\n{{function_code}}\n```\n\n**Testing Framework**: {{test_framework}}\n**Function Purpose**: {{function_purpose}}\n\nCreate tests that cover:\n1. Normal/happy path scenarios\n2. Edge cases and boundary conditions\n3. Error conditions and exception handling\n4. Input validation\n5. Performance considerations (if applicable)\n\nProvide complete test code with setup, teardown, and assertions. Include comments explaining what each test validates.",
+      "variables": [
+        {
+          "name": "language",
+          "description": "Programming language",
+          "example": "JavaScript, Python, Java, Swift",
+          "required": true
+        },
+        {
+          "name": "function_code",
+          "description": "The function to test",
+          "example": "function add(a, b) { return a + b; }",
+          "required": true
+        },
+        {
+          "name": "test_framework",
+          "description": "Testing framework to use",
+          "example": "Jest, PyTest, JUnit, XCTest",
+          "required": true
+        },
+        {
+          "name": "function_purpose",
+          "description": "What the function is supposed to do",
+          "example": "Adds two numbers and returns the result",
+          "required": true
+        }
+      ],
+      "tags": ["testing", "unit-tests", "quality-assurance"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "architecture-review",
+      "title": "System Architecture Reviewer",
+      "description": "Review and provide feedback on system architecture designs",
+      "content": "Please review this system architecture design:\n\n**Project Type**: {{project_type}}\n**Scale**: {{scale}}\n**Architecture Description**: {{architecture}}\n**Technology Stack**: {{tech_stack}}\n**Key Requirements**: {{requirements}}\n**Constraints**: {{constraints}}\n\nEvaluate:\n1. Scalability and performance implications\n2. Security considerations\n3. Maintainability and complexity\n4. Technology choices and trade-offs\n5. Potential bottlenecks and risks\n6. Alternative approaches\n\nProvide specific recommendations for improvements with reasoning.",
+      "variables": [
+        {
+          "name": "project_type",
+          "description": "Type of system being built",
+          "example": "E-commerce platform, mobile app, microservices API",
+          "required": true
+        },
+        {
+          "name": "scale",
+          "description": "Expected scale and load",
+          "example": "10K users, 1M requests/day, 100GB data",
+          "required": true
+        },
+        {
+          "name": "architecture",
+          "description": "High-level architecture description",
+          "example": "React frontend, Node.js API, PostgreSQL database, Redis cache",
+          "required": true
+        },
+        {
+          "name": "tech_stack",
+          "description": "Technologies and frameworks used",
+          "example": "React, Node.js, PostgreSQL, Docker, AWS",
+          "required": true
+        },
+        {
+          "name": "requirements",
+          "description": "Key functional and non-functional requirements",
+          "example": "Real-time updates, 99.9% uptime, GDPR compliance",
+          "required": true
+        },
+        {
+          "name": "constraints",
+          "description": "Budget, time, or technical constraints",
+          "example": "6 month timeline, $50K budget, existing team skills",
+          "required": false
+        }
+      ],
+      "tags": ["architecture", "system-design", "scalability"],
+      "difficulty": "advanced",
+      "model_compatibility": ["all"]
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-04-07T16:29:18.632743Z",
+  "schema_version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/textdeck/global-prompt-library",
+    "commit": "11a26f3531bdbe51e7b630b809ccfb5d22a8c7de"
+  },
+  "stats": {
+    "total_packs": 3,
+    "total_prompts": 15,
+    "categories": {
+      "development": {
+        "count": 1,
+        "prompts": 5
+      },
+      "productivity": {
+        "count": 1,
+        "prompts": 5
+      },
+      "business": {
+        "count": 1,
+        "prompts": 5
+      }
+    },
+    "languages": {
+      "en": {
+        "count": 3,
+        "prompts": 15
+      }
+    }
+  },
+  "packs": [
+    {
+      "id": "development-toolkit",
+      "name": "Development Toolkit",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck Team",
+        "github": "textdeck"
+      },
+      "description": "Essential prompts for software development, debugging, and code documentation",
+      "category": "development",
+      "language": "en",
+      "tags": [
+        "programming",
+        "development",
+        "debugging",
+        "documentation"
+      ],
+      "type": "official",
+      "file_path": "packs/official/development.json",
+      "file_hash": "8165e47b6c3c1b9303b4af012aa34b54e1f086114670b59cd0caffd9a2488cd6",
+      "created": "2025-01-15",
+      "updated": "2025-01-15",
+      "stats": {
+        "prompt_count": 5,
+        "total_variables": 25,
+        "has_examples": 1,
+        "difficulty_breakdown": {
+          "intermediate": 4,
+          "advanced": 1
+        },
+        "tags": [
+          "api",
+          "architecture",
+          "backend",
+          "best-practices",
+          "code-review",
+          "debugging",
+          "development",
+          "documentation",
+          "problem-solving",
+          "programming",
+          "quality",
+          "quality-assurance",
+          "scalability",
+          "system-design",
+          "testing",
+          "troubleshooting",
+          "unit-tests"
+        ]
+      }
+    },
+    {
+      "id": "general-productivity",
+      "name": "General Productivity Prompts",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck Team",
+        "github": "textdeck"
+      },
+      "description": "Essential prompts for everyday productivity and task management",
+      "category": "productivity",
+      "language": "en",
+      "tags": [
+        "productivity",
+        "general",
+        "essential",
+        "beginner"
+      ],
+      "type": "official",
+      "file_path": "packs/official/general.json",
+      "file_hash": "38a326a6122bc45b3c829c30e399d4c132920f1147c9dc09216d3d913322799a",
+      "created": "2025-01-15",
+      "updated": "2025-01-15",
+      "stats": {
+        "prompt_count": 5,
+        "total_variables": 16,
+        "has_examples": 2,
+        "difficulty_breakdown": {
+          "beginner": 3,
+          "intermediate": 2
+        },
+        "tags": [
+          "agenda",
+          "analysis",
+          "beginner",
+          "communication",
+          "decision-making",
+          "education",
+          "email",
+          "essential",
+          "general",
+          "learning",
+          "meetings",
+          "planning",
+          "productivity",
+          "project-management",
+          "skill-development",
+          "strategy",
+          "summary"
+        ]
+      }
+    },
+    {
+      "id": "marketing-essentials",
+      "name": "Marketing Essentials Pack",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck Team",
+        "github": "textdeck"
+      },
+      "description": "Essential marketing prompts for campaigns, content, and strategy development",
+      "category": "business",
+      "language": "en",
+      "tags": [
+        "marketing",
+        "content",
+        "strategy",
+        "campaigns"
+      ],
+      "type": "official",
+      "file_path": "packs/official/marketing.json",
+      "file_hash": "9d4bc367051f08ae52a41054bf12b6e69f4f65aab16034ae459116f699bb85a7",
+      "created": "2025-01-15",
+      "updated": "2025-01-15",
+      "stats": {
+        "prompt_count": 5,
+        "total_variables": 26,
+        "has_examples": 1,
+        "difficulty_breakdown": {
+          "beginner": 1,
+          "intermediate": 2,
+          "advanced": 2
+        },
+        "tags": [
+          "announcement",
+          "campaigns",
+          "competitive-analysis",
+          "content",
+          "content-creation",
+          "customer-personas",
+          "email",
+          "engagement",
+          "market-research",
+          "marketing",
+          "messaging",
+          "positioning",
+          "product-launch",
+          "social-media",
+          "strategy",
+          "targeting",
+          "value-proposition"
+        ]
+      }
+    }
+  ]
+}

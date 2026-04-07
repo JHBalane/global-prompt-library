@@ -1,0 +1,242 @@
+{
+  "id": "marketing-essentials",
+  "name": "Marketing Essentials Pack",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck Team",
+    "github": "textdeck"
+  },
+  "description": "Essential marketing prompts for campaigns, content, and strategy development",
+  "category": "business",
+  "language": "en",
+  "license": "TextDeck-Community-1.0",
+  "created": "2025-01-15",
+  "updated": "2025-01-15",
+  "tags": ["marketing", "content", "strategy", "campaigns"],
+  "prompts": [
+    {
+      "id": "product-launch-email",
+      "title": "Product Launch Email",
+      "description": "Craft compelling product launch announcement emails",
+      "content": "Write a compelling product launch email for {{product_name}}.\n\nProduct details:\n- Target audience: {{target_audience}}\n- Key benefits: {{key_benefits}}\n- Price point: {{price_point}}\n- Launch date: {{launch_date}}\n\nInclude an attention-grabbing subject line, build excitement, highlight unique value proposition, and end with a clear call-to-action. Keep the tone {{tone}}.",
+      "variables": [
+        {
+          "name": "product_name",
+          "description": "The name of your product",
+          "example": "TextDeck Pro",
+          "required": true
+        },
+        {
+          "name": "target_audience",
+          "description": "Your primary customer segment",
+          "example": "content creators and marketers",
+          "required": true
+        },
+        {
+          "name": "key_benefits",
+          "description": "Main product benefits and features",
+          "example": "10x faster prompt creation, AI-powered optimization, team collaboration",
+          "required": true
+        },
+        {
+          "name": "price_point",
+          "description": "Pricing information",
+          "example": "$29/month, free trial available",
+          "required": true
+        },
+        {
+          "name": "launch_date",
+          "description": "When the product becomes available",
+          "example": "February 1st",
+          "required": true
+        },
+        {
+          "name": "tone",
+          "description": "Desired tone for the email",
+          "example": "professional but friendly",
+          "required": false
+        }
+      ],
+      "examples": [
+        {
+          "input": {
+            "product_name": "Smart Calendar",
+            "target_audience": "busy professionals",
+            "key_benefits": "AI scheduling, automatic meeting prep, time blocking",
+            "price_point": "$15/month",
+            "launch_date": "March 15th",
+            "tone": "professional"
+          },
+          "output": "Subject: 🚀 Smart Calendar is here - Never miss another important meeting\n\nDear Professional,\n\nWe're excited to announce the launch of Smart Calendar - the AI-powered scheduling assistant built specifically for busy professionals like you.\n\nStarting March 15th, you can:\n• Let AI handle your scheduling conflicts automatically\n• Get meeting briefs prepared before every call\n• Use intelligent time blocking for focused work\n\nEarly bird pricing: Just $15/month (regular price $25)\n\n[Start Your Free Trial] [Learn More]\n\nTo your productivity,\nThe Smart Calendar Team"
+        }
+      ],
+      "tags": ["email", "product-launch", "announcement"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "social-media-content",
+      "title": "Social Media Content Creator",
+      "description": "Generate engaging social media posts for different platforms",
+      "content": "Create social media content for {{platform}} about {{topic}}.\n\nBrand voice: {{brand_voice}}\nTarget audience: {{target_audience}}\nContent goal: {{content_goal}}\nCall-to-action: {{cta}}\n\nOptimize for {{platform}} best practices including character limits, hashtag strategy, and engagement tactics. Include relevant emojis and formatting.",
+      "variables": [
+        {
+          "name": "platform",
+          "description": "Which social media platform",
+          "example": "LinkedIn, Twitter, Instagram, Facebook",
+          "required": true
+        },
+        {
+          "name": "topic",
+          "description": "What the post is about",
+          "example": "productivity tips, product feature, industry news",
+          "required": true
+        },
+        {
+          "name": "brand_voice",
+          "description": "Your brand's personality and tone",
+          "example": "friendly expert, authoritative, casual and fun",
+          "required": true
+        },
+        {
+          "name": "target_audience",
+          "description": "Who you're trying to reach",
+          "example": "small business owners, tech professionals",
+          "required": true
+        },
+        {
+          "name": "content_goal",
+          "description": "What you want to achieve",
+          "example": "drive traffic, build awareness, generate leads",
+          "required": true
+        },
+        {
+          "name": "cta",
+          "description": "What action you want people to take",
+          "example": "visit website, download guide, share post",
+          "required": true
+        }
+      ],
+      "tags": ["social-media", "content-creation", "engagement"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "value-proposition",
+      "title": "Value Proposition Generator",
+      "description": "Create clear, compelling value propositions",
+      "content": "Help me create a compelling value proposition for {{product_or_service}}.\n\nTarget customer: {{target_customer}}\nMain problem solved: {{problem}}\nKey benefits: {{benefits}}\nDifferentiators: {{differentiators}}\nProof points: {{proof_points}}\n\nCreate multiple variations:\n1. Headline version (10 words or less)\n2. Elevator pitch (30 seconds)\n3. Detailed version (1-2 paragraphs)\n\nEach should clearly communicate who it's for, what problem it solves, and why it's better than alternatives.",
+      "variables": [
+        {
+          "name": "product_or_service",
+          "description": "What you're offering",
+          "example": "AI-powered project management tool",
+          "required": true
+        },
+        {
+          "name": "target_customer",
+          "description": "Your ideal customer",
+          "example": "remote teams of 5-50 people",
+          "required": true
+        },
+        {
+          "name": "problem",
+          "description": "The main problem you solve",
+          "example": "Teams waste time on manual project coordination",
+          "required": true
+        },
+        {
+          "name": "benefits",
+          "description": "Key benefits customers get",
+          "example": "Save 10 hours/week, reduce missed deadlines, improve communication",
+          "required": true
+        },
+        {
+          "name": "differentiators",
+          "description": "What makes you different/better",
+          "example": "AI automatically predicts delays and suggests optimizations",
+          "required": true
+        },
+        {
+          "name": "proof_points",
+          "description": "Evidence that supports your claims",
+          "example": "Used by 1000+ teams, 95% reduction in missed deadlines",
+          "required": false
+        }
+      ],
+      "tags": ["value-proposition", "messaging", "positioning"],
+      "difficulty": "advanced",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "competitor-analysis",
+      "title": "Competitive Analysis Framework",
+      "description": "Analyze competitors and identify market opportunities",
+      "content": "Conduct a competitive analysis for {{your_business}} in the {{industry}} space.\n\nMain competitors: {{competitors}}\nFocus areas: {{focus_areas}}\n\nAnalyze each competitor on:\n1. Target market and positioning\n2. Products/services offered\n3. Pricing strategy\n4. Marketing approach\n5. Strengths and weaknesses\n6. Market share and growth\n\nThen identify:\n- Market gaps and opportunities\n- Potential threats\n- Differentiation strategies\n- Recommended actions\n\nProvide a summary with key insights and strategic recommendations.",
+      "variables": [
+        {
+          "name": "your_business",
+          "description": "Your company or product",
+          "example": "AI writing assistant app",
+          "required": true
+        },
+        {
+          "name": "industry",
+          "description": "Your industry or market category",
+          "example": "productivity software, content creation tools",
+          "required": true
+        },
+        {
+          "name": "competitors",
+          "description": "Your main competitors",
+          "example": "Grammarly, Jasper, Copy.ai",
+          "required": true
+        },
+        {
+          "name": "focus_areas",
+          "description": "Specific aspects to analyze",
+          "example": "pricing, features, marketing messages",
+          "required": false
+        }
+      ],
+      "tags": ["competitive-analysis", "market-research", "strategy"],
+      "difficulty": "advanced",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "customer-persona",
+      "title": "Customer Persona Builder",
+      "description": "Create detailed customer personas for marketing targeting",
+      "content": "Help me create a detailed customer persona for {{product_or_service}}.\n\nBased on this information:\n- Business type: {{business_type}}\n- Target market data: {{market_data}}\n- Current customer insights: {{customer_insights}}\n\nCreate a comprehensive persona including:\n\n**Demographics**: Age, location, income, education\n**Psychographics**: Values, interests, lifestyle\n**Professional**: Job title, company size, responsibilities\n**Pain Points**: Main challenges and frustrations\n**Goals**: What they want to achieve\n**Behavior**: How they research and make decisions\n**Media Consumption**: Where they get information\n**Messaging**: How to communicate with them effectively\n\nGive the persona a name and write a day-in-the-life scenario.",
+      "variables": [
+        {
+          "name": "product_or_service",
+          "description": "What you're marketing",
+          "example": "B2B marketing automation software",
+          "required": true
+        },
+        {
+          "name": "business_type",
+          "description": "Your business model and industry",
+          "example": "B2B SaaS, marketing technology",
+          "required": true
+        },
+        {
+          "name": "market_data",
+          "description": "Any market research or data you have",
+          "example": "SMBs with 10-100 employees, struggling with lead nurturing",
+          "required": false
+        },
+        {
+          "name": "customer_insights",
+          "description": "What you know about current customers",
+          "example": "Mostly marketing managers, value time-saving features",
+          "required": false
+        }
+      ],
+      "tags": ["customer-personas", "targeting", "market-research"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    }
+  ]
+}

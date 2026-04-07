@@ -1,0 +1,315 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://globalpromptlibrary.org/schemas/pack-v1.1.json",
+  "title": "Global Prompt Library Pack",
+  "description": "JSON Schema for Global Prompt Library prompt packs with multi-region support",
+  "type": "object",
+  "required": ["id", "name", "version", "author", "description", "category", "language", "regions", "license", "created", "prompts"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "minLength": 3,
+      "maxLength": 50,
+      "description": "Unique identifier for the pack (kebab-case)"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 100,
+      "description": "Human-readable pack name"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version (e.g., 1.0.0)"
+    },
+    "author": {
+      "type": "object",
+      "required": ["name", "github"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 50
+        },
+        "github": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9-]+$",
+          "minLength": 1,
+          "maxLength": 39
+        },
+        "website": {
+          "type": "string",
+          "format": "uri"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500,
+      "description": "Brief description of what the pack contains"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["productivity", "creative", "business", "development"],
+      "description": "Primary category for the pack"
+    },
+    "language": {
+      "type": "string",
+      "enum": ["en", "de", "es", "fr", "it", "pt", "nl", "pl", "zh", "ja"],
+      "description": "Primary language of the prompts"
+    },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2}$",
+        "description": "ISO 3166-1 alpha-2 country code"
+      },
+      "minItems": 1,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "description": "List of countries/regions this pack is suitable for"
+    },
+    "base_pack_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "minLength": 3,
+      "maxLength": 50,
+      "description": "ID of the base pack this is derived from (for translations/adaptations)"
+    },
+    "regional_variants": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z]{2}$": {
+          "type": "object",
+          "properties": {
+            "overrides": {
+              "type": "object",
+              "description": "Country-specific overrides for prompts or metadata"
+            },
+            "cultural_notes": {
+              "type": "string",
+              "maxLength": 500,
+              "description": "Explanation of cultural adaptations made"
+            }
+          }
+        }
+      },
+      "description": "Country-specific variants and overrides"
+    },
+    "license": {
+      "type": "string",
+      "enum": ["TextDeck-Community-1.0"],
+      "description": "License under which the pack is distributed"
+    },
+    "created": {
+      "type": "string",
+      "format": "date",
+      "description": "Creation date (YYYY-MM-DD)"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date",
+      "description": "Last update date (YYYY-MM-DD)"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$",
+        "maxLength": 20
+      },
+      "minItems": 1,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "description": "Searchable tags for the pack"
+    },
+    "prompts": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 50,
+      "items": {
+        "$ref": "#/$defs/prompt"
+      }
+    },
+    "stats": {
+      "type": "object",
+      "properties": {
+        "downloads": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "stars": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "last_30_days": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "$defs": {
+    "prompt": {
+      "type": "object",
+      "required": ["id", "title", "description", "content"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "minLength": 3,
+          "maxLength": 50,
+          "description": "Unique identifier within the pack"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 100,
+          "description": "Human-readable prompt title (in English)"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 300,
+          "description": "What this prompt does (in English)"
+        },
+        "translations": {
+          "type": "object",
+          "description": "UI translations for different languages",
+          "patternProperties": {
+            "^[a-z]{2}(-[A-Z]{2})?$": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "Translated title for UI display"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Translated description for UI display"
+                },
+                "variables": {
+                  "type": "object",
+                  "description": "Variable translations",
+                  "patternProperties": {
+                    "^[a-z0-9_]+$": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "type": "string",
+                          "description": "User-facing label"
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "Help text"
+                        },
+                        "placeholder": {
+                          "type": "string",
+                          "description": "Example value"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "type": "object",
+                  "description": "Localized example values for variables"
+                },
+                "cultural_notes": {
+                  "type": "string",
+                  "description": "Region-specific usage hints"
+                }
+              }
+            }
+          }
+        },
+        "content": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000,
+          "description": "The actual prompt template with {{variables}}"
+        },
+        "variables": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "description"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$",
+                "minLength": 2,
+                "maxLength": 30
+              },
+              "description": {
+                "type": "string",
+                "minLength": 5,
+                "maxLength": 100
+              },
+              "example": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "required": {
+                "type": "boolean",
+                "default": true
+              }
+            }
+          }
+        },
+        "examples": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": ["input", "output"],
+            "properties": {
+              "input": {
+                "type": "object",
+                "description": "Variable values for this example"
+              },
+              "output": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 1000,
+                "description": "Expected output for the given input"
+              }
+            }
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "maxLength": 20
+          },
+          "maxItems": 10,
+          "uniqueItems": true
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["beginner", "intermediate", "advanced"],
+          "default": "beginner"
+        },
+        "model_compatibility": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["gpt", "claude", "gemini", "all"]
+          },
+          "default": ["all"]
+        }
+      }
+    }
+  }
+}
