@@ -21,7 +21,7 @@ class PackValidator:
         self.valid_categories = ["productivity", "creative", "business", "development"]
         self.valid_languages = ["en", "de", "es", "fr", "it", "pt", "nl", "pl", "zh", "ja"]
         self.valid_difficulties = ["beginner", "intermediate", "advanced"]
-        self.valid_models = ["gpt", "claude", "gemini", "all"]
+        self.valid_models = ["all"]
         
     def validate_pack_file(self, file_path: str) -> Tuple[bool, List[str], List[str]]:
         """Validate a pack file and return success status, errors, and warnings."""

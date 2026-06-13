@@ -305,7 +305,7 @@
           "type": "array",
           "items": {
             "type": "string",
-            "enum": ["gpt", "claude", "gemini", "all"]
+            "enum": ["all"]
           },
           "default": ["all"]
         }

@@ -189,7 +189,7 @@
         {
           "name": "competitors",
           "description": "Your main competitors",
-          "example": "Grammarly, Jasper, Copy.ai",
+          "example": "the market leader, a low-cost challenger, the legacy incumbent",
           "required": true
         },
         {
