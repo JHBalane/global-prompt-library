@@ -1,36 +1,91 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-04-07T16:29:18.632743Z",
+  "generated_at": "2026-06-14T08:14:13.657111Z",
   "schema_version": "1.0.0",
   "repository": {
     "url": "https://github.com/textdeck/global-prompt-library",
-    "commit": "11a26f3531bdbe51e7b630b809ccfb5d22a8c7de"
+    "commit": "31a3a626d728ffc802649fd0a58312807e2dc8af"
   },
   "stats": {
-    "total_packs": 3,
-    "total_prompts": 15,
+    "total_packs": 6,
+    "total_prompts": 39,
     "categories": {
+      "business": {
+        "count": 2,
+        "prompts": 13
+      },
       "development": {
         "count": 1,
         "prompts": 5
       },
       "productivity": {
-        "count": 1,
-        "prompts": 5
-      },
-      "business": {
-        "count": 1,
-        "prompts": 5
+        "count": 3,
+        "prompts": 21
       }
     },
     "languages": {
       "en": {
-        "count": 3,
-        "prompts": 15
+        "count": 6,
+        "prompts": 39
       }
     }
   },
   "packs": [
+    {
+      "id": "career-job-search",
+      "name": "Career & Job Search",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck Team",
+        "github": "textdeck"
+      },
+      "description": "Résumés, cover letters, interviews and professional outreach",
+      "category": "business",
+      "language": "en",
+      "tags": [
+        "career",
+        "job-search",
+        "resume",
+        "interview"
+      ],
+      "type": "official",
+      "file_path": "packs/official/career-job-search.json",
+      "file_hash": "6d1d03f3d2a6b9f7a7b1108ebb6f3c21c926c1f98003c54647c2a1b5f9247ba3",
+      "created": "2026-06-14",
+      "updated": "2026-06-14",
+      "stats": {
+        "prompt_count": 8,
+        "total_variables": 25,
+        "has_examples": 1,
+        "difficulty_breakdown": {
+          "beginner": 3,
+          "intermediate": 4,
+          "advanced": 1
+        },
+        "tags": [
+          "achievements",
+          "application",
+          "bio",
+          "career",
+          "communication",
+          "cover-letter",
+          "interview",
+          "job-search",
+          "negotiation",
+          "networking",
+          "outreach",
+          "personal-brand",
+          "preparation",
+          "resume",
+          "salary",
+          "star",
+          "storytelling",
+          "summary",
+          "tailoring",
+          "writing"
+        ]
+      }
+    },
     {
       "id": "development-toolkit",
       "name": "Development Toolkit",
@@ -134,6 +189,63 @@
       }
     },
     {
+      "id": "learning-study",
+      "name": "Learning & Study",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck Team",
+        "github": "textdeck"
+      },
+      "description": "Understand, memorise and practise any topic faster",
+      "category": "productivity",
+      "language": "en",
+      "tags": [
+        "learning",
+        "study",
+        "education",
+        "essential"
+      ],
+      "type": "official",
+      "file_path": "packs/official/learning-study.json",
+      "file_hash": "8c11a0c2b88cb5439016e50cbef070974977d00a37b0de85b49b7dc02e094e5e",
+      "created": "2026-06-14",
+      "updated": "2026-06-14",
+      "stats": {
+        "prompt_count": 8,
+        "total_variables": 22,
+        "has_examples": 1,
+        "difficulty_breakdown": {
+          "beginner": 4,
+          "intermediate": 4
+        },
+        "tags": [
+          "active-recall",
+          "analysis",
+          "beginner",
+          "cheat-sheet",
+          "comparison",
+          "decision",
+          "education",
+          "essential",
+          "explanation",
+          "feedback",
+          "flashcards",
+          "goals",
+          "learning",
+          "memorisation",
+          "planning",
+          "practice",
+          "problems",
+          "quiz",
+          "revision",
+          "solutions",
+          "study",
+          "summary",
+          "testing"
+        ]
+      }
+    },
+    {
       "id": "marketing-essentials",
       "name": "Marketing Essentials Pack",
       "version": "1.0.0",
@@ -152,7 +264,7 @@
       ],
       "type": "official",
       "file_path": "packs/official/marketing.json",
-      "file_hash": "9d4bc367051f08ae52a41054bf12b6e69f4f65aab16034ae459116f699bb85a7",
+      "file_hash": "d9cd37bc5cdb4bd69fb85e7155da88eac03152b24854d553c6ccbc67387c41d2",
       "created": "2025-01-15",
       "updated": "2025-01-15",
       "stats": {
@@ -182,6 +294,61 @@
           "strategy",
           "targeting",
           "value-proposition"
+        ]
+      }
+    },
+    {
+      "id": "writing-editing",
+      "name": "Writing & Editing",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck Team",
+        "github": "textdeck"
+      },
+      "description": "Rewrite, polish, shorten, expand and restructure any text",
+      "category": "productivity",
+      "language": "en",
+      "tags": [
+        "writing",
+        "editing",
+        "rewrite",
+        "essential"
+      ],
+      "type": "official",
+      "file_path": "packs/official/writing-editing.json",
+      "file_hash": "ac57a188aaf8d5b37c343afe2bbd0376590bfd43bbf51a93206957de11d18453",
+      "created": "2026-06-14",
+      "updated": "2026-06-14",
+      "stats": {
+        "prompt_count": 8,
+        "total_variables": 22,
+        "has_examples": 2,
+        "difficulty_breakdown": {
+          "beginner": 6,
+          "intermediate": 2
+        },
+        "tags": [
+          "accessibility",
+          "clarity",
+          "concise",
+          "content",
+          "data",
+          "drafting",
+          "editing",
+          "essential",
+          "extraction",
+          "formatting",
+          "grammar",
+          "headlines",
+          "ideation",
+          "long-form",
+          "productivity",
+          "proofreading",
+          "reading",
+          "rewrite",
+          "summary",
+          "tone",
+          "writing"
         ]
       }
     }

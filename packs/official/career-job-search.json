@@ -1,0 +1,136 @@
+{
+  "id": "career-job-search",
+  "name": "Career & Job Search",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck Team",
+    "github": "textdeck"
+  },
+  "description": "Résumés, cover letters, interviews and professional outreach",
+  "category": "business",
+  "language": "en",
+  "license": "TextDeck-Community-1.0",
+  "created": "2026-06-14",
+  "updated": "2026-06-14",
+  "tags": ["career", "job-search", "resume", "interview"],
+  "prompts": [
+    {
+      "id": "resume-bullets",
+      "title": "Résumé Achievement Bullets",
+      "description": "Turn a responsibility into achievement-focused bullet points",
+      "content": "Rewrite this responsibility into {{count}} résumé bullet points. Each must follow: strong action verb + what I did + measurable impact. If a metric is missing, leave a clearly marked [add metric] placeholder rather than inventing numbers.\n\nResponsibility: {{responsibility}}\nRole/context: {{context}}",
+      "variables": [
+        { "name": "count", "description": "How many bullets", "example": "3", "required": true },
+        { "name": "responsibility", "description": "What you did in the role", "example": "Managed the company's social media accounts", "required": true },
+        { "name": "context", "description": "Role and company context", "example": "Marketing coordinator at a 20-person startup", "required": false }
+      ],
+      "examples": [
+        {
+          "input": { "count": "2", "responsibility": "Handled customer support tickets", "context": "Support agent at a SaaS company" },
+          "output": "• Resolved [add number] customer support tickets per week with a [add %] satisfaction rating, cutting average response time from [X] to [Y].\n• Created 12 reusable help-desk macros that reduced repeat questions and onboarded 3 new agents in under a week." }
+      ],
+      "tags": ["resume", "achievements", "writing"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "cover-letter",
+      "title": "Cover Letter Draft",
+      "description": "Draft a tailored cover letter from your background",
+      "content": "Write a concise cover letter (under one page) for the role of {{role}} at {{company}}. Use my background below, connect it to what the role needs, and sound genuine rather than generic. End with a confident closing.\n\nMy background: {{background}}\nWhy this company interests me: {{motivation}}",
+      "variables": [
+        { "name": "role", "description": "The job title", "example": "Product Designer", "required": true },
+        { "name": "company", "description": "The company", "example": "a sustainability-focused startup", "required": true },
+        { "name": "background", "description": "Your relevant experience and skills", "example": "5 years in UX, led a redesign that lifted retention 18%", "required": true },
+        { "name": "motivation", "description": "Why you want this role/company", "example": "I want to work on products with environmental impact", "required": false }
+      ],
+      "tags": ["cover-letter", "application", "writing"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "tailor-to-job",
+      "title": "Tailor Résumé to a Job",
+      "description": "Align your experience to a specific job description",
+      "content": "Compare my experience to the job description below. Output:\n1. The 5 most relevant strengths I should emphasise\n2. Keywords from the posting I should mirror\n3. Honest gaps and how I might address or reframe them\n\nMy experience:\n{{resume_summary}}\n\nJob description:\n{{job_description}}",
+      "variables": [
+        { "name": "resume_summary", "description": "A summary of your experience", "example": "Paste your résumé summary or key points", "required": true },
+        { "name": "job_description", "description": "The job posting", "example": "Paste the full job description", "required": true }
+      ],
+      "tags": ["resume", "tailoring", "job-search"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "interview-prep",
+      "title": "Interview Prep",
+      "description": "Likely questions and strong answer frames for a role",
+      "content": "I'm interviewing for {{role}}. Generate {{count}} likely interview questions (mix of behavioural and role-specific). For each, give a short framework for a strong answer drawing on my background, not a scripted answer.\n\nMy background: {{background}}",
+      "variables": [
+        { "name": "role", "description": "The role you're interviewing for", "example": "Senior Project Manager", "required": true },
+        { "name": "count", "description": "How many questions", "example": "8", "required": true },
+        { "name": "background", "description": "Your relevant experience", "example": "7 years managing software projects, PMP certified", "required": true }
+      ],
+      "tags": ["interview", "preparation", "career"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "star-answer",
+      "title": "STAR Interview Answer",
+      "description": "Structure an experience into a Situation-Task-Action-Result answer",
+      "content": "Help me answer this interview question using the STAR method (Situation, Task, Action, Result): \"{{question}}\"\n\nBase it on this experience: {{experience}}\n\nKeep it under 90 seconds spoken, lead with the result, and keep it specific.",
+      "variables": [
+        { "name": "question", "description": "The interview question", "example": "Tell me about a time you handled conflict", "required": true },
+        { "name": "experience", "description": "The real experience to base it on", "example": "A disagreement with a designer over a deadline", "required": true }
+      ],
+      "tags": ["interview", "star", "storytelling"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "networking-message",
+      "title": "Networking Outreach",
+      "description": "Write a short, genuine outreach message",
+      "content": "Write a {{tone}} outreach message to {{recipient}} with this goal: {{goal}}. Keep it under {{length}}, make it specific to them (not copy-paste), and end with a low-pressure ask.\n\nWhat I know about them / our connection: {{context}}",
+      "variables": [
+        { "name": "tone", "description": "The tone", "example": "warm and respectful", "required": true },
+        { "name": "recipient", "description": "Who you're contacting", "example": "a hiring manager I met at a conference", "required": true },
+        { "name": "goal", "description": "What you want", "example": "a 15-minute chat about the open data role", "required": true },
+        { "name": "context", "description": "Your connection or what you know about them", "example": "We spoke briefly about their migration to the cloud", "required": true },
+        { "name": "length", "description": "Length limit", "example": "100 words", "required": false }
+      ],
+      "tags": ["networking", "outreach", "communication"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "salary-negotiation",
+      "title": "Salary Negotiation Message",
+      "description": "Draft a confident, evidence-based negotiation note",
+      "content": "Help me draft a professional message to negotiate this offer. Be confident and collaborative, not adversarial. Anchor on value and market data, keep the relationship warm, and propose a specific number or range.\n\nThe offer: {{offer}}\nMarket context / comparable pay: {{market_context}}\nMy leverage (other offers, unique skills): {{leverage}}",
+      "variables": [
+        { "name": "offer", "description": "The current offer", "example": "$95k base, no signing bonus", "required": true },
+        { "name": "market_context", "description": "What the market pays", "example": "comparable roles list $105–120k in this city", "required": true },
+        { "name": "leverage", "description": "Your negotiating leverage", "example": "a competing offer at $110k and a niche skill", "required": false }
+      ],
+      "tags": ["negotiation", "salary", "career"],
+      "difficulty": "advanced",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "professional-summary",
+      "title": "Professional Summary / Bio",
+      "description": "Write a polished headline and short professional bio",
+      "content": "Write a {{tone}} professional summary for a {{role}}, suitable for a résumé top section or a profile \"about\". Highlight these strengths: {{strengths}}. Provide one ~40-word version and one ~120-word version.",
+      "variables": [
+        { "name": "tone", "description": "The tone", "example": "confident but down-to-earth", "required": true },
+        { "name": "role", "description": "Your role/title", "example": "full-stack developer", "required": true },
+        { "name": "strengths", "description": "What to highlight", "example": "shipping fast, mentoring juniors, fintech domain knowledge", "required": true }
+      ],
+      "tags": ["bio", "summary", "personal-brand"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    }
+  ]
+}

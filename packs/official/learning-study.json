@@ -1,0 +1,133 @@
+{
+  "id": "learning-study",
+  "name": "Learning & Study",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck Team",
+    "github": "textdeck"
+  },
+  "description": "Understand, memorise and practise any topic faster",
+  "category": "productivity",
+  "language": "en",
+  "license": "TextDeck-Community-1.0",
+  "created": "2026-06-14",
+  "updated": "2026-06-14",
+  "tags": ["learning", "study", "education", "essential"],
+  "prompts": [
+    {
+      "id": "explain-simply",
+      "title": "Explain It Simply",
+      "description": "Get a clear, jargon-free explanation with an analogy",
+      "content": "Explain {{concept}} to {{audience}} in simple terms. Use one everyday analogy, avoid jargon, and finish with a one-sentence summary of why it matters.",
+      "variables": [
+        { "name": "concept", "description": "What you want explained", "example": "how interest rates affect inflation", "required": true },
+        { "name": "audience", "description": "Who you are", "example": "someone with no economics background", "required": true }
+      ],
+      "examples": [
+        {
+          "input": { "concept": "what an API is", "audience": "a non-technical manager" },
+          "output": "An API is like a restaurant waiter: you (an app) don't go into the kitchen (another system) yourself — you give the waiter a clear order, and they bring back exactly what you asked for. It lets two systems talk without needing to know how the other works inside. Why it matters: it's how the apps you use share data with each other." }
+      ],
+      "tags": ["explanation", "learning", "beginner"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "quiz-me",
+      "title": "Quiz Me",
+      "description": "Generate practice questions with an answer key",
+      "content": "Create {{count}} {{question_type}} questions about {{topic}} at a {{difficulty_level}} level. Number them, then provide an answer key at the end with a one-line explanation for each answer.",
+      "variables": [
+        { "name": "count", "description": "How many questions", "example": "10", "required": true },
+        { "name": "question_type", "description": "Type of question", "example": "multiple-choice", "required": true },
+        { "name": "topic", "description": "What to be quizzed on", "example": "the French Revolution", "required": true },
+        { "name": "difficulty_level", "description": "How hard", "example": "intermediate", "required": false }
+      ],
+      "tags": ["quiz", "testing", "practice"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "make-flashcards",
+      "title": "Make Flashcards",
+      "description": "Turn study material into question/answer cards",
+      "content": "Turn the material below into {{count}} flashcards. Format each as \"Q: ... / A: ...\". Keep questions short and answers precise; cover the most important facts first.\n\n{{material}}",
+      "variables": [
+        { "name": "count", "description": "How many cards", "example": "15", "required": true },
+        { "name": "material", "description": "The notes or text to study", "example": "Paste your lecture notes", "required": true }
+      ],
+      "tags": ["flashcards", "memorisation", "revision"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "study-plan",
+      "title": "Build a Study Plan",
+      "description": "Get a realistic, milestone-based study schedule",
+      "content": "Create a {{duration}} study plan to reach this goal: {{goal}}.\n\nMy starting level: {{current_level}}\nTime I can commit: {{time_commitment}}\n\nInclude weekly milestones, what to focus on each week, and a simple way to check my progress.",
+      "variables": [
+        { "name": "duration", "description": "Total time available", "example": "8 weeks", "required": true },
+        { "name": "goal", "description": "What you want to achieve", "example": "pass the AWS cloud practitioner exam", "required": true },
+        { "name": "current_level", "description": "Where you are now", "example": "complete beginner", "required": true },
+        { "name": "time_commitment", "description": "Time per week", "example": "5 hours per week", "required": true }
+      ],
+      "tags": ["planning", "study", "goals"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "revision-sheet",
+      "title": "One-Page Revision Sheet",
+      "description": "Condense material into a compact cheat sheet",
+      "content": "Condense the material below into a one-page revision sheet for {{topic}}. Use short headings, key definitions, formulas or rules, and the 5 things most likely to be tested. Keep it scannable.\n\n{{material}}",
+      "variables": [
+        { "name": "topic", "description": "The subject", "example": "cell biology — mitosis", "required": true },
+        { "name": "material", "description": "The source material", "example": "Paste your notes or chapter", "required": true }
+      ],
+      "tags": ["revision", "summary", "cheat-sheet"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "practice-problems",
+      "title": "Practice Problems",
+      "description": "Generate exercises with fully worked solutions",
+      "content": "Create {{count}} practice problems on {{topic}} at a {{difficulty_level}} level. After all the problems, give fully worked step-by-step solutions so I can check my reasoning, not just my answer.",
+      "variables": [
+        { "name": "count", "description": "How many problems", "example": "5", "required": true },
+        { "name": "topic", "description": "The subject area", "example": "solving quadratic equations", "required": true },
+        { "name": "difficulty_level", "description": "How hard", "example": "intermediate", "required": false }
+      ],
+      "tags": ["practice", "problems", "solutions"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "feynman-check",
+      "title": "Check My Understanding",
+      "description": "Explain a concept in your own words and get gaps flagged",
+      "content": "I'm going to explain {{concept}} in my own words. Act as a patient tutor: point out anything wrong or missing, fill the gaps simply, then ask me 2 probing questions to test whether I really understand it.\n\nMy explanation:\n{{my_explanation}}",
+      "variables": [
+        { "name": "concept", "description": "What you're trying to learn", "example": "how vaccines work", "required": true },
+        { "name": "my_explanation", "description": "Your own explanation so far", "example": "I think a vaccine puts a weak version of a germ in you so...", "required": true }
+      ],
+      "tags": ["active-recall", "feedback", "learning"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "compare-contrast",
+      "title": "Compare & Contrast",
+      "description": "Lay two things side by side on the criteria you care about",
+      "content": "Compare {{item_a}} and {{item_b}} on these criteria: {{criteria}}. Present it as a table, then add a 2-sentence takeaway on when to choose each.",
+      "variables": [
+        { "name": "item_a", "description": "First thing", "example": "REST", "required": true },
+        { "name": "item_b", "description": "Second thing", "example": "GraphQL", "required": true },
+        { "name": "criteria", "description": "What to compare on", "example": "learning curve, flexibility, caching, tooling", "required": true }
+      ],
+      "tags": ["comparison", "analysis", "decision"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "id": "writing-editing",
+  "name": "Writing & Editing",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck Team",
+    "github": "textdeck"
+  },
+  "description": "Rewrite, polish, shorten, expand and restructure any text",
+  "category": "productivity",
+  "language": "en",
+  "license": "TextDeck-Community-1.0",
+  "created": "2026-06-14",
+  "updated": "2026-06-14",
+  "tags": ["writing", "editing", "rewrite", "essential"],
+  "prompts": [
+    {
+      "id": "rewrite-for-tone",
+      "title": "Rewrite for Tone",
+      "description": "Rewrite text in a specific tone for a specific audience",
+      "content": "Rewrite the text below in a {{tone}} tone for {{audience}}. Keep the original meaning and all facts. Return only the rewritten text, no commentary.\n\n{{text}}",
+      "variables": [
+        { "name": "tone", "description": "The tone to use", "example": "warm and professional", "required": true },
+        { "name": "audience", "description": "Who will read it", "example": "a first-time customer", "required": true },
+        { "name": "text", "description": "The text to rewrite", "example": "Paste your draft here", "required": true }
+      ],
+      "examples": [
+        {
+          "input": { "tone": "friendly but concise", "audience": "a busy colleague", "text": "I am writing to inform you that the report you requested has now been completed and is attached." },
+          "output": "Hi — the report you asked for is done and attached. Let me know if you'd like any changes." }
+      ],
+      "tags": ["rewrite", "tone", "writing"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "proofread-polish",
+      "title": "Proofread & Polish",
+      "description": "Fix grammar, spelling and clarity, then list what changed",
+      "content": "Proofread and polish the text below. Fix grammar, spelling, punctuation and awkward phrasing while preserving my voice and meaning.\n\nReturn two sections:\n1. The corrected text\n2. A short bullet list of the notable changes you made\n\n{{text}}",
+      "variables": [
+        { "name": "text", "description": "The text to proofread", "example": "Paste the text that needs checking", "required": true }
+      ],
+      "tags": ["proofreading", "grammar", "editing"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "shorten-tighten",
+      "title": "Shorten & Tighten",
+      "description": "Cut text to a target length without losing the point",
+      "content": "Tighten the text below to about {{target_length}}. Remove filler and repetition, keep every key point and the original tone. Return only the shortened text.\n\n{{text}}",
+      "variables": [
+        { "name": "target_length", "description": "Desired length", "example": "120 words", "required": true },
+        { "name": "text", "description": "The text to shorten", "example": "Paste the long version here", "required": true }
+      ],
+      "tags": ["concise", "editing", "summary"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "expand-elaborate",
+      "title": "Expand from an Outline",
+      "description": "Turn bullet points or a rough outline into finished prose",
+      "content": "Expand the outline below into a complete {{format}} for {{audience}}. Stay faithful to the points, add natural transitions, and match a {{tone}} tone. Don't invent facts that aren't implied.\n\nOutline:\n{{outline}}",
+      "variables": [
+        { "name": "format", "description": "What to produce", "example": "3-paragraph blog intro", "required": true },
+        { "name": "audience", "description": "Who it is for", "example": "non-technical readers", "required": true },
+        { "name": "tone", "description": "The tone", "example": "clear and encouraging", "required": false },
+        { "name": "outline", "description": "Your bullet points or rough notes", "example": "- problem\n- our approach\n- why it matters", "required": true }
+      ],
+      "tags": ["drafting", "writing", "long-form"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "summarize-text",
+      "title": "Summarize into Key Points",
+      "description": "Condense any text into clear bullet points",
+      "content": "Summarize the text below into {{count}} clear bullet points for {{audience}}. Lead with the most important information.\n\n{{text}}",
+      "variables": [
+        { "name": "count", "description": "How many bullets", "example": "5", "required": true },
+        { "name": "audience", "description": "Who the summary is for", "example": "an executive", "required": true },
+        { "name": "text", "description": "The text to summarize", "example": "Paste an article or thread", "required": true }
+      ],
+      "tags": ["summary", "reading", "productivity"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "extract-structured-data",
+      "title": "Extract Structured Data",
+      "description": "Pull specific fields out of messy text into a clean format",
+      "content": "From the text below, extract the following fields: {{fields}}. Output as {{output_format}}. If a field is missing, write \"n/a\" — do not guess.\n\n{{text}}",
+      "variables": [
+        { "name": "fields", "description": "The fields to pull out", "example": "name, email, company, requested date", "required": true },
+        { "name": "output_format", "description": "How to structure the result", "example": "a Markdown table", "required": true },
+        { "name": "text", "description": "The source text", "example": "Paste the email or notes", "required": true }
+      ],
+      "examples": [
+        {
+          "input": { "fields": "name, company, budget", "output_format": "a Markdown table", "text": "Hi, this is Dana from Northwind. We'd love a quote — our budget is around 8k." },
+          "output": "| Field | Value |\n|---|---|\n| name | Dana |\n| company | Northwind |\n| budget | ~8,000 |" }
+      ],
+      "tags": ["extraction", "data", "formatting"],
+      "difficulty": "intermediate",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "title-ideas",
+      "title": "Title & Headline Ideas",
+      "description": "Generate a batch of title options in a chosen style",
+      "content": "Give me {{count}} {{style}} title options for {{topic}}. Keep each under {{max_length}}. Vary the angle (curiosity, benefit, how-to, contrarian) and add a one-line note on who each would appeal to.",
+      "variables": [
+        { "name": "count", "description": "How many titles", "example": "10", "required": true },
+        { "name": "style", "description": "The style of the titles", "example": "clear and non-clickbait", "required": true },
+        { "name": "topic", "description": "What the piece is about", "example": "a guide to saving for retirement", "required": true },
+        { "name": "max_length", "description": "Length limit", "example": "60 characters", "required": false }
+      ],
+      "tags": ["headlines", "ideation", "content"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    },
+    {
+      "id": "change-reading-level",
+      "title": "Change the Reading Level",
+      "description": "Rewrite text for a simpler or more advanced reader",
+      "content": "Rewrite the text below for a {{reading_level}} reader. Keep all the key information accurate, adjust vocabulary and sentence length, and avoid talking down to the reader. Return only the rewritten text.\n\n{{text}}",
+      "variables": [
+        { "name": "reading_level", "description": "Target reader", "example": "a curious 12-year-old", "required": true },
+        { "name": "text", "description": "The text to adapt", "example": "Paste the original text", "required": true }
+      ],
+      "tags": ["accessibility", "rewrite", "clarity"],
+      "difficulty": "beginner",
+      "model_compatibility": ["all"]
+    }
+  ]
+}
