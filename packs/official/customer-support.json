@@ -1,0 +1,378 @@
+{
+  "id": "customer-support",
+  "name": "Customer Support",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck",
+    "github": "JHBalane"
+  },
+  "description": "Ticket replies, apologies, refusals and outage notes that keep the customer instead of following a de-escalation script.",
+  "category": "business",
+  "language": "en",
+  "regions": [
+    "US",
+    "GB",
+    "DE",
+    "AT",
+    "CH"
+  ],
+  "license": "TextDeck-Community-1.0",
+  "created": "2026-08-12",
+  "updated": "2026-08-12",
+  "tags": [
+    "support",
+    "service",
+    "email",
+    "customers"
+  ],
+  "prompts": [
+    {
+      "id": "reply-to-a-ticket",
+      "title": "Reply to a Ticket",
+      "description": "A straight answer to a support message, no service-desk theatre",
+      "content": "Answer this support message.\n\nMessage: {{customer_message}}\nWhat is actually true: {{context}}\nWhat I can offer: {{resolution}}\n\nStructure:\n1. The answer in the first sentence — yes, no, or here's how\n2. The steps, numbered, if there are any\n3. What happens next and by when\n4. One line inviting a reply if it did not work\n\nRules:\n- No \"we apologise for any inconvenience\", no \"thank you for reaching out\", no \"I completely understand your frustration\"\n- Never promise a timeline you do not control\n- If you do not know, say what you will do to find out and by when\n- Match the customer's level of detail — do not explain the product to an expert",
+      "variables": [
+        {
+          "name": "customer_message",
+          "description": "What the customer wrote",
+          "example": "paste the ticket here",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "resolution",
+          "description": "What you can actually offer",
+          "example": "refund this month, fix ships Thursday",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "say-no-without-losing-the-customer",
+      "title": "Say No Without Losing the Customer",
+      "description": "Refuse a request clearly and offer the nearest real thing",
+      "content": "A customer asked for something we cannot do.\n\nTheir request: {{customer_message}}\nWhy we cannot: {{policy}}\nNearest thing we can do: {{resolution}}\n\nRules:\n- The no comes in the first two sentences. Burying it wastes their time and reads as evasion.\n- Give the real reason in one sentence. \"Policy\" alone is not a reason.\n- Offer the nearest workable alternative, or say plainly that there is none\n- No apology loop, no \"unfortunately at this time\"\n- Under 120 words",
+      "variables": [
+        {
+          "name": "customer_message",
+          "description": "What the customer wrote",
+          "example": "paste the ticket here",
+          "required": true
+        },
+        {
+          "name": "policy",
+          "description": "Rule you must stay inside",
+          "example": "refunds only within 30 days",
+          "required": true
+        },
+        {
+          "name": "resolution",
+          "description": "What you can actually offer",
+          "example": "refund this month, fix ships Thursday",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "apology-for-a-real-failure",
+      "title": "Apology for a Real Failure",
+      "description": "Own a mistake without corporate fog",
+      "content": "We got something wrong. Write the apology.\n\nWhat happened: {{issue}}\nHow bad it was for them: {{severity}}\nWhat we are doing: {{resolution}}\n\nStructure:\n1. What happened, factually, in one sentence\n2. What it cost them — acknowledge the actual impact, not the inconvenience\n3. What we are doing about it and when\n4. What we are changing so it does not recur\n5. Compensation, if any, stated without being asked twice\n\nRules:\n- Active voice. \"We deleted your data\", not \"data was lost\".\n- No \"if you were affected\", no \"some users may have experienced\"\n- Do not ask for understanding\n- No more than 150 words",
+      "variables": [
+        {
+          "name": "issue",
+          "description": "The problem in one line",
+          "example": "invoice PDF is empty for yearly plans",
+          "required": true
+        },
+        {
+          "name": "severity",
+          "description": "How bad it is for the customer",
+          "example": "blocking — they cannot invoice at all",
+          "required": true
+        },
+        {
+          "name": "resolution",
+          "description": "What you can actually offer",
+          "example": "refund this month, fix ships Thursday",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "bug-report-from-a-vague-ticket",
+      "title": "Bug Report From a Vague Ticket",
+      "description": "Turn a frustrated message into something engineering can act on",
+      "content": "Convert this customer message into a bug report.\n\nMessage: {{customer_message}}\n\nProduce:\n1. Title — one line, the observable failure\n2. Steps to reproduce, as far as they can be inferred\n3. Expected vs actual\n4. What information is MISSING to reproduce it\n5. The exact follow-up question to ask the customer — at most two questions\n6. Severity, with the reason\n\nRules:\n- Never invent steps the customer did not describe. Missing is missing.\n- Strip emotion, keep facts, keep their exact wording where it is diagnostic",
+      "variables": [
+        {
+          "name": "customer_message",
+          "description": "What the customer wrote",
+          "example": "paste the ticket here",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "angry-customer-real-answer",
+      "title": "Angry Customer, Real Answer",
+      "description": "Respond to hostility by resolving, not by soothing",
+      "content": "A customer is angry.\n\nTheir message: {{customer_message}}\nWhat is true: {{context}}\nWhat I can do: {{resolution}}\n\nRules:\n- Do not mirror the emotion, do not name their emotion back at them (\"I hear that you're frustrated\")\n- Answer the substantive complaint first, in the first sentence\n- Concede every point where they are right, explicitly\n- Correct any factual error calmly and once\n- If they were abusive, set one plain boundary without threatening\n- Short sentences. Under 130 words.",
+      "variables": [
+        {
+          "name": "customer_message",
+          "description": "What the customer wrote",
+          "example": "paste the ticket here",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "resolution",
+          "description": "What you can actually offer",
+          "example": "refund this month, fix ships Thursday",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "outage-or-incident-notice",
+      "title": "Outage or Incident Notice",
+      "description": "Tell everyone what broke while it is still broken",
+      "content": "Write a status update for an ongoing incident.\n\nWhat is broken: {{issue}}\nWho is affected: {{audience}}\nWhat we know so far: {{context}}\nNext update: {{deadline}}\n\nStructure:\n1. What is not working, in plain terms\n2. Who it affects and what they should do meanwhile\n3. What we know and what we do not\n4. When the next update comes — a time, always\n\nRules:\n- Publish before you have the cause. Uncertainty stated is better than silence.\n- No \"degraded performance\" when it means \"down\"\n- No blame, no vendor names, no speculation about cause\n- Under 120 words",
+      "variables": [
+        {
+          "name": "issue",
+          "description": "The problem in one line",
+          "example": "invoice PDF is empty for yearly plans",
+          "required": true
+        },
+        {
+          "name": "audience",
+          "description": "Who will read this",
+          "example": "non-technical hospital administrators",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "deadline",
+          "description": "Relevant date or timeframe",
+          "example": "Friday, end of business",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "refund-decision-reply",
+      "title": "Refund Decision Reply",
+      "description": "Grant or refuse a refund in a way that reads as fair",
+      "content": "Answer a refund request.\n\nRequest: {{customer_message}}\nPolicy: {{policy}}\nDecision: {{resolution}}\n\nRules:\n- Decision first, always\n- If granting: state the amount, the method and when it arrives. No conditions added afterwards.\n- If refusing: give the specific rule and the date/fact it turns on, plus anything we CAN do\n- Never make them ask twice\n- No lecture about the policy they should have read",
+      "variables": [
+        {
+          "name": "customer_message",
+          "description": "What the customer wrote",
+          "example": "paste the ticket here",
+          "required": true
+        },
+        {
+          "name": "policy",
+          "description": "Rule you must stay inside",
+          "example": "refunds only within 30 days",
+          "required": true
+        },
+        {
+          "name": "resolution",
+          "description": "What you can actually offer",
+          "example": "refund this month, fix ships Thursday",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "feature-request-reply",
+      "title": "Feature Request Reply",
+      "description": "Answer 'can you build X' truthfully",
+      "content": "A customer asked for a feature.\n\nRequest: {{customer_message}}\nReality: {{context}}\n\nPick exactly one honest answer:\n- Planned, with a rough timeframe we can defend\n- Not planned, with the reason\n- Possible today via a workaround — show the steps\n\nRules:\n- Never say \"great suggestion, I'll pass it to the team\" as a way of saying no\n- No roadmap promises without a date range you would repeat under pressure\n- Ask one question about the underlying problem — the requested feature is often not the fix\n- Under 100 words",
+      "variables": [
+        {
+          "name": "customer_message",
+          "description": "What the customer wrote",
+          "example": "paste the ticket here",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "help-article-from-a-repeated-ticket",
+      "title": "Help Article From a Repeated Ticket",
+      "description": "Write the doc that stops the same question recurring",
+      "content": "Write a help article for this recurring question.\n\nQuestion: {{issue}}\nThe answer: {{context}}\nAudience: {{audience}}\n\nStructure:\n1. Title phrased as the user would search it\n2. The answer in the first two sentences, before any explanation\n3. Steps, numbered, one action each\n4. \"If that didn't work\" — the two most likely failure branches\n5. Related setting or limit that surprises people\n\nRules:\n- No introduction paragraph about why the feature exists\n- Screenshots marked as [screenshot: what it shows]\n- Second person, present tense, no \"simply\" or \"just\"",
+      "variables": [
+        {
+          "name": "issue",
+          "description": "The problem in one line",
+          "example": "invoice PDF is empty for yearly plans",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "audience",
+          "description": "Who will read this",
+          "example": "non-technical hospital administrators",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "cancellation-reply",
+      "title": "Cancellation Reply",
+      "description": "Let someone leave cleanly and learn why",
+      "content": "A customer wants to cancel {{product}}.\n\nTheir message: {{customer_message}}\n\nRules:\n- Confirm the cancellation in the first sentence, with the effective date and what happens to their data\n- Exactly one question about why — optional to answer, no form\n- One offer at most, only if it plainly matches their stated reason. No retention gauntlet.\n- Say how to come back, in one line\n- Under 90 words",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "customer_message",
+          "description": "What the customer wrote",
+          "example": "paste the ticket here",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "macro-set-for-one-issue-type",
+      "title": "Macro Set for One Issue Type",
+      "description": "Reusable replies that still sound human",
+      "content": "Write a set of reusable replies for this recurring issue: {{issue}}\n\nKnown resolutions: {{resolution}}\n\nProduce four variants:\n1. Quick fix confirmed\n2. Needs more information — with the two questions that matter\n3. Known bug, fix in progress\n4. Works as intended, but the expectation was reasonable\n\nEach under 80 words, with [square-bracket] slots for the parts that must be personalised.\n\nRules:\n- No greeting/sign-off boilerplate in the macro — that is the agent's job\n- Every variant must be usable verbatim without sounding templated",
+      "variables": [
+        {
+          "name": "issue",
+          "description": "The problem in one line",
+          "example": "invoice PDF is empty for yearly plans",
+          "required": true
+        },
+        {
+          "name": "resolution",
+          "description": "What you can actually offer",
+          "example": "refund this month, fix ships Thursday",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "weekly-support-summary",
+      "title": "Weekly Support Summary",
+      "description": "Turn a week of tickets into something product can act on",
+      "content": "Summarise this week of support for the product team.\n\nTickets: {{input}}\n\nProduce:\n1. The three issues by total volume, each with the customer's own phrasing\n2. The one issue with the highest damage per occurrence, even if rare\n3. What we told customers that we should stop saying\n4. The single change that would remove the most tickets, with the estimated ticket count it saves\n\nRules:\n- Counts, not adjectives. \"17 tickets\", not \"a lot of complaints\".\n- Separate what customers asked for from what would actually fix their problem\n- Mark any estimate as an estimate",
+      "variables": [
+        {
+          "name": "input",
+          "description": "The material to work from",
+          "example": "paste notes, transcript or data here",
+          "required": true
+        }
+      ],
+      "tags": [
+        "support",
+        "service",
+        "email"
+      ],
+      "difficulty": "advanced"
+    }
+  ]
+}

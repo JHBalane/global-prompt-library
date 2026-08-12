@@ -1,0 +1,480 @@
+{
+  "id": "ecommerce-seller",
+  "name": "Online Selling",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck",
+    "github": "JHBalane"
+  },
+  "description": "Listings, product copy, reviews and returns for people who sell things online — Etsy, Amazon, Shopify or their own shop.",
+  "category": "business",
+  "language": "en",
+  "regions": [
+    "US",
+    "GB",
+    "DE",
+    "AT",
+    "CH"
+  ],
+  "license": "TextDeck-Community-1.0",
+  "created": "2026-08-12",
+  "updated": "2026-08-12",
+  "tags": [
+    "ecommerce",
+    "etsy",
+    "listings",
+    "retail"
+  ],
+  "prompts": [
+    {
+      "id": "product-listing-that-answers-objections",
+      "title": "Product Listing That Answers Objections",
+      "description": "A listing written around the reasons people don't buy",
+      "content": "Write a product listing for {{product}} on {{marketplace}}.\n\nFeatures: {{product_features}}\nBuyer's problem: {{customer_problem}}\nWho it is for: {{target_buyer}}\nPrice: {{price}}\n\nStructure:\n1. Title — what it is, who it is for, the one distinguishing spec\n2. First three lines: the problem it solves, in the buyer's words\n3. Specs as a scannable list, exact numbers and materials\n4. \"Not right for you if…\" — two honest disqualifiers\n5. Care, sizing or setup — whatever causes returns\n\nRules:\n- Every claim must map to a stated feature. No \"premium quality\", no \"perfect for any occasion\".\n- Numbers over adjectives: \"250 g\" not \"lightweight\"\n- Answer the three questions a buyer would otherwise have to message you about",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "marketplace",
+          "description": "Where it is sold",
+          "example": "Etsy",
+          "required": true
+        },
+        {
+          "name": "product_features",
+          "description": "Concrete features and specs",
+          "example": "merino wool, 250g, machine washable",
+          "required": true
+        },
+        {
+          "name": "customer_problem",
+          "description": "What the buyer is trying to solve",
+          "example": "shirts that smell after one wear",
+          "required": true
+        },
+        {
+          "name": "target_buyer",
+          "description": "Who it suits",
+          "example": "first-time buyers, couple without children",
+          "required": true
+        },
+        {
+          "name": "price",
+          "description": "Price and terms",
+          "example": "€49 per seat/month, billed yearly",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "title-and-keyword-set",
+      "title": "Title and Keyword Set",
+      "description": "Search terms buyers actually type, worked into a readable title",
+      "content": "Build the search terms for {{product}} on {{marketplace}}.\n\nWhat it is: {{product_features}}\nBuyer: {{target_buyer}}\nTerms I already know: {{keywords}}\n\nProduce:\n1. 15 search phrases a buyer would type, grouped: problem-led, product-led, occasion-led\n2. Which of those are too broad to compete on, marked\n3. Three title variants that read as sentences, not keyword lists\n4. The terms that belong in tags but not in the title\n\nRules:\n- Buyer language, not industry language (\"shirt that doesn't smell\", not \"antimicrobial textile\")\n- No keyword stuffing — a title a human cannot read loses the click even when it ranks\n- Mark any term you are guessing at, so it gets checked against real search data",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "marketplace",
+          "description": "Where it is sold",
+          "example": "Etsy",
+          "required": true
+        },
+        {
+          "name": "product_features",
+          "description": "Concrete features and specs",
+          "example": "merino wool, 250g, machine washable",
+          "required": true
+        },
+        {
+          "name": "target_buyer",
+          "description": "Who it suits",
+          "example": "first-time buyers, couple without children",
+          "required": true
+        },
+        {
+          "name": "keywords",
+          "description": "Search terms to work in",
+          "example": "merino t-shirt, odor resistant, travel shirt",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "photo-shot-list",
+      "title": "Photo Shot List",
+      "description": "The images that remove doubt, in order",
+      "content": "Plan the photo set for {{product}} on {{marketplace}}.\n\nFeatures: {{product_features}}\nBuyer's doubt: {{customer_problem}}\n\nProduce the shot list in order of importance, each with:\n- What is in frame\n- Which specific doubt it removes\n- Props, scale reference or background needed\n\nRules:\n- First image must be understandable as a 200-px thumbnail\n- At least one shot showing true scale next to a known object\n- At least one showing the flaw-prone detail honestly (seam, joint, texture)\n- Name the shot most sellers skip and lose sales over",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "marketplace",
+          "description": "Where it is sold",
+          "example": "Etsy",
+          "required": true
+        },
+        {
+          "name": "product_features",
+          "description": "Concrete features and specs",
+          "example": "merino wool, 250g, machine washable",
+          "required": true
+        },
+        {
+          "name": "customer_problem",
+          "description": "What the buyer is trying to solve",
+          "example": "shirts that smell after one wear",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "answer-a-product-question",
+      "title": "Answer a Product Question",
+      "description": "Public Q&A reply that sells to everyone reading it",
+      "content": "Answer this public question about {{product}}.\n\nQuestion: {{customer_message}}\nTruth: {{product_features}}\n\nRules:\n- Direct answer first, then the detail\n- If the answer is no, say no and add what the product does instead\n- Write it for the 100 people who will read it later, not only the asker\n- Never overstate to close one sale — that comes back as a return and a review\n- Under 80 words",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "customer_message",
+          "description": "What the customer wrote",
+          "example": "paste the ticket here",
+          "required": true
+        },
+        {
+          "name": "product_features",
+          "description": "Concrete features and specs",
+          "example": "merino wool, 250g, machine washable",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "reply-to-a-bad-review",
+      "title": "Reply to a Bad Review",
+      "description": "A public answer that reassures future buyers",
+      "content": "Reply publicly to this review of {{product}}.\n\nReview: {{review_text}}\nWhat actually happened: {{context}}\nWhat I can offer: {{resolution}}\n\nRules:\n- The audience is future buyers, not the reviewer. Write so a stranger reads it and trusts you more.\n- Concede everything that is true, immediately and without qualification\n- Correct factual errors once, calmly, without \"as stated in the listing\"\n- Offer the fix concretely, then move the rest to private contact\n- Never argue, never mention their tone, never ask for the review to be changed\n- Under 90 words",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "review_text",
+          "description": "The customer review",
+          "example": "paste the review here",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "resolution",
+          "description": "What you can actually offer",
+          "example": "refund this month, fix ships Thursday",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "reduce-returns-from-a-reason",
+      "title": "Reduce Returns From a Reason",
+      "description": "Turn a return reason into listing and product changes",
+      "content": "Returns are coming back with this reason: {{return_reason}}\n\nProduct: {{product_features}}\nCurrent listing says: {{text}}\n\nProduce:\n1. Which expectation the listing sets that the product does not meet\n2. Three listing changes that fix it — exact replacement wording\n3. One photo or measurement that removes the doubt before purchase\n4. The product change worth making if returns continue\n5. What this will cost in conversion — be honest, clearer listings sell to fewer but keep more\n\nRules:\n- Do not solve a listing problem with a policy change\n- Every change must be verifiable against the actual product",
+      "variables": [
+        {
+          "name": "return_reason",
+          "description": "Why the item came back",
+          "example": "sizing ran small",
+          "required": true
+        },
+        {
+          "name": "product_features",
+          "description": "Concrete features and specs",
+          "example": "merino wool, 250g, machine washable",
+          "required": true
+        },
+        {
+          "name": "text",
+          "description": "The text to work on",
+          "example": "paste your draft here",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "bundle-and-pricing-options",
+      "title": "Bundle and Pricing Options",
+      "description": "Structure offers so the middle one is the obvious choice",
+      "content": "Design offer options for {{product}} at {{price}}.\n\nWhat buyers pair it with: {{context}}\nBuyer: {{target_buyer}}\n\nProduce:\n1. Three options with what is in each and what each costs\n2. Which one you want most people to pick, and what makes it the obvious pick\n3. The wording that presents them without manipulation\n4. What NOT to bundle, and why\n\nRules:\n- Each option must be genuinely useful alone. A deliberately bad option to steer choice is a trick, and buyers feel it.\n- No fake anchoring, no crossed-out prices that never applied",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "price",
+          "description": "Price and terms",
+          "example": "€49 per seat/month, billed yearly",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "target_buyer",
+          "description": "Who it suits",
+          "example": "first-time buyers, couple without children",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "restock-or-discontinue-message",
+      "title": "Restock or Discontinue Message",
+      "description": "Tell waiting customers the truth about availability",
+      "content": "Write the availability message for {{product}}.\n\nSituation: {{context}}\nExpected date: {{deadline}}\n\nRules:\n- State the actual status in the first sentence: back on a date, delayed, or gone for good\n- Give a date only if you can hold it. \"Unknown\" is better than a date that slips.\n- If discontinued: say why in one line and name the nearest alternative, even a competitor's\n- One way to be notified, no account required\n- Under 70 words",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "deadline",
+          "description": "Relevant date or timeframe",
+          "example": "Friday, end of business",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "shop-announcement-or-about-text",
+      "title": "Shop Announcement or About Text",
+      "description": "The seller story, without the artisan clichés",
+      "content": "Write the about text for a shop selling {{product}} on {{marketplace}}.\n\nWho I am: {{context}}\nWhat is actually different about how I make/source it: {{value_proposition}}\n\nRules:\n- No \"passion\", no \"journey\", no \"we believe that…\", no origin story about a grandmother unless it is true and load-bearing\n- Lead with what a buyer gets from you buying here rather than elsewhere\n- One concrete detail about production or sourcing that a mass seller could not claim\n- First person, plain\n- Under 130 words",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "marketplace",
+          "description": "Where it is sold",
+          "example": "Etsy",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "value_proposition",
+          "description": "The change you create for them",
+          "example": "cuts shift planning from a day to an hour",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "turn-reviews-into-copy",
+      "title": "Turn Reviews Into Copy",
+      "description": "Mine what buyers actually say and put it in the listing",
+      "content": "Read these reviews of {{product}} and rewrite my copy from them.\n\nReviews: {{input}}\nCurrent copy: {{text}}\n\nProduce:\n1. The words buyers repeatedly use — their vocabulary, not mine\n2. The benefit they name that my copy does not mention\n3. The doubt that appears before purchase, taken from reviews that mention hesitation\n4. A rewritten opening paragraph built from their language\n5. What buyers value that I should stop calling a minor detail\n\nRules:\n- Quote them. Do not paraphrase into marketing voice.\n- Distinguish what one person said from what many said",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "input",
+          "description": "The material to work from",
+          "example": "paste notes, transcript or data here",
+          "required": true
+        },
+        {
+          "name": "text",
+          "description": "The text to work on",
+          "example": "paste your draft here",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "shipping-and-policy-text",
+      "title": "Shipping and Policy Text",
+      "description": "Policies that prevent disputes instead of winning them",
+      "content": "Write the shipping and returns text for {{marketplace}}.\n\nReality: {{context}}\nConstraints: {{constraints}}\n\nStructure:\n1. Dispatch time and delivery estimate, separately — buyers confuse them\n2. What happens if it is late or lost, stated before they have to ask\n3. Returns: window, condition, who pays postage\n4. The one exception that causes most disputes, spelled out\n\nRules:\n- Plain sentences, no legal register\n- Never promise a carrier's delivery time as your own\n- Any rule that would feel unfair when quoted back to you gets rewritten",
+      "variables": [
+        {
+          "name": "marketplace",
+          "description": "Where it is sold",
+          "example": "Etsy",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "constraints",
+          "description": "Hard limits to respect",
+          "example": "under 150 words, no bullet points",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "launch-post-for-a-new-product",
+      "title": "Launch Post for a New Product",
+      "description": "Announce a product to people who already follow you",
+      "content": "Announce {{product}} to existing customers on {{channel}}.\n\nWhat is new: {{product_features}}\nWho it is for: {{target_buyer}}\nPrice: {{price}}\n\nRules:\n- First line says what it is and who it is for — no teaser, no \"something exciting is coming\"\n- One reason it exists: the problem that made you make it\n- Price stated. Hiding it costs more clicks than it saves.\n- One link, one action\n- No countdown urgency unless the deadline is real\n- Under 90 words",
+      "variables": [
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "channel",
+          "description": "Where this will be published or sent",
+          "example": "LinkedIn post",
+          "required": true
+        },
+        {
+          "name": "product_features",
+          "description": "Concrete features and specs",
+          "example": "merino wool, 250g, machine washable",
+          "required": true
+        },
+        {
+          "name": "target_buyer",
+          "description": "Who it suits",
+          "example": "first-time buyers, couple without children",
+          "required": true
+        },
+        {
+          "name": "price",
+          "description": "Price and terms",
+          "example": "€49 per seat/month, billed yearly",
+          "required": true
+        }
+      ],
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings"
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

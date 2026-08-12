@@ -1,0 +1,456 @@
+{
+  "id": "freelance-client-work",
+  "name": "Freelance & Client Work",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck",
+    "github": "JHBalane"
+  },
+  "description": "Scoping, quoting, chasing invoices and saying no to scope creep — the paperwork that decides whether the work was worth it.",
+  "category": "business",
+  "language": "en",
+  "regions": [
+    "US",
+    "GB",
+    "DE",
+    "AT",
+    "CH"
+  ],
+  "license": "TextDeck-Community-1.0",
+  "created": "2026-08-12",
+  "updated": "2026-08-12",
+  "tags": [
+    "freelance",
+    "clients",
+    "proposals",
+    "invoicing"
+  ],
+  "prompts": [
+    {
+      "id": "scoping-questions-before-quoting",
+      "title": "Scoping Questions Before Quoting",
+      "description": "The questions that stop you from quoting a project you don't understand",
+      "content": "A prospective client wants: {{scope}}\nWhat they told me: {{context}}\n\nGive the questions I must answer before quoting, grouped as:\n- Outcome (what changes for them when this is done, how they will judge it)\n- Constraints (deadline, budget, systems, approvals)\n- Ownership (who decides, who reviews, who else must agree)\n- Aftermath (who runs this once I leave)\n\nFor each question, add what a worrying answer sounds like.\n\nRules:\n- No more than 12 questions total\n- Include the one question that most often reveals the project is not funded",
+      "variables": [
+        {
+          "name": "scope",
+          "description": "What is included in the work",
+          "example": "audit, report, one implementation call",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "fixed-price-quote",
+      "title": "Fixed-Price Quote",
+      "description": "A quote with the boundaries written down before the work starts",
+      "content": "Write a quote for {{client_name}}.\n\nWork: {{scope}}\nNot included: {{out_of_scope}}\nDeliverable: {{deliverable}}\nPrice: {{rate}}\nTimeline: {{timeline}}\n\nStructure:\n1. What you get — the deliverable, concretely\n2. How we get there — phases with a date each\n3. What is not included, listed plainly\n4. What I need from you, with dates — and what happens to the timeline if it is late\n5. Price, payment schedule, validity date\n\nRules:\n- Every phase ends in something the client can see\n- Name the change process for extra work, with a rate, before it is needed\n- Colleague tone, no agency slogans\n- Under 450 words",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "scope",
+          "description": "What is included in the work",
+          "example": "audit, report, one implementation call",
+          "required": true
+        },
+        {
+          "name": "out_of_scope",
+          "description": "What is explicitly not included",
+          "example": "ongoing maintenance, hosting costs",
+          "required": true
+        },
+        {
+          "name": "deliverable",
+          "description": "What the client receives",
+          "example": "a 12-page written audit plus a Loom walkthrough",
+          "required": true
+        },
+        {
+          "name": "rate",
+          "description": "Your price or rate",
+          "example": "€1,200 fixed",
+          "required": true
+        },
+        {
+          "name": "timeline",
+          "description": "Time available",
+          "example": "six weeks, hard stop",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "scope-creep-reply",
+      "title": "Scope Creep Reply",
+      "description": "Say yes to the work and no to doing it for free",
+      "content": "The client wants something extra: {{change_request}}\n\nAgreed scope: {{scope}}\nMy rate: {{rate}}\n\nRules:\n- Start with a plain yes — this is doable\n- Then state what it costs in time and money, and what it does to the current deadline\n- Offer the trade: add it, swap it for something already in scope, or do it after delivery\n- No guilt, no reference to how much extra you already did unpaid\n- Never say \"that wasn't in scope\" as the opening line\n- Under 120 words",
+      "variables": [
+        {
+          "name": "change_request",
+          "description": "What the client now wants added",
+          "example": "two more languages and a second dashboard",
+          "required": true
+        },
+        {
+          "name": "scope",
+          "description": "What is included in the work",
+          "example": "audit, report, one implementation call",
+          "required": true
+        },
+        {
+          "name": "rate",
+          "description": "Your price or rate",
+          "example": "€1,200 fixed",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "chase-an-overdue-invoice",
+      "title": "Chase an Overdue Invoice",
+      "description": "Escalating reminders that stay professional and get paid",
+      "content": "Write invoice reminders for {{client_name}}.\n\nInvoice: {{price}}, due {{deadline}}\nRelationship: {{context}}\n\nProduce three escalating messages:\n1. Day 3 overdue — friendly, assumes an oversight, restates payment details\n2. Day 14 — plain, names the amount and the due date, asks for a payment date\n3. Day 30 — states consequences you will actually carry out (work paused, late fee, handover withheld)\n\nRules:\n- Never apologise for asking to be paid\n- Every message repeats the amount, invoice number slot, and payment details\n- No threats you will not execute\n- Each under 90 words",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "price",
+          "description": "Price and terms",
+          "example": "€49 per seat/month, billed yearly",
+          "required": true
+        },
+        {
+          "name": "deadline",
+          "description": "Relevant date or timeframe",
+          "example": "Friday, end of business",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "project-status-update",
+      "title": "Project Status Update",
+      "description": "A weekly update that prevents surprises",
+      "content": "Write this week's update for {{client_name}}.\n\nProgress: {{context}}\nBlockers: {{issue}}\nNext: {{goal}}\n\nStructure:\n1. Status in one word — on track / at risk / late — and one sentence why\n2. Done this week, as things they can look at\n3. Blocked, with what I need from whom by when\n4. Next week\n5. Anything that changes the date or the price — stated here, never later\n\nRules:\n- Bad news goes at the top, never buried in point 3\n- No effort narratives (\"worked hard on\"), only outcomes\n- Under 200 words",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "issue",
+          "description": "The problem in one line",
+          "example": "invoice PDF is empty for yearly plans",
+          "required": true
+        },
+        {
+          "name": "goal",
+          "description": "What this should achieve",
+          "example": "get a 15-minute call booked",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "say-no-to-a-project",
+      "title": "Say No to a Project",
+      "description": "Decline work without burning the relationship",
+      "content": "Decline this project from {{client_name}}: {{scope}}\nReal reason: {{context}}\n\nRules:\n- No in the first sentence, no build-up\n- One honest sentence of reason — capacity, fit, or budget. Do not invent a nicer reason.\n- Refer someone specific if you can, or say what kind of person they need\n- Leave a real door open only if you mean it\n- Under 80 words",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "scope",
+          "description": "What is included in the work",
+          "example": "audit, report, one implementation call",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "raise-your-rates",
+      "title": "Raise Your Rates",
+      "description": "Tell an existing client the price is going up",
+      "content": "Tell {{client_name}} that my rate goes from {{price}} to {{rate}}.\n\nRelationship: {{context}}\nEffective: {{deadline}}\n\nStructure:\n1. The new number and the date it starts — first two sentences\n2. One sentence of reason, not an apology and not a cost-of-living essay\n3. What stays the same for them\n4. A transition option: the old rate honoured for current work, or a lower-scope package\n\nRules:\n- Do not ask permission and do not negotiate against yourself\n- No lengthy justification — length reads as doubt\n- Under 120 words",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "price",
+          "description": "Price and terms",
+          "example": "€49 per seat/month, billed yearly",
+          "required": true
+        },
+        {
+          "name": "rate",
+          "description": "Your price or rate",
+          "example": "€1,200 fixed",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "deadline",
+          "description": "Relevant date or timeframe",
+          "example": "Friday, end of business",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "kickoff-agenda-and-ground-rules",
+      "title": "Kickoff Agenda and Ground Rules",
+      "description": "Set the working rules while everyone is still friendly",
+      "content": "Prepare the kickoff for {{client_name}} on {{scope}}.\n\nTimeline: {{timeline}}\n\nProduce:\n1. Agenda with times, 45 minutes total\n2. The decisions that must be made in this meeting, listed\n3. Working rules to agree out loud: response times, review turnaround, who signs off, where files live, how change requests happen\n4. The three assumptions I am making that they must confirm or correct\n\nRules:\n- Every ground rule states the consequence if it slips\n- No round of introductions longer than five minutes",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "scope",
+          "description": "What is included in the work",
+          "example": "audit, report, one implementation call",
+          "required": true
+        },
+        {
+          "name": "timeline",
+          "description": "Time available",
+          "example": "six weeks, hard stop",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "handover-document",
+      "title": "Handover Document",
+      "description": "Leave the work usable by someone who has never met you",
+      "content": "Write the handover for {{deliverable}} delivered to {{client_name}}.\n\nWhat was built: {{context}}\n\nStructure:\n1. What this is and what it does, for a non-technical reader\n2. How to run/change/publish it — the three most common tasks, step by step\n3. Access and accounts: what exists, who owns it, what it costs\n4. Known limitations and what to do about each\n5. What breaks first if nobody maintains it, and the cheapest prevention\n\nRules:\n- Assume the reader has never spoken to me\n- No links to my own tools they cannot access\n- Name every recurring cost with its renewal date slot",
+      "variables": [
+        {
+          "name": "deliverable",
+          "description": "What the client receives",
+          "example": "a 12-page written audit plus a Loom walkthrough",
+          "required": true
+        },
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "testimonial-request",
+      "title": "Testimonial Request",
+      "description": "Ask for a reference that is actually usable",
+      "content": "Ask {{client_name}} for a testimonial about {{deliverable}}.\n\nResult they got: {{proof_point}}\n\nRules:\n- Ask three specific questions instead of \"would you write a testimonial\" — the answers become the quote\n- Offer to draft it from their answers and let them edit\n- Say exactly where it will appear\n- Make no a comfortable answer\n- Under 100 words",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "deliverable",
+          "description": "What the client receives",
+          "example": "a 12-page written audit plus a Loom walkthrough",
+          "required": true
+        },
+        {
+          "name": "proof_point",
+          "description": "Evidence that you deliver",
+          "example": "Ernst Logistik cut planning time 70% in 4 weeks",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "estimate-a-project-honestly",
+      "title": "Estimate a Project Honestly",
+      "description": "Break work into estimable parts and expose the uncertainty",
+      "content": "Estimate this project: {{scope}}\n\nWhat I know: {{context}}\nConstraints: {{constraints}}\n\nProduce:\n1. Work breakdown — tasks of at most one day each\n2. Per task: optimistic / likely / pessimistic in hours\n3. The three biggest uncertainties, each with what would resolve it and what it could cost if it goes wrong\n4. A recommended quote with the buffer stated separately, not hidden in the tasks\n5. What to cut first if the budget is half this\n\nRules:\n- No task larger than a day — if it cannot be split, it is not understood\n- Name every assumption. Unstated assumptions become unpaid work.",
+      "variables": [
+        {
+          "name": "scope",
+          "description": "What is included in the work",
+          "example": "audit, report, one implementation call",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "constraints",
+          "description": "Hard limits to respect",
+          "example": "under 150 words, no bullet points",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fire-a-client",
+      "title": "Fire a Client",
+      "description": "End a working relationship cleanly and in writing",
+      "content": "End the engagement with {{client_name}}.\n\nReason: {{context}}\nCurrent state of work: {{deliverable}}\nNotice period: {{deadline}}\n\nStructure:\n1. The decision and the last working day, first sentence\n2. What will be finished before then, and what will not\n3. Handover: files, access, documentation, and the date each arrives\n4. Outstanding invoices and what is owed\n5. One neutral closing line\n\nRules:\n- No blame, no grievance list, no \"as you know\"\n- Never leave the deliverable in a state only I can rescue\n- Written so it reads fine if forwarded to their lawyer\n- Under 180 words",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "deliverable",
+          "description": "What the client receives",
+          "example": "a 12-page written audit plus a Loom walkthrough",
+          "required": true
+        },
+        {
+          "name": "deadline",
+          "description": "Relevant date or timeframe",
+          "example": "Friday, end of business",
+          "required": true
+        }
+      ],
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals"
+      ],
+      "difficulty": "advanced"
+    }
+  ]
+}

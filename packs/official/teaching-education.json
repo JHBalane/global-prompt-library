@@ -1,0 +1,402 @@
+{
+  "id": "teaching-education",
+  "name": "Teaching & Education",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck",
+    "github": "JHBalane"
+  },
+  "description": "Lesson plans, explanations, feedback and parent emails — for teachers, trainers and anyone who has to make something land.",
+  "category": "productivity",
+  "language": "en",
+  "regions": [
+    "US",
+    "GB",
+    "DE",
+    "AT",
+    "CH"
+  ],
+  "license": "TextDeck-Community-1.0",
+  "created": "2026-08-12",
+  "updated": "2026-08-12",
+  "tags": [
+    "teaching",
+    "education",
+    "training",
+    "learning"
+  ],
+  "prompts": [
+    {
+      "id": "lesson-plan-with-one-objective",
+      "title": "Lesson Plan With One Objective",
+      "description": "A single session built backwards from what learners must be able to do",
+      "content": "Plan a {{duration}} session on {{subject}} for {{grade_level}}.\n\nObjective: {{learning_objective}}\n\nStructure:\n1. The check at the end that proves the objective was met — write this first\n2. Opening hook, 5 minutes, that surfaces what they already believe\n3. Input — the minimum explanation needed, with the one analogy you would keep\n4. Practice — what learners DO, with the exact task wording\n5. The check from step 1\n6. What to cut if you lose 10 minutes\n\nRules:\n- One objective. If two appear, pick the one the check can measure.\n- Learners must be doing something within the first 12 minutes\n- Name what you will NOT cover and why",
+      "variables": [
+        {
+          "name": "duration",
+          "description": "How long the session is",
+          "example": "45 minutes",
+          "required": true
+        },
+        {
+          "name": "subject",
+          "description": "Subject or course",
+          "example": "9th-grade chemistry",
+          "required": true
+        },
+        {
+          "name": "grade_level",
+          "description": "Age or level of the learners",
+          "example": "15–16 year olds, mixed ability",
+          "required": true
+        },
+        {
+          "name": "learning_objective",
+          "description": "What learners should be able to do afterwards",
+          "example": "balance simple redox equations",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "explain-it-three-ways",
+      "title": "Explain It Three Ways",
+      "description": "Same concept at three depths, so you can switch mid-lesson",
+      "content": "Explain {{concept}} to {{grade_level}}.\n\nGive three versions:\n1. One sentence, no jargon\n2. A concrete example from their actual life, worked through step by step\n3. The precise version, with the terms they will meet in exams or at work\n\nThen:\n- The analogy's breaking point — where it stops being true, stated plainly\n- The check question that distinguishes real understanding from repeating words\n\nRules:\n- Never use an analogy without saying where it fails\n- No \"imagine you have 10 apples\" unless the apples do real work in the explanation",
+      "variables": [
+        {
+          "name": "concept",
+          "description": "The idea being taught",
+          "example": "opportunity cost",
+          "required": true
+        },
+        {
+          "name": "grade_level",
+          "description": "Age or level of the learners",
+          "example": "15–16 year olds, mixed ability",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "attack-a-misconception",
+      "title": "Attack a Misconception",
+      "description": "Plan the moment where a wrong idea gets replaced",
+      "content": "Learners of {{grade_level}} believe: {{misconception}}\nCorrect understanding: {{concept}}\n\nProduce:\n1. Why the wrong idea is reasonable — state it sympathetically, it usually works in some cases\n2. The exact case where it fails, small enough to demonstrate in class\n3. The demonstration or worked example, step by step\n4. The question that reveals whether the correction stuck — where the old idea would give a different answer\n5. What they will still get wrong next week, and the reminder that fixes it\n\nRules:\n- Never just assert the correct version. Wrong ideas survive contradiction; they die from a failed prediction.",
+      "variables": [
+        {
+          "name": "grade_level",
+          "description": "Age or level of the learners",
+          "example": "15–16 year olds, mixed ability",
+          "required": true
+        },
+        {
+          "name": "misconception",
+          "description": "The common mistake to address",
+          "example": "that electrons are 'used up'",
+          "required": true
+        },
+        {
+          "name": "concept",
+          "description": "The idea being taught",
+          "example": "opportunity cost",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "practice-questions-with-rubric",
+      "title": "Practice Questions With Rubric",
+      "description": "A graded set of exercises plus how to mark them",
+      "content": "Write practice questions on {{learning_objective}} for {{grade_level}}.\n\nProduce 8 questions, ordered by difficulty:\n- 3 that check the basic mechanic\n- 3 that apply it in an unfamiliar situation\n- 2 that require combining it with something learned earlier\n\nFor each: the answer, the most likely wrong answer, and what that wrong answer reveals.\n\nThen a 4-level rubric describing what each level looks like in a learner's work.\n\nRules:\n- No trick questions. Difficulty comes from transfer, not from wording.\n- Every question answerable with what was actually taught",
+      "variables": [
+        {
+          "name": "learning_objective",
+          "description": "What learners should be able to do afterwards",
+          "example": "balance simple redox equations",
+          "required": true
+        },
+        {
+          "name": "grade_level",
+          "description": "Age or level of the learners",
+          "example": "15–16 year olds, mixed ability",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "feedback-on-student-work",
+      "title": "Feedback on Student Work",
+      "description": "Comments a learner can act on before the next attempt",
+      "content": "Give feedback on this work from a {{grade_level}} learner.\n\nWork: {{text}}\nObjective: {{learning_objective}}\n\nStructure:\n1. What works, named specifically — quote the line\n2. The single most important thing to change, and why it matters\n3. Exactly how to do it differently — a rewritten example of one part\n4. One question for the learner to answer themselves\n\nRules:\n- One priority. A list of eight fixes gets none of them done.\n- Address the work, never the person (\"this paragraph assumes…\" not \"you always…\")\n- No praise sandwich — learners see through it and discount the praise",
+      "variables": [
+        {
+          "name": "grade_level",
+          "description": "Age or level of the learners",
+          "example": "15–16 year olds, mixed ability",
+          "required": true
+        },
+        {
+          "name": "text",
+          "description": "The text to work on",
+          "example": "paste your draft here",
+          "required": true
+        },
+        {
+          "name": "learning_objective",
+          "description": "What learners should be able to do afterwards",
+          "example": "balance simple redox equations",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "differentiate-one-lesson",
+      "title": "Differentiate One Lesson",
+      "description": "Adapt a single plan for the range actually in the room",
+      "content": "Adapt this lesson for a mixed group: {{context}}\n\nObjective everyone must reach: {{learning_objective}}\n\nProduce:\n1. The core task everyone does\n2. Support version — same task, scaffolded. Name the scaffold and when to remove it.\n3. Extension — deeper, not more of the same. No busywork.\n4. What the teacher watches for to decide who needs which, in the first 10 minutes\n5. How this is arranged so nobody is publicly labelled\n\nRules:\n- Same objective for all three. Differentiate the route, not the destination.\n- Extension must be harder thinking, not extra questions",
+      "variables": [
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "learning_objective",
+          "description": "What learners should be able to do afterwards",
+          "example": "balance simple redox equations",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "email-to-a-parent-about-a-problem",
+      "title": "Email to a Parent About a Problem",
+      "description": "Raise a concern without triggering defensiveness",
+      "content": "Write to the parent of a {{grade_level}} learner.\n\nConcern: {{issue}}\nEvidence: {{context}}\nWhat I propose: {{resolution}}\n\nStructure:\n1. One specific positive that is actually true\n2. The concern, described as observed behaviour with dates and examples\n3. What I have already tried\n4. What I am asking of them — one concrete thing\n5. An offer to talk, with two proposed times\n\nRules:\n- Observations, not diagnoses. No labels, no speculation about home life.\n- No education jargon\n- Under 200 words, written to be read on a phone",
+      "variables": [
+        {
+          "name": "grade_level",
+          "description": "Age or level of the learners",
+          "example": "15–16 year olds, mixed ability",
+          "required": true
+        },
+        {
+          "name": "issue",
+          "description": "The problem in one line",
+          "example": "invoice PDF is empty for yearly plans",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "resolution",
+          "description": "What you can actually offer",
+          "example": "refund this month, fix ships Thursday",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "turn-a-text-into-a-worksheet",
+      "title": "Turn a Text Into a Worksheet",
+      "description": "Convert reading material into structured practice",
+      "content": "Turn this material into a worksheet for {{grade_level}}.\n\nMaterial: {{input}}\nObjective: {{learning_objective}}\n\nProduce:\n1. Three comprehension questions answerable from the text\n2. Two questions requiring inference beyond the text\n3. One task that produces something (a diagram, a summary in 20 words, a counter-argument)\n4. Vocabulary: the terms that will block understanding, with a one-line definition each\n5. The answer key, including acceptable alternatives\n\nRules:\n- No question whose answer is a single copied word\n- Instructions written to the learner, in the imperative",
+      "variables": [
+        {
+          "name": "grade_level",
+          "description": "Age or level of the learners",
+          "example": "15–16 year olds, mixed ability",
+          "required": true
+        },
+        {
+          "name": "input",
+          "description": "The material to work from",
+          "example": "paste notes, transcript or data here",
+          "required": true
+        },
+        {
+          "name": "learning_objective",
+          "description": "What learners should be able to do afterwards",
+          "example": "balance simple redox equations",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "course-outline-from-scratch",
+      "title": "Course Outline From Scratch",
+      "description": "Sequence a subject so each session earns the next",
+      "content": "Design a course on {{subject}} for {{audience}}, running {{duration}}.\n\nWhere they end: {{learning_objective}}\n\nProduce:\n1. The final capability, phrased as something they can do and show\n2. Sessions in order — each with its objective and the check that closes it\n3. The dependency map: which session must come before which, and why\n4. The three points where learners typically drop out, and what is placed there to hold them\n5. What is deliberately excluded\n\nRules:\n- Every session ends in the learner producing something\n- No session that is only theory\n- If the sequence has a hard prerequisite outside the course, name it in session one",
+      "variables": [
+        {
+          "name": "subject",
+          "description": "Subject or course",
+          "example": "9th-grade chemistry",
+          "required": true
+        },
+        {
+          "name": "audience",
+          "description": "Who will read this",
+          "example": "non-technical hospital administrators",
+          "required": true
+        },
+        {
+          "name": "duration",
+          "description": "How long the session is",
+          "example": "45 minutes",
+          "required": true
+        },
+        {
+          "name": "learning_objective",
+          "description": "What learners should be able to do afterwards",
+          "example": "balance simple redox equations",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "exit-ticket-and-reteach-plan",
+      "title": "Exit Ticket and Reteach Plan",
+      "description": "A two-minute check plus what to do with each answer",
+      "content": "Write an exit ticket for {{learning_objective}}, answerable in two minutes.\n\nProduce:\n1. Two questions — one mechanical, one that requires transfer\n2. What each possible wrong answer tells you\n3. The reteach move for each failure mode, five minutes each\n4. The threshold: at what share of the class you reteach to everyone rather than individually\n\nRules:\n- No \"how confident do you feel\" self-report. Confidence is not evidence.\n- Must be markable at a glance",
+      "variables": [
+        {
+          "name": "learning_objective",
+          "description": "What learners should be able to do afterwards",
+          "example": "balance simple redox equations",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "group-work-that-isn-t-one-person-working",
+      "title": "Group Work That Isn't One Person Working",
+      "description": "Design a task where the group is actually necessary",
+      "content": "Design group work on {{learning_objective}} for {{grade_level}}, {{duration}}.\n\nProduce:\n1. A task that cannot be completed by one person doing everything — state why\n2. Roles with real decisions attached, not \"timekeeper\"\n3. What each individual must produce alone, so the assessment is not collective\n4. How the teacher intervenes when a group stalls, without taking over\n5. The failure mode of this task and the early sign of it\n\nRules:\n- If one strong learner could do it alone in half the time, redesign it",
+      "variables": [
+        {
+          "name": "learning_objective",
+          "description": "What learners should be able to do afterwards",
+          "example": "balance simple redox equations",
+          "required": true
+        },
+        {
+          "name": "grade_level",
+          "description": "Age or level of the learners",
+          "example": "15–16 year olds, mixed ability",
+          "required": true
+        },
+        {
+          "name": "duration",
+          "description": "How long the session is",
+          "example": "45 minutes",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "rewrite-a-lesson-that-fell-flat",
+      "title": "Rewrite a Lesson That Fell Flat",
+      "description": "Diagnose why a session failed and fix the actual cause",
+      "content": "This lesson did not work: {{context}}\n\nWhat I observed: {{issue}}\nObjective: {{learning_objective}}\n\nProduce:\n1. Three candidate causes: wrong prerequisite, too much input before doing, unclear task, or objective too large\n2. The evidence that would distinguish them — what to look at in their work\n3. The most likely cause, with reasoning\n4. The rewritten section — only what changes, not the whole plan\n5. What to check within the first 10 minutes next time\n\nRules:\n- Do not attribute the failure to motivation or attention before ruling out design\n- Change one thing, not everything",
+      "variables": [
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "issue",
+          "description": "The problem in one line",
+          "example": "invoice PDF is empty for yearly plans",
+          "required": true
+        },
+        {
+          "name": "learning_objective",
+          "description": "What learners should be able to do afterwards",
+          "example": "balance simple redox equations",
+          "required": true
+        }
+      ],
+      "tags": [
+        "teaching",
+        "education",
+        "training"
+      ],
+      "difficulty": "advanced"
+    }
+  ]
+}

@@ -1,32 +1,36 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-14T08:14:13.657111Z",
+  "generated_at": "2026-08-12T16:48:56.131147Z",
   "schema_version": "1.0.0",
   "repository": {
     "url": "https://github.com/textdeck/global-prompt-library",
-    "commit": "31a3a626d728ffc802649fd0a58312807e2dc8af"
+    "commit": "2916ab1f11720961af286a1f48c46e7bd65f97f0"
   },
   "stats": {
-    "total_packs": 6,
-    "total_prompts": 39,
+    "total_packs": 14,
+    "total_prompts": 135,
     "categories": {
       "business": {
-        "count": 2,
-        "prompts": 13
+        "count": 8,
+        "prompts": 85
       },
       "development": {
         "count": 1,
         "prompts": 5
       },
       "productivity": {
-        "count": 3,
-        "prompts": 21
+        "count": 4,
+        "prompts": 33
+      },
+      "creative": {
+        "count": 1,
+        "prompts": 12
       }
     },
     "languages": {
       "en": {
-        "count": 6,
-        "prompts": 39
+        "count": 14,
+        "prompts": 135
       }
     }
   },
@@ -87,6 +91,45 @@
       }
     },
     {
+      "id": "customer-support",
+      "name": "Customer Support",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck",
+        "github": "JHBalane"
+      },
+      "description": "Ticket replies, apologies, refusals and outage notes that keep the customer instead of following a de-escalation script.",
+      "category": "business",
+      "language": "en",
+      "tags": [
+        "support",
+        "service",
+        "email",
+        "customers"
+      ],
+      "type": "official",
+      "file_path": "packs/official/customer-support.json",
+      "file_hash": "b5aa26ed7ed8146259c7bbfd9ed71e52e33d7c0972d1512ea27250325d3afa47",
+      "created": "2026-08-12",
+      "updated": "2026-08-12",
+      "stats": {
+        "prompt_count": 12,
+        "total_variables": 30,
+        "has_examples": 0,
+        "difficulty_breakdown": {
+          "beginner": 4,
+          "intermediate": 6,
+          "advanced": 2
+        },
+        "tags": [
+          "customers",
+          "email",
+          "service",
+          "support"
+        ]
+      }
+    },
+    {
       "id": "development-toolkit",
       "name": "Development Toolkit",
       "version": "1.0.0",
@@ -138,6 +181,45 @@
       }
     },
     {
+      "id": "freelance-client-work",
+      "name": "Freelance & Client Work",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck",
+        "github": "JHBalane"
+      },
+      "description": "Scoping, quoting, chasing invoices and saying no to scope creep — the paperwork that decides whether the work was worth it.",
+      "category": "business",
+      "language": "en",
+      "tags": [
+        "freelance",
+        "clients",
+        "proposals",
+        "invoicing"
+      ],
+      "type": "official",
+      "file_path": "packs/official/freelance-client-work.json",
+      "file_hash": "6bdf08dd15db7a5523a79c57afe97bd481e1a22632d3940879ea1a1e784715e3",
+      "created": "2026-08-12",
+      "updated": "2026-08-12",
+      "stats": {
+        "prompt_count": 12,
+        "total_variables": 43,
+        "has_examples": 0,
+        "difficulty_breakdown": {
+          "beginner": 5,
+          "intermediate": 4,
+          "advanced": 3
+        },
+        "tags": [
+          "clients",
+          "freelance",
+          "invoicing",
+          "proposals"
+        ]
+      }
+    },
+    {
       "id": "general-productivity",
       "name": "General Productivity Prompts",
       "version": "1.0.0",
@@ -185,6 +267,45 @@
           "skill-development",
           "strategy",
           "summary"
+        ]
+      }
+    },
+    {
+      "id": "hiring-recruiting",
+      "name": "Hiring & Recruiting",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck",
+        "github": "JHBalane"
+      },
+      "description": "Job ads, screening, interviews, offers and the rejections nobody likes writing — worded so candidates stay warm to you.",
+      "category": "business",
+      "language": "en",
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews",
+        "hr"
+      ],
+      "type": "official",
+      "file_path": "packs/official/hiring-recruiting.json",
+      "file_hash": "9b44fee2f227cdfcbe837c7673a5df305afcf25f81c08ed37620f7612a785c90",
+      "created": "2026-08-12",
+      "updated": "2026-08-12",
+      "stats": {
+        "prompt_count": 12,
+        "total_variables": 47,
+        "has_examples": 0,
+        "difficulty_breakdown": {
+          "beginner": 5,
+          "intermediate": 5,
+          "advanced": 2
+        },
+        "tags": [
+          "hiring",
+          "hr",
+          "interviews",
+          "recruiting"
         ]
       }
     },
@@ -294,6 +415,201 @@
           "strategy",
           "targeting",
           "value-proposition"
+        ]
+      }
+    },
+    {
+      "id": "ecommerce-seller",
+      "name": "Online Selling",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck",
+        "github": "JHBalane"
+      },
+      "description": "Listings, product copy, reviews and returns for people who sell things online — Etsy, Amazon, Shopify or their own shop.",
+      "category": "business",
+      "language": "en",
+      "tags": [
+        "ecommerce",
+        "etsy",
+        "listings",
+        "retail"
+      ],
+      "type": "official",
+      "file_path": "packs/official/ecommerce-seller.json",
+      "file_hash": "cebba4747ddd4786b05877babc73a0bfbe898149af7c59e9f401e11aec819458",
+      "created": "2026-08-12",
+      "updated": "2026-08-12",
+      "stats": {
+        "prompt_count": 12,
+        "total_variables": 47,
+        "has_examples": 0,
+        "difficulty_breakdown": {
+          "beginner": 7,
+          "intermediate": 4,
+          "advanced": 1
+        },
+        "tags": [
+          "ecommerce",
+          "etsy",
+          "listings",
+          "retail"
+        ]
+      }
+    },
+    {
+      "id": "real-estate",
+      "name": "Real Estate",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck",
+        "github": "JHBalane"
+      },
+      "description": "Listings, viewings, offers and owner communication — written to attract the right buyer rather than every buyer.",
+      "category": "business",
+      "language": "en",
+      "tags": [
+        "real-estate",
+        "property",
+        "sales",
+        "listings"
+      ],
+      "type": "official",
+      "file_path": "packs/official/real-estate.json",
+      "file_hash": "7383269f66f0ce8206e38089ba495099820c86b93853e4af69437e4027071115",
+      "created": "2026-08-12",
+      "updated": "2026-08-12",
+      "stats": {
+        "prompt_count": 12,
+        "total_variables": 51,
+        "has_examples": 0,
+        "difficulty_breakdown": {
+          "beginner": 5,
+          "intermediate": 4,
+          "advanced": 3
+        },
+        "tags": [
+          "listings",
+          "property",
+          "real-estate",
+          "sales"
+        ]
+      }
+    },
+    {
+      "id": "sales-outreach",
+      "name": "Sales & Outreach",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck",
+        "github": "JHBalane"
+      },
+      "description": "Cold emails, follow-ups, objections and proposals written like a person who has done the homework, not a sequence tool.",
+      "category": "business",
+      "language": "en",
+      "tags": [
+        "sales",
+        "outreach",
+        "email",
+        "b2b"
+      ],
+      "type": "official",
+      "file_path": "packs/official/sales-outreach.json",
+      "file_hash": "7b589862e2e08f6ff8c76c2eed9125c3b6c6911756d12b970d7babbef88e7a20",
+      "created": "2026-08-12",
+      "updated": "2026-08-12",
+      "stats": {
+        "prompt_count": 12,
+        "total_variables": 46,
+        "has_examples": 0,
+        "difficulty_breakdown": {
+          "beginner": 6,
+          "intermediate": 5,
+          "advanced": 1
+        },
+        "tags": [
+          "b2b",
+          "email",
+          "outreach",
+          "sales"
+        ]
+      }
+    },
+    {
+      "id": "social-content",
+      "name": "Social Content",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck",
+        "github": "JHBalane"
+      },
+      "description": "Hooks, scripts, captions and repurposing for people who post their own work — without the influencer voice.",
+      "category": "creative",
+      "language": "en",
+      "tags": [
+        "social",
+        "content",
+        "video",
+        "writing"
+      ],
+      "type": "official",
+      "file_path": "packs/official/social-content.json",
+      "file_hash": "4f67d3e18523eb6972bf6f17c19930a563866a7e9cf4c999a2751c1490fe019f",
+      "created": "2026-08-12",
+      "updated": "2026-08-12",
+      "stats": {
+        "prompt_count": 12,
+        "total_variables": 41,
+        "has_examples": 0,
+        "difficulty_breakdown": {
+          "beginner": 6,
+          "intermediate": 5,
+          "advanced": 1
+        },
+        "tags": [
+          "content",
+          "social",
+          "video",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "teaching-education",
+      "name": "Teaching & Education",
+      "version": "1.0.0",
+      "author": {
+        "name": "TextDeck",
+        "github": "JHBalane"
+      },
+      "description": "Lesson plans, explanations, feedback and parent emails — for teachers, trainers and anyone who has to make something land.",
+      "category": "productivity",
+      "language": "en",
+      "tags": [
+        "teaching",
+        "education",
+        "training",
+        "learning"
+      ],
+      "type": "official",
+      "file_path": "packs/official/teaching-education.json",
+      "file_hash": "58392d1b964ab854e249a3f1521694de03622c53a23f0ea35f3c7f829980933e",
+      "created": "2026-08-12",
+      "updated": "2026-08-12",
+      "stats": {
+        "prompt_count": 12,
+        "total_variables": 34,
+        "has_examples": 0,
+        "difficulty_breakdown": {
+          "beginner": 4,
+          "advanced": 4,
+          "intermediate": 4
+        },
+        "tags": [
+          "education",
+          "learning",
+          "teaching",
+          "training"
         ]
       }
     },

@@ -1,0 +1,474 @@
+{
+  "id": "sales-outreach",
+  "name": "Sales & Outreach",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck",
+    "github": "JHBalane"
+  },
+  "description": "Cold emails, follow-ups, objections and proposals written like a person who has done the homework, not a sequence tool.",
+  "category": "business",
+  "language": "en",
+  "regions": [
+    "US",
+    "GB",
+    "DE",
+    "AT",
+    "CH"
+  ],
+  "license": "TextDeck-Community-1.0",
+  "created": "2026-08-12",
+  "updated": "2026-08-12",
+  "tags": [
+    "sales",
+    "outreach",
+    "email",
+    "b2b"
+  ],
+  "prompts": [
+    {
+      "id": "cold-email-with-a-real-reason",
+      "title": "Cold Email With a Real Reason",
+      "description": "First contact that earns a reply because it proves research",
+      "content": "Write a first cold email to {{prospect_name}}, {{role}} at {{prospect_company}}.\n\nWhy now: {{trigger_event}}\nWhat we change for them: {{value_proposition}}\nEvidence: {{proof_point}}\n\nStructure:\n1. One line that proves you looked at their specific situation\n2. One line on the problem you suspect they have — as a question, not a claim\n3. One sentence of evidence with a number\n4. One ask, small enough to say yes to in a sentence\n\nRules:\n- Under 90 words. No greeting paragraph, no company introduction.\n- No \"I hope this finds you well\", \"quick question\", \"circling back\", \"synergy\"\n- Never claim to know their pain. Ask.\n- No attachments, no links in the first mail",
+      "variables": [
+        {
+          "name": "prospect_name",
+          "description": "Person you are writing to",
+          "example": "Dr. Anke Reuter",
+          "required": true
+        },
+        {
+          "name": "role",
+          "description": "Job title or function",
+          "example": "Head of Operations",
+          "required": true
+        },
+        {
+          "name": "prospect_company",
+          "description": "Their company",
+          "example": "Stadtwerke Aalen",
+          "required": true
+        },
+        {
+          "name": "trigger_event",
+          "description": "Why you are reaching out now",
+          "example": "they posted three warehouse roles this month",
+          "required": true
+        },
+        {
+          "name": "value_proposition",
+          "description": "The change you create for them",
+          "example": "cuts shift planning from a day to an hour",
+          "required": true
+        },
+        {
+          "name": "proof_point",
+          "description": "Evidence that you deliver",
+          "example": "Ernst Logistik cut planning time 70% in 4 weeks",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "follow-up-that-adds-something",
+      "title": "Follow-Up That Adds Something",
+      "description": "A nudge that carries new information instead of guilt",
+      "content": "Write follow-up number {{context}} to {{prospect_name}} at {{prospect_company}}.\n\nOriginal ask: {{goal}}\nNew thing I can offer: {{proof_point}}\n\nRules:\n- Never mention that they did not reply. No \"just following up\", \"bumping this\", \"in case you missed it\".\n- The mail must carry one new thing: a relevant example, a number, a resource — otherwise say nothing at all\n- Under 60 words\n- Make it trivially easy to say no: include one sentence giving them a graceful exit",
+      "variables": [
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "prospect_name",
+          "description": "Person you are writing to",
+          "example": "Dr. Anke Reuter",
+          "required": true
+        },
+        {
+          "name": "prospect_company",
+          "description": "Their company",
+          "example": "Stadtwerke Aalen",
+          "required": true
+        },
+        {
+          "name": "goal",
+          "description": "What this should achieve",
+          "example": "get a 15-minute call booked",
+          "required": true
+        },
+        {
+          "name": "proof_point",
+          "description": "Evidence that you deliver",
+          "example": "Ernst Logistik cut planning time 70% in 4 weeks",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "answer-an-objection-honestly",
+      "title": "Answer an Objection Honestly",
+      "description": "Handle a real concern without a rebuttal script",
+      "content": "{{prospect_name}} at {{prospect_company}} raised this objection: {{objection}}\n\nOur position: {{context}}\n\nProduce:\n1. What they most likely actually mean — two readings of the objection\n2. The question you ask to find out which one it is\n3. A straight answer for each reading, including the case where they are right and we are not a fit\n4. What NOT to say\n\nRules:\n- Never reframe a real limitation as a feature\n- If we lose on this point, say so and name who they should use instead\n- No \"I understand how you feel, many of our customers felt…\" formulas",
+      "variables": [
+        {
+          "name": "prospect_name",
+          "description": "Person you are writing to",
+          "example": "Dr. Anke Reuter",
+          "required": true
+        },
+        {
+          "name": "prospect_company",
+          "description": "Their company",
+          "example": "Stadtwerke Aalen",
+          "required": true
+        },
+        {
+          "name": "objection",
+          "description": "The concern they raised",
+          "example": "we already pay for a tool that does this",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "post-call-summary-email",
+      "title": "Post-Call Summary Email",
+      "description": "Turn call notes into a summary that moves the deal",
+      "content": "Turn these notes into a follow-up email to {{prospect_name}}.\n\nNotes: {{call_notes}}\n\nStructure:\n1. The problem in THEIR words, quoted back\n2. What we agreed, as a short list\n3. Who does what by when — named, dated\n4. One open question that needs their answer\n\nRules:\n- Nothing enters the summary that was not actually said on the call\n- Mark anything you inferred with \"I understood that…\" so they can correct it\n- No recap of your product\n- Under 150 words",
+      "variables": [
+        {
+          "name": "prospect_name",
+          "description": "Person you are writing to",
+          "example": "Dr. Anke Reuter",
+          "required": true
+        },
+        {
+          "name": "call_notes",
+          "description": "Raw notes from the conversation",
+          "example": "paste your notes here",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "break-up-email",
+      "title": "Break-Up Email",
+      "description": "Close a dead thread without passive aggression",
+      "content": "Write a final email to {{prospect_name}} at {{prospect_company}}. The thread is dead: {{deal_stage}}\n\nRules:\n- State plainly that you are stopping, and that this is fine\n- No guilt, no \"should I close your file?\", no fake urgency, no last-chance discount\n- Leave one door genuinely open with a specific trigger: \"if {{trigger_event}} changes, write me\"\n- Under 60 words",
+      "variables": [
+        {
+          "name": "prospect_name",
+          "description": "Person you are writing to",
+          "example": "Dr. Anke Reuter",
+          "required": true
+        },
+        {
+          "name": "prospect_company",
+          "description": "Their company",
+          "example": "Stadtwerke Aalen",
+          "required": true
+        },
+        {
+          "name": "deal_stage",
+          "description": "Where the deal stands",
+          "example": "demo done, no reply for 12 days",
+          "required": true
+        },
+        {
+          "name": "trigger_event",
+          "description": "Why you are reaching out now",
+          "example": "they posted three warehouse roles this month",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "discovery-call-question-set",
+      "title": "Discovery Call Question Set",
+      "description": "Questions that surface whether there is a deal at all",
+      "content": "Prepare a discovery call with {{prospect_company}} about {{product}}.\n\nWhat I already know: {{context}}\n\nGive 10 questions grouped as:\n- Situation today (what they do now, and what it costs them)\n- Consequence (what happens if nothing changes)\n- Decision (who decides, what the process is, what the budget is)\n\nFor each: the question, and what a disqualifying answer sounds like.\n\nRules:\n- No question whose answer I could have found myself\n- No pitching disguised as a question (\"would it be helpful if…\")\n- Include the one question that most often reveals there is no real project",
+      "variables": [
+        {
+          "name": "prospect_company",
+          "description": "Their company",
+          "example": "Stadtwerke Aalen",
+          "required": true
+        },
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "one-page-proposal",
+      "title": "One-Page Proposal",
+      "description": "A proposal a busy person can decide on in two minutes",
+      "content": "Write a one-page proposal for {{client_name}}.\n\nTheir problem: {{context}}\nScope: {{scope}}\nNot included: {{out_of_scope}}\nPrice: {{rate}}\nTimeline: {{timeline}}\n\nStructure:\n1. The problem, in their words, three sentences\n2. What we do about it — plain description, no methodology names\n3. What they get, as concrete artefacts\n4. What is explicitly not included\n5. Price and timeline, stated once, unhedged\n6. What happens if they say yes today — first step only\n\nRules:\n- No slogans. Write it as a colleague, not a vendor.\n- No option A/B/C ladder unless the choices are genuinely different work\n- Under 400 words",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "scope",
+          "description": "What is included in the work",
+          "example": "audit, report, one implementation call",
+          "required": true
+        },
+        {
+          "name": "out_of_scope",
+          "description": "What is explicitly not included",
+          "example": "ongoing maintenance, hosting costs",
+          "required": true
+        },
+        {
+          "name": "rate",
+          "description": "Your price or rate",
+          "example": "€1,200 fixed",
+          "required": true
+        },
+        {
+          "name": "timeline",
+          "description": "Time available",
+          "example": "six weeks, hard stop",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "pricing-conversation-prep",
+      "title": "Pricing Conversation Prep",
+      "description": "Hold your number without bluffing",
+      "content": "Prepare for a pricing conversation with {{prospect_company}} about {{price}}.\n\nTheir likely pushback: {{objection}}\nOur real floor: {{constraints}}\n\nProduce:\n1. The one-sentence justification of the price, in terms of their outcome\n2. Three concessions that cost us little and what to demand in return for each\n3. The point at which walking away is the right call, stated concretely\n4. Wording for holding the price without arrogance\n\nRules:\n- Never discount without removing scope. Say which scope.\n- No invented ROI figures — if a number is an estimate, label it and show the arithmetic",
+      "variables": [
+        {
+          "name": "prospect_company",
+          "description": "Their company",
+          "example": "Stadtwerke Aalen",
+          "required": true
+        },
+        {
+          "name": "price",
+          "description": "Price and terms",
+          "example": "€49 per seat/month, billed yearly",
+          "required": true
+        },
+        {
+          "name": "objection",
+          "description": "The concern they raised",
+          "example": "we already pay for a tool that does this",
+          "required": true
+        },
+        {
+          "name": "constraints",
+          "description": "Hard limits to respect",
+          "example": "under 150 words, no bullet points",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "referral-request",
+      "title": "Referral Request",
+      "description": "Ask a happy customer for an introduction, specifically",
+      "content": "Write a referral request to {{client_name}}, who is happy with {{product}}.\n\nResult they got: {{proof_point}}\nWho I want to meet: {{target_buyer}}\n\nRules:\n- Name the type of person specifically. \"Anyone who might need this\" gets nothing.\n- Include a forwardable paragraph they can paste without editing\n- Make refusal easy and cost-free, in one sentence\n- Under 100 words",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "proof_point",
+          "description": "Evidence that you deliver",
+          "example": "Ernst Logistik cut planning time 70% in 4 weeks",
+          "required": true
+        },
+        {
+          "name": "target_buyer",
+          "description": "Who it suits",
+          "example": "first-time buyers, couple without children",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "competitive-positioning-without-trash-talk",
+      "title": "Competitive Positioning Without Trash Talk",
+      "description": "Explain the difference to a prospect comparing you",
+      "content": "{{prospect_company}} is comparing {{product}} with {{competitor}}.\n\nOur actual difference: {{value_proposition}}\n\nProduce:\n1. Where the competitor is genuinely the better choice — say it first\n2. Where we are better, tied to a situation rather than a feature list\n3. Three questions the prospect should ask BOTH vendors to tell us apart\n4. The honest summary in two sentences\n\nRules:\n- No FUD, no \"unlike others\", no unnamed comparisons\n- Every claim about the competitor must be verifiable by the prospect. If unsure, say \"check this with them\".",
+      "variables": [
+        {
+          "name": "prospect_company",
+          "description": "Their company",
+          "example": "Stadtwerke Aalen",
+          "required": true
+        },
+        {
+          "name": "product",
+          "description": "Product or service name",
+          "example": "TextDeck",
+          "required": true
+        },
+        {
+          "name": "competitor",
+          "description": "Who they compare you to",
+          "example": "an in-house Excel process",
+          "required": true
+        },
+        {
+          "name": "value_proposition",
+          "description": "The change you create for them",
+          "example": "cuts shift planning from a day to an hour",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "renewal-or-churn-risk-email",
+      "title": "Renewal or Churn-Risk Email",
+      "description": "Reach out to a quiet account before it lapses",
+      "content": "Write to {{client_name}}, whose renewal is at {{deadline}}. Usage has dropped.\n\nWhat we know: {{context}}\n\nRules:\n- Lead with a question about their outcome, not our renewal date\n- Name the drop in usage as an observation, not an accusation\n- Offer one concrete thing: a working session, a scope change, or an honest downgrade\n- Include the option to cancel cleanly. Hiding it is how you get a bad review.\n- Under 120 words",
+      "variables": [
+        {
+          "name": "client_name",
+          "description": "Client's name or company",
+          "example": "Praxis Dr. Neumann",
+          "required": true
+        },
+        {
+          "name": "deadline",
+          "description": "Relevant date or timeframe",
+          "example": "Friday, end of business",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "turn-a-case-into-a-proof-point",
+      "title": "Turn a Case Into a Proof Point",
+      "description": "Compress a customer result into a usable sentence",
+      "content": "Turn this customer story into proof points.\n\nStory: {{story}}\n\nProduce:\n1. One sentence with a number, usable in a cold email\n2. A three-sentence version for a call\n3. The claim stripped to what is strictly verifiable\n4. What we must NOT claim from this story\n\nRules:\n- No percentage without its base (\"70% faster — from a day to two hours\")\n- Separate what the customer said from what we measured\n- If the story does not actually support a number, say that plainly",
+      "variables": [
+        {
+          "name": "story",
+          "description": "The real thing that happened",
+          "example": "our launch got 3,000 downloads and 2 reviews",
+          "required": true
+        }
+      ],
+      "tags": [
+        "sales",
+        "outreach",
+        "email"
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

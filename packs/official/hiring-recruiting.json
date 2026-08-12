@@ -1,0 +1,480 @@
+{
+  "id": "hiring-recruiting",
+  "name": "Hiring & Recruiting",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck",
+    "github": "JHBalane"
+  },
+  "description": "Job ads, screening, interviews, offers and the rejections nobody likes writing — worded so candidates stay warm to you.",
+  "category": "business",
+  "language": "en",
+  "regions": [
+    "US",
+    "GB",
+    "DE",
+    "AT",
+    "CH"
+  ],
+  "license": "TextDeck-Community-1.0",
+  "created": "2026-08-12",
+  "updated": "2026-08-12",
+  "tags": [
+    "hiring",
+    "recruiting",
+    "interviews",
+    "hr"
+  ],
+  "prompts": [
+    {
+      "id": "job-ad-that-filters",
+      "title": "Job Ad That Filters",
+      "description": "A job ad that repels the wrong applicants instead of collecting hundreds",
+      "content": "You are a hiring manager writing a job ad for {{job_title}} at {{company}}.\n\nRole facts:\n- Seniority: {{seniority}}\n- Must-haves: {{must_haves}}\n- Nice-to-haves: {{nice_to_haves}}\n- Team: {{team_description}}\n- Compensation: {{salary_range}}\n\nWrite the ad so the WRONG people opt out. Structure:\n1. One sentence on the actual problem this person will own\n2. \"What you'll do in the first 90 days\" — three concrete outcomes, not responsibilities\n3. \"This is a bad fit if…\" — three honest disqualifiers\n4. Must-haves as a short list, nice-to-haves clearly marked optional\n5. Compensation, stated plainly\n6. How to apply, one step\n\nRules:\n- No \"rockstar\", \"ninja\", \"fast-paced environment\", \"wear many hats\"\n- No adjective without evidence — replace \"collaborative team\" with what the team actually does\n- Under 350 words",
+      "variables": [
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "company",
+          "description": "Company name",
+          "example": "Nordwind Logistik GmbH",
+          "required": true
+        },
+        {
+          "name": "seniority",
+          "description": "Experience level",
+          "example": "5+ years, first lead role",
+          "required": true
+        },
+        {
+          "name": "must_haves",
+          "description": "Non-negotiable requirements",
+          "example": "Go in production, on-call experience",
+          "required": true
+        },
+        {
+          "name": "nice_to_haves",
+          "description": "Desirable but optional",
+          "example": "Kubernetes, German B2",
+          "required": true
+        },
+        {
+          "name": "team_description",
+          "description": "Who the hire will work with",
+          "example": "four engineers, no manager layer, remote-first",
+          "required": true
+        },
+        {
+          "name": "salary_range",
+          "description": "Compensation on offer",
+          "example": "€75–90k plus equity",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "screen-a-cv-against-the-role",
+      "title": "Screen a CV Against the Role",
+      "description": "Structured first-pass read of a CV with the evidence quoted",
+      "content": "You are screening a candidate for {{job_title}}.\n\nMust-haves: {{must_haves}}\nCandidate background: {{candidate_background}}\n\nProduce:\n1. Verdict — advance / borderline / decline, one line\n2. Evidence table: each must-have, met yes/no/unclear, and the exact line from the background that shows it\n3. Three specific things to probe in a call, phrased as questions\n4. Risks a CV cannot show\n\nRules:\n- Never infer a skill that is not stated. \"Unclear\" is a valid and useful answer.\n- Ignore school prestige, employment gaps, and years-of-experience as a proxy for skill.\n- If the evidence is too thin to judge, say so instead of guessing.",
+      "variables": [
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "must_haves",
+          "description": "Non-negotiable requirements",
+          "example": "Go in production, on-call experience",
+          "required": true
+        },
+        {
+          "name": "candidate_background",
+          "description": "Candidate's relevant history",
+          "example": "6 years at a payments startup, led 3 engineers",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "interview-questions-for-one-role",
+      "title": "Interview Questions for One Role",
+      "description": "Questions that test the actual work rather than personality",
+      "content": "Design the questions for a {{interview_stage}} interview for {{job_title}}.\n\nThe work: {{context}}\nMust-haves to test: {{must_haves}}\n\nGive 6 questions. For each:\n- The question, worded exactly as it should be asked\n- What a strong answer contains\n- What a weak answer sounds like\n- One follow-up that separates the two\n\nRules:\n- Every question must be about work the person has actually done, or a realistic scenario from this role\n- No brain teasers, no \"where do you see yourself\", no culture-fit vibes questions\n- At most one hypothetical",
+      "variables": [
+        {
+          "name": "interview_stage",
+          "description": "Which round this is",
+          "example": "second round, technical deep-dive",
+          "required": true
+        },
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "must_haves",
+          "description": "Non-negotiable requirements",
+          "example": "Go in production, on-call experience",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "structured-interview-debrief",
+      "title": "Structured Interview Debrief",
+      "description": "Turn messy interview notes into a decision, not a feeling",
+      "content": "Turn these interview notes into a debrief for {{job_title}}.\n\nNotes: {{call_notes}}\nMust-haves: {{must_haves}}\n\nOutput:\n1. Recommendation — hire / no hire / need one more signal\n2. Per must-have: evidence observed, and how strong it was (strong / partial / none)\n3. What we still do not know\n4. The single cheapest next step to resolve the biggest doubt\n\nRules:\n- Separate observation from interpretation. Quote what the candidate said before judging it.\n- Flag any judgement that rests on likeability, communication polish, or shared background — those are bias, not signal.\n- No score out of ten.",
+      "variables": [
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "call_notes",
+          "description": "Raw notes from the conversation",
+          "example": "paste your notes here",
+          "required": true
+        },
+        {
+          "name": "must_haves",
+          "description": "Non-negotiable requirements",
+          "example": "Go in production, on-call experience",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "rejection-that-doesn-t-burn-the-bridge",
+      "title": "Rejection That Doesn't Burn the Bridge",
+      "description": "Honest, short, and specific enough to be useful",
+      "content": "Write a rejection email to {{candidate_name}}, who interviewed for {{job_title}}.\n\nHonest reason: {{rejection_reason}}\nTone: {{tone}}\n\nRules:\n- Decision in the first two sentences. No suspense build-up.\n- Give the real reason in one specific sentence, without turning it into a performance review\n- No \"we were impressed by many strong candidates\" filler, no \"we'll keep your CV on file\" unless it is true\n- Offer exactly one genuine thing: feedback on request, a referral, or a note for a future role — only if you mean it\n- Under 120 words, signed by a person",
+      "variables": [
+        {
+          "name": "candidate_name",
+          "description": "Candidate's name",
+          "example": "Jonas Weber",
+          "required": true
+        },
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "rejection_reason",
+          "description": "Honest reason the candidate was not chosen",
+          "example": "another candidate had deeper on-call experience",
+          "required": true
+        },
+        {
+          "name": "tone",
+          "description": "Voice to write in",
+          "example": "direct and warm, no corporate filler",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "sourcing-message-a-person-would-answer",
+      "title": "Sourcing Message a Person Would Answer",
+      "description": "Cold outreach to a passive candidate that isn't recruiter spam",
+      "content": "Write a first message to {{candidate_name}}, a passive candidate for {{job_title}} at {{company}}.\n\nWhat made you contact them: {{trigger_event}}\nThe interesting part of the role: {{context}}\nCompensation: {{salary_range}}\n\nRules:\n- First line must prove you looked at their actual work — no \"your impressive profile\"\n- Say the salary range. Not saying it is the reason these messages get ignored.\n- One question at the end that is answerable in one line\n- No company boilerplate, no \"exciting opportunity\", no bullet lists of perks\n- Under 90 words",
+      "variables": [
+        {
+          "name": "candidate_name",
+          "description": "Candidate's name",
+          "example": "Jonas Weber",
+          "required": true
+        },
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "company",
+          "description": "Company name",
+          "example": "Nordwind Logistik GmbH",
+          "required": true
+        },
+        {
+          "name": "trigger_event",
+          "description": "Why you are reaching out now",
+          "example": "they posted three warehouse roles this month",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "salary_range",
+          "description": "Compensation on offer",
+          "example": "€75–90k plus equity",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "take-home-task-worth-doing",
+      "title": "Take-Home Task Worth Doing",
+      "description": "A small task that predicts the job and respects the candidate's time",
+      "content": "Design a take-home task for {{job_title}}.\n\nReal work this role does: {{context}}\nSkills to observe: {{must_haves}}\nTime budget: {{duration}}\n\nProduce:\n1. The task brief exactly as the candidate receives it\n2. Why this predicts on-the-job performance\n3. A scoring rubric with 4 criteria and what 'strong' looks like for each\n4. What you will explicitly NOT judge\n\nRules:\n- Must be completable inside the stated time. Say what to skip if time runs out.\n- No unpaid work the company would otherwise pay for\n- Ambiguity is allowed only if handling ambiguity is part of the job — then say so",
+      "variables": [
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "must_haves",
+          "description": "Non-negotiable requirements",
+          "example": "Go in production, on-call experience",
+          "required": true
+        },
+        {
+          "name": "duration",
+          "description": "How long the session is",
+          "example": "45 minutes",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "offer-call-script",
+      "title": "Offer Call Script",
+      "description": "Deliver an offer so it is accepted, without pressure tactics",
+      "content": "Prepare a script for offering {{job_title}} to {{candidate_name}} at {{salary_range}}.\n\nWhat they said mattered to them: {{context}}\n\nProduce:\n1. Opening — the offer itself, in the first 20 seconds\n2. Three sentences connecting the offer to what THEY said they wanted\n3. Answers to the three most likely objections\n4. The deadline, framed as a real constraint, not a squeeze\n5. What to do if they ask for more money\n\nRules:\n- No exploding offers, no \"we have other candidates\" pressure\n- Never say the number is final unless it is\n- Written to be spoken aloud: short sentences",
+      "variables": [
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "candidate_name",
+          "description": "Candidate's name",
+          "example": "Jonas Weber",
+          "required": true
+        },
+        {
+          "name": "salary_range",
+          "description": "Compensation on offer",
+          "example": "€75–90k plus equity",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "onboarding-plan-first-30-days",
+      "title": "Onboarding Plan, First 30 Days",
+      "description": "A concrete plan so a new hire is useful in week one",
+      "content": "Write a 30-day onboarding plan for a new {{job_title}}.\n\nTeam: {{team_description}}\nWhat they will own: {{context}}\n\nStructure:\n- Day 1: three things, ending with something they shipped or produced\n- Week 1: the first real contribution, plus who they meet and why\n- Week 2–4: one owned deliverable with a named reviewer\n- The five things that must be ready BEFORE day 1\n\nRules:\n- Every item names a person responsible, not a department\n- No week of reading documentation\n- Include how you will notice, by day 10, that this hire is going badly",
+      "variables": [
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "team_description",
+          "description": "Who the hire will work with",
+          "example": "four engineers, no manager layer, remote-first",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "rewrite-a-job-ad-in-plain-language",
+      "title": "Rewrite a Job Ad in Plain Language",
+      "description": "Strip corporate fog out of an existing ad",
+      "content": "Rewrite this job ad in plain language.\n\nAd: {{text}}\n\nOutput:\n1. The rewritten ad\n2. A short list of the vague claims you removed and what you replaced them with\n3. Any requirement that looks like it will exclude good candidates for no reason (e.g. a degree, a years-count, a specific tool that is learnable in a week)\n\nRules:\n- Keep every fact. Remove every adjective that has no evidence behind it.\n- Same meaning, roughly half the words",
+      "variables": [
+        {
+          "name": "text",
+          "description": "The text to work on",
+          "example": "paste your draft here",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "reference-call-questions",
+      "title": "Reference Call Questions",
+      "description": "Questions that get past 'they were great to work with'",
+      "content": "Prepare a reference call about {{candidate_name}}, who we are hiring as {{job_title}}.\n\nThe doubt we want resolved: {{context}}\n\nGive 8 questions in order, each with the follow-up to use if the answer is vague.\n\nRules:\n- Ask for examples and behaviour, never for ratings or opinions\n- Include one question that makes it easy to say something negative\n- End with: \"Who else worked closely with them that I should speak to?\"\n- Note which answers would be a genuine red flag versus normal friction",
+      "variables": [
+        {
+          "name": "candidate_name",
+          "description": "Candidate's name",
+          "example": "Jonas Weber",
+          "required": true
+        },
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "salary-benchmark-argument",
+      "title": "Salary Benchmark Argument",
+      "description": "Build the internal case for a specific number",
+      "content": "Build the internal argument for paying {{salary_range}} for {{job_title}} at {{company}} in {{location}}.\n\nConstraint we face: {{constraints}}\n\nProduce:\n1. The number, and what it buys us\n2. The cost of underpaying, quantified: time-to-hire, offer decline rate, replacement cost\n3. Three counter-arguments finance will raise, and the answer to each\n4. The fallback: what to offer instead if the number is refused — and what that costs us\n\nRules:\n- Mark every figure as either a known fact from our own data or an assumption. Never blur the two.\n- If you do not have salary data for this market, say what data would settle it rather than inventing a benchmark.",
+      "variables": [
+        {
+          "name": "salary_range",
+          "description": "Compensation on offer",
+          "example": "€75–90k plus equity",
+          "required": true
+        },
+        {
+          "name": "job_title",
+          "description": "Role being filled",
+          "example": "Senior Backend Engineer (Go)",
+          "required": true
+        },
+        {
+          "name": "company",
+          "description": "Company name",
+          "example": "Nordwind Logistik GmbH",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "constraints",
+          "description": "Hard limits to respect",
+          "example": "under 150 words, no bullet points",
+          "required": true
+        }
+      ],
+      "tags": [
+        "hiring",
+        "recruiting",
+        "interviews"
+      ],
+      "difficulty": "advanced"
+    }
+  ]
+}

@@ -1,0 +1,504 @@
+{
+  "id": "real-estate",
+  "name": "Real Estate",
+  "version": "1.0.0",
+  "author": {
+    "name": "TextDeck",
+    "github": "JHBalane"
+  },
+  "description": "Listings, viewings, offers and owner communication — written to attract the right buyer rather than every buyer.",
+  "category": "business",
+  "language": "en",
+  "regions": [
+    "US",
+    "GB",
+    "DE",
+    "AT",
+    "CH"
+  ],
+  "license": "TextDeck-Community-1.0",
+  "created": "2026-08-12",
+  "updated": "2026-08-12",
+  "tags": [
+    "real-estate",
+    "property",
+    "sales",
+    "listings"
+  ],
+  "prompts": [
+    {
+      "id": "property-listing",
+      "title": "Property Listing",
+      "description": "A listing that sells the life in the flat, with the facts intact",
+      "content": "Write a listing for a {{property_type}} in {{location}}.\n\nFeatures and condition: {{property_features}}\nWho it suits: {{target_buyer}}\nPrice: {{asking_price}}\n\nStructure:\n1. Headline — type, size, area, the one distinguishing feature\n2. Opening: what living here is actually like on a normal Tuesday\n3. The rooms, in the order someone walks through them\n4. Condition and what needs doing, stated plainly\n5. Area: transport, schools, shops — with real distances\n6. Price and what is included\n\nRules:\n- Every superlative must be replaced by the fact behind it: not \"bright\", but \"south-facing, windows on two sides\"\n- Name the obvious drawback and frame it honestly. Buyers find it at the viewing anyway; finding it themselves costs you trust.\n- No \"must be seen to be appreciated\", no \"rare opportunity\"",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "property_features",
+          "description": "Notable features and condition",
+          "example": "82 m², balcony south, needs a new kitchen",
+          "required": true
+        },
+        {
+          "name": "target_buyer",
+          "description": "Who it suits",
+          "example": "first-time buyers, couple without children",
+          "required": true
+        },
+        {
+          "name": "asking_price",
+          "description": "Price asked",
+          "example": "€549,000",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "listing-headline-variants",
+      "title": "Listing Headline Variants",
+      "description": "Five headlines for the same property, aimed at different buyers",
+      "content": "Write headlines for a {{property_type}} in {{location}} at {{asking_price}}.\n\nFeatures: {{property_features}}\n\nGive 5 variants, each aimed at a different buyer: first-timers, families, downsizers, investors, renovators.\n\nFor each: who it targets, and which feature it leads with.\n\nThen: which variant fits {{target_buyer}} best, and why the others would attract viewings that waste everyone's time.\n\nRules:\n- Under 80 characters each\n- Type, size and area must appear in every variant\n- No exclamation marks",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "asking_price",
+          "description": "Price asked",
+          "example": "€549,000",
+          "required": true
+        },
+        {
+          "name": "property_features",
+          "description": "Notable features and condition",
+          "example": "82 m², balcony south, needs a new kitchen",
+          "required": true
+        },
+        {
+          "name": "target_buyer",
+          "description": "Who it suits",
+          "example": "first-time buyers, couple without children",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "viewing-preparation-brief",
+      "title": "Viewing Preparation Brief",
+      "description": "What to say, show and prepare before people arrive",
+      "content": "Prepare a viewing for a {{property_type}} in {{location}}.\n\nCondition: {{property_features}}\nBuyer type: {{target_buyer}}\n\nProduce:\n1. The route through the property, in order, and why that order\n2. The three questions this buyer type always asks, with the honest answer to each\n3. The weak point they will notice, and the truthful framing prepared in advance\n4. What to have ready on paper: costs, floor plan, energy certificate, building minutes\n5. The one question to ask them that reveals whether they are serious\n\nRules:\n- Never open with the worst room, never end on it either\n- Prepare answers you can defend if checked in the documents",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "property_features",
+          "description": "Notable features and condition",
+          "example": "82 m², balcony south, needs a new kitchen",
+          "required": true
+        },
+        {
+          "name": "target_buyer",
+          "description": "Who it suits",
+          "example": "first-time buyers, couple without children",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "follow-up-after-a-viewing",
+      "title": "Follow-Up After a Viewing",
+      "description": "Short message that moves a real buyer forward",
+      "content": "Write a follow-up to someone who viewed the {{property_type}} in {{location}}.\n\nWhat they reacted to: {{context}}\nNext step I want: {{goal}}\n\nRules:\n- Reference one specific thing from the viewing, so it is clearly not a template\n- Answer any question left open at the viewing, or say when you will\n- One clear next step with a date\n- No pressure about other interested parties unless it is true and verifiable\n- Under 90 words",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "goal",
+          "description": "What this should achieve",
+          "example": "get a 15-minute call booked",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "handle-a-price-objection",
+      "title": "Handle a Price Objection",
+      "description": "Defend an asking price with evidence, or concede",
+      "content": "A buyer says the price is too high for the {{property_type}} in {{location}}.\n\nTheir argument: {{objection}}\nWhat supports the price: {{context}}\nAsking: {{asking_price}}\n\nProduce:\n1. Which part of their argument is correct — say it first\n2. The evidence supporting the price: comparables, condition, what is included\n3. Where the price is genuinely negotiable and where it is not\n4. The counter-offer worth making, and the number below which walking away is right\n5. What to concede instead of price: timing, fixtures, repairs\n\nRules:\n- No comparable figures invented. If you do not have market data, say which data would settle it.\n- Never defend a price with \"the owner needs this much\"",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "objection",
+          "description": "The concern they raised",
+          "example": "we already pay for a tool that does this",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "asking_price",
+          "description": "Price asked",
+          "example": "€549,000",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "owner-update-during-a-slow-sale",
+      "title": "Owner Update During a Slow Sale",
+      "description": "Tell the seller the truth about why it isn't moving",
+      "content": "Update the owner of a {{property_type}} in {{location}} that has not sold.\n\nActivity so far: {{context}}\nMy assessment: {{issue}}\n\nStructure:\n1. The numbers: enquiries, viewings, offers — plain figures\n2. What buyers actually say, quoted\n3. The cause as I see it: price, presentation, or market — pick one and justify it\n4. The two options with what each costs and what each is likely to achieve\n5. My recommendation and the decision I need from them\n\nRules:\n- Do not blame \"the market\" without the figures showing it\n- If the price is the problem, say the number\n- No optimism that the evidence does not support",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "issue",
+          "description": "The problem in one line",
+          "example": "invoice PDF is empty for yearly plans",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "offer-presentation-to-the-seller",
+      "title": "Offer Presentation to the Seller",
+      "description": "Present an offer with everything that matters, not just the number",
+      "content": "Present this offer on the {{property_type}} in {{location}}.\n\nOffer: {{context}}\nAsking: {{asking_price}}\n\nStructure:\n1. The number and how it compares to asking\n2. The buyer: financing status, chain, proof of funds\n3. Timing and conditions attached\n4. Strength assessment — how likely this completes, and what could break it\n5. The three responses available: accept, counter at X, or wait, each with its risk\n\nRules:\n- A lower offer that completes beats a higher one that collapses. Say so with the evidence.\n- Never present a number without its conditions\n- No recommendation without naming what it costs the seller if you are wrong",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        },
+        {
+          "name": "asking_price",
+          "description": "Price asked",
+          "example": "€549,000",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "valuation-explanation",
+      "title": "Valuation Explanation",
+      "description": "Explain a number to an owner who expected more",
+      "content": "Explain the valuation of a {{property_type}} in {{location}} to its owner.\n\nFeatures: {{property_features}}\nMy figure: {{asking_price}}\nWhat they expected: {{context}}\n\nStructure:\n1. The figure and the range around it\n2. What drives it up, itemised\n3. What drives it down, itemised — including what they have paid for that the market does not reward\n4. The comparables and how they differ from this property\n5. What a higher asking price would actually cost them in time on market\n\nRules:\n- Separate what the market pays from what the property is worth to them personally, explicitly and kindly\n- Every adjustment gets a reason and a rough figure\n- Never quote a number you would revise after the first two weeks",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "property_features",
+          "description": "Notable features and condition",
+          "example": "82 m², balcony south, needs a new kitchen",
+          "required": true
+        },
+        {
+          "name": "asking_price",
+          "description": "Price asked",
+          "example": "€549,000",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "rental-ad-and-tenant-criteria",
+      "title": "Rental Ad and Tenant Criteria",
+      "description": "Advertise a rental and state the criteria openly",
+      "content": "Write a rental listing for a {{property_type}} in {{location}}.\n\nFeatures: {{property_features}}\nRent and costs: {{price}}\nRequirements: {{must_haves}}\n\nStructure:\n1. The flat: size, rooms, floor, condition\n2. Total monthly cost broken down — rent, service charges, heating, deposit\n3. Available from, minimum term\n4. What applicants need to provide, listed\n5. How viewings work\n\nRules:\n- Every cost stated. Hidden charges produce cancellations, not tenants.\n- Requirements must be lawful and applied to everyone; no criteria that single out protected characteristics\n- No \"no DSS\"-style exclusions or anything equivalent in your jurisdiction\n- Plain, factual, no lifestyle prose",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "property_features",
+          "description": "Notable features and condition",
+          "example": "82 m², balcony south, needs a new kitchen",
+          "required": true
+        },
+        {
+          "name": "price",
+          "description": "Price and terms",
+          "example": "€49 per seat/month, billed yearly",
+          "required": true
+        },
+        {
+          "name": "must_haves",
+          "description": "Non-negotiable requirements",
+          "example": "Go in production, on-call experience",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "neighbourhood-description",
+      "title": "Neighbourhood Description",
+      "description": "Describe the area truthfully, with distances",
+      "content": "Describe {{location}} for a listing aimed at {{target_buyer}}.\n\nWhat I know: {{context}}\n\nStructure:\n1. What the street itself is like — noise, traffic, parking\n2. Daily infrastructure with walking times: shops, doctor, school, transport\n3. What the area is good at\n4. What it is not good at — one honest sentence\n5. What is changing: construction, new lines, development\n\nRules:\n- Times and distances, not adjectives. \"7 minutes to the S-Bahn\", not \"excellent connections\".\n- Mark anything you have not verified so it gets checked\n- No claims about future value",
+      "variables": [
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "target_buyer",
+          "description": "Who it suits",
+          "example": "first-time buyers, couple without children",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "expos-checklist",
+      "title": "Exposé Checklist",
+      "description": "Everything the documentation must contain before going live",
+      "content": "Build the pre-listing checklist for a {{property_type}} in {{location}}.\n\nWhat I have: {{context}}\n\nProduce:\n1. Documents required before publication, each with who provides it and typical lead time\n2. Measurements and figures that must be verified, not estimated\n3. Photos required, in shooting order\n4. What must be corrected before photos are taken\n5. The three items most often missing that delay a sale by weeks\n\nRules:\n- Mark anything with legal disclosure consequences in the relevant jurisdiction as blocking\n- Do not state a legal requirement as fact for a country you were not told about — flag it as \"verify locally\"",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "context",
+          "description": "Background the model needs",
+          "example": "we shipped late twice this quarter",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "reply-to-a-lowball-enquiry",
+      "title": "Reply to a Lowball Enquiry",
+      "description": "Answer an unrealistic offer without ending the conversation",
+      "content": "Someone offered far below asking on the {{property_type}} in {{location}}.\n\nTheir offer and reasoning: {{objection}}\nAsking: {{asking_price}}\n\nRules:\n- Thank them once, briefly, then be concrete\n- Ask what led them to that figure — sometimes they know something you do not\n- State plainly whether it is in a range worth discussing\n- If it is not, say so and leave a specific door open (\"at X we would talk\")\n- No offence, no lecture about the market\n- Under 100 words",
+      "variables": [
+        {
+          "name": "property_type",
+          "description": "Kind of property",
+          "example": "3-room flat, 1960s building",
+          "required": true
+        },
+        {
+          "name": "location",
+          "description": "Where it is",
+          "example": "Munich, Westend",
+          "required": true
+        },
+        {
+          "name": "objection",
+          "description": "The concern they raised",
+          "example": "we already pay for a tool that does this",
+          "required": true
+        },
+        {
+          "name": "asking_price",
+          "description": "Price asked",
+          "example": "€549,000",
+          "required": true
+        }
+      ],
+      "tags": [
+        "real-estate",
+        "property",
+        "sales"
+      ],
+      "difficulty": "intermediate"
+    }
+  ]
+}
