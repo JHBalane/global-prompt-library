@@ -56,7 +56,51 @@
         "service",
         "email"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "use_case": "Everyday tickets where you already know the answer but keep writing three paragraphs around it. Good for first-line support, founders answering their own inbox, and anyone who wants replies that read like a person, not a help desk.",
+      "why_it_works": "The answer is forced into the first sentence, so the customer gets what they asked before anything else. Separating 'what is actually true' from 'what I can offer' stops the model from inventing fixes, and the banned phrases remove the filler customers skip anyway.",
+      "examples": [
+        {
+          "input": {
+            "customer_message": "Hi, I exported my invoices for September and the PDF is completely blank. I need this for my accountant by Friday. Is this a known issue?",
+            "context": "Known bug since Monday's update: PDF export is blank for invoices with more than 20 line items. CSV export works. Fix is in review.",
+            "resolution": "Send the CSV today as a workaround; the PDF fix ships Thursday and I'll re-export it for them myself."
+          },
+          "output": "Yes, it's a known bug: since Monday, PDF exports come out blank when an invoice has more than 20 line items.\n\nTo get your accountant what they need today:\n1. Go to Invoices → Export.\n2. Choose CSV instead of PDF.\n3. Select September and download.\n\nThe PDF fix ships on Thursday. I'll re-export your September invoices as PDFs myself that day and send them to this address, so you have both before Friday.\n\nIf the CSV doesn't open cleanly for your accountant, reply here and I'll format it for you."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Ticket beantworten",
+          "description": "Eine klare Antwort auf eine Support-Nachricht, ohne Service-Floskeln",
+          "content": "Beantworte diese Support-Nachricht.\n\nNachricht: {{customer_message}}\nWas tatsächlich stimmt: {{context}}\nWas ich anbieten kann: {{resolution}}\n\nAufbau:\n1. Die Antwort im ersten Satz: ja, nein oder so geht's\n2. Die Schritte, nummeriert, falls es welche gibt\n3. Was als Nächstes passiert und bis wann\n4. Eine Zeile mit der Einladung zu antworten, falls es nicht geklappt hat\n\nRegeln:\n- Kein „Wir entschuldigen uns für etwaige Unannehmlichkeiten“, kein „Vielen Dank für deine Nachricht“, kein „Ich verstehe deinen Ärger voll und ganz“\n- Versprich nie einen Termin, den du nicht in der Hand hast\n- Wenn du etwas nicht weißt, sag, was du tust, um es herauszufinden, und bis wann\n- Triff den Detailgrad der Kundin oder des Kunden: Erklär einem Profi nicht das Produkt",
+          "variables": {
+            "customer_message": {
+              "label": "Nachricht der Kundin / des Kunden",
+              "description": "Was im Ticket steht",
+              "placeholder": "Ticket hier einfügen"
+            },
+            "context": {
+              "label": "Was tatsächlich stimmt",
+              "description": "Hintergrund, den das Modell braucht",
+              "placeholder": "Bekannter Fehler seit dem Update am Montag"
+            },
+            "resolution": {
+              "label": "Was du anbieten kannst",
+              "description": "Was du wirklich tun kannst",
+              "placeholder": "CSV heute, PDF-Fix am Donnerstag"
+            }
+          },
+          "use_case": "Alltägliche Tickets, bei denen du die Antwort schon kennst, aber trotzdem drei Absätze drumherum schreibst. Passt für den First-Level-Support, für Gründer, die ihr Postfach selbst beantworten, und für alle, die wie ein Mensch klingen wollen statt wie ein Helpdesk.",
+          "why_it_works": "Die Antwort steht zwingend im ersten Satz, also bekommt die Kundin zuerst, wonach sie gefragt hat. Weil „was stimmt“ und „was ich anbieten kann“ getrennt sind, erfindet das Modell keine Lösungen, und die verbotenen Floskeln streichen genau den Text, den Kunden ohnehin überspringen.",
+          "examples": {
+            "customer_message": "Hallo, ich habe meine Rechnungen für September exportiert und das PDF ist komplett leer. Meine Steuerberaterin braucht das bis Freitag. Ist das ein bekanntes Problem?",
+            "context": "Bekannter Fehler seit dem Update am Montag: Der PDF-Export ist leer bei Rechnungen mit mehr als 20 Positionen. Der CSV-Export funktioniert. Der Fix ist im Review.",
+            "resolution": "Heute die CSV als Übergangslösung; der PDF-Fix kommt am Donnerstag, dann exportiere ich die PDFs selbst neu."
+          },
+          "example_output": "Ja, das ist ein bekannter Fehler: Seit Montag sind PDF-Exporte leer, wenn eine Rechnung mehr als 20 Positionen hat.\n\nDamit deine Steuerberaterin heute bekommt, was sie braucht:\n1. Geh auf Rechnungen → Export.\n2. Wähl CSV statt PDF.\n3. Wähl September und lade die Datei herunter.\n\nDer PDF-Fix kommt am Donnerstag. Ich exportiere deine September-Rechnungen an dem Tag selbst als PDF und schicke sie an diese Adresse, dann hast du beides vor Freitag.\n\nFalls sich die CSV bei ihr nicht sauber öffnen lässt, antworte einfach hier, dann formatiere ich sie für dich."
+        }
+      }
     },
     {
       "id": "say-no-without-losing-the-customer",
@@ -88,7 +132,51 @@
         "service",
         "email"
       ],
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "use_case": "Requests you have to turn down: a refund outside the window, a custom feature, an exception to a rule. Use it when the no is final but you still want the customer to stay.",
+      "why_it_works": "Putting the no in the first two sentences respects the customer's time and removes the evasive feel of a buried refusal. Requiring a one-sentence real reason and the nearest alternative turns a dead end into a choice, and the 120-word cap keeps it from becoming a justification.",
+      "examples": [
+        {
+          "input": {
+            "customer_message": "We'd like to pay annually but split it into four quarterly invoices. Our finance team requires it. Can you set that up?",
+            "policy": "Annual plans are billed once; the billing system can't split an annual price into instalments.",
+            "resolution": "Quarterly billing on the monthly price, or a single annual invoice dated to their fiscal year start."
+          },
+          "output": "We can't split an annual plan into four invoices. Our billing system charges the annual price in one payment and has no instalment option.\n\nTwo things we can do:\n- Bill you quarterly at the monthly price. That's about 15% more over the year, but it matches your finance team's cycle.\n- Issue one annual invoice dated to the start of your fiscal year, so it lands in the right budget period.\n\nTell me which one works and I'll set it up today."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Nein sagen, ohne den Kunden zu verlieren",
+          "description": "Eine Anfrage klar ablehnen und das nächstbeste Mögliche anbieten",
+          "content": "Ein Kunde hat um etwas gebeten, das wir nicht können.\n\nSeine Anfrage: {{customer_message}}\nWarum wir es nicht können: {{policy}}\nDas Nächste, was wir tun können: {{resolution}}\n\nRegeln:\n- Das Nein kommt in den ersten zwei Sätzen. Wer es versteckt, verschwendet die Zeit des Kunden und wirkt ausweichend.\n- Nenn den echten Grund in einem Satz. „Richtlinie“ allein ist kein Grund.\n- Biete die nächste machbare Alternative an, oder sag klar, dass es keine gibt\n- Keine Entschuldigungsschleife, kein „leider ist das derzeit nicht möglich“\n- Unter 120 Wörtern",
+          "variables": {
+            "customer_message": {
+              "label": "Anfrage des Kunden",
+              "description": "Was im Ticket steht",
+              "placeholder": "Ticket hier einfügen"
+            },
+            "policy": {
+              "label": "Warum es nicht geht",
+              "description": "Die Regel, innerhalb der du bleiben musst",
+              "placeholder": "Erstattung nur innerhalb von 30 Tagen"
+            },
+            "resolution": {
+              "label": "Nächstbeste Option",
+              "description": "Was du wirklich anbieten kannst",
+              "placeholder": "Quartalsweise Abrechnung zum Monatspreis"
+            }
+          },
+          "use_case": "Anfragen, die du ablehnen musst: eine Erstattung außerhalb der Frist, ein Sonderwunsch, eine Ausnahme von einer Regel. Für Fälle, in denen das Nein feststeht und der Kunde trotzdem bleiben soll.",
+          "why_it_works": "Das Nein in den ersten zwei Sätzen respektiert die Zeit des Kunden und nimmt der Absage das Ausweichende. Weil ein echter Grund in einem Satz und die nächstbeste Alternative Pflicht sind, wird aus der Sackgasse eine Wahl, und die 120-Wörter-Grenze verhindert eine Rechtfertigung.",
+          "examples": {
+            "customer_message": "Wir möchten jährlich zahlen, aber in vier Quartalsrechnungen aufgeteilt. Unsere Buchhaltung verlangt das. Können Sie das einrichten?",
+            "policy": "Jahrespläne werden einmalig abgerechnet; das Abrechnungssystem kann einen Jahrespreis nicht in Raten aufteilen.",
+            "resolution": "Quartalsweise Abrechnung zum Monatspreis, oder eine einzige Jahresrechnung mit Datum zum Start ihres Geschäftsjahres."
+          },
+          "example_output": "Einen Jahresplan können wir nicht auf vier Rechnungen aufteilen. Unser Abrechnungssystem bucht den Jahrespreis in einer Zahlung und hat keine Ratenoption.\n\nZwei Dinge gehen:\n- Wir rechnen quartalsweise zum Monatspreis ab. Das kostet übers Jahr rund 15 % mehr, passt aber zum Rhythmus Ihrer Buchhaltung.\n- Wir stellen eine Jahresrechnung mit Datum zum Start Ihres Geschäftsjahres aus, damit sie in der richtigen Budgetperiode landet.\n\nSagen Sie mir, was passt, dann richte ich es heute ein."
+        }
+      }
     },
     {
       "id": "apology-for-a-real-failure",
@@ -120,7 +208,51 @@
         "service",
         "email"
       ],
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "use_case": "When you actually broke something: lost data, a wrong charge, a missed deadline. Use it for a single customer or for an email to everyone affected.",
+      "why_it_works": "Naming the real cost instead of 'the inconvenience' shows you understood what happened to them. Active voice and the ban on 'if you were affected' remove the hedging that makes apologies read as legal statements, and stating compensation upfront saves the customer a second email.",
+      "examples": [
+        {
+          "input": {
+            "issue": "A sync bug on 14 October overwrote shared calendar events with older versions for 3 hours.",
+            "severity": "Their clinic lost 41 patient appointments from the shared calendar; staff rebooked them by phone.",
+            "resolution": "Restored all events from backup; adding a version check before sync writes; crediting two months."
+          },
+          "output": "On 14 October, a bug in our sync overwrote your shared calendar with an older version for three hours.\n\nFor your clinic that meant 41 appointments disappeared and your team had to call patients to rebook them. That was hours of work you should never have had to do.\n\nWe have restored every event from our backup; you can check them now. We are adding a version check so sync can no longer write an older copy over a newer one; it goes live on 24 October.\n\nWe have credited two months to your account. You don't need to do anything for it."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Entschuldigung für einen echten Fehler",
+          "description": "Einen Fehler eingestehen, ohne Konzern-Nebel",
+          "content": "Wir haben etwas falsch gemacht. Schreib die Entschuldigung.\n\nWas passiert ist: {{issue}}\nWie schlimm es für sie war: {{severity}}\nWas wir tun: {{resolution}}\n\nAufbau:\n1. Was passiert ist, sachlich, in einem Satz\n2. Was es sie gekostet hat: die tatsächliche Folge benennen, nicht „die Unannehmlichkeit“\n3. Was wir dagegen tun und wann\n4. Was wir ändern, damit es nicht wieder passiert\n5. Eine Entschädigung, falls es eine gibt, ohne dass jemand zweimal fragen muss\n\nRegeln:\n- Aktiv formulieren. „Wir haben deine Daten gelöscht“, nicht „Daten gingen verloren“.\n- Kein „falls Sie betroffen waren“, kein „bei einigen Nutzern kam es möglicherweise zu“\n- Bitte nicht um Verständnis\n- Höchstens 150 Wörter",
+          "variables": {
+            "issue": {
+              "label": "Was passiert ist",
+              "description": "Das Problem in einer Zeile",
+              "placeholder": "Sync-Fehler hat Kalendertermine überschrieben"
+            },
+            "severity": {
+              "label": "Folgen für die Kundin / den Kunden",
+              "description": "Wie schlimm es für sie war",
+              "placeholder": "41 Termine verloren, Patienten telefonisch umgebucht"
+            },
+            "resolution": {
+              "label": "Was wir tun",
+              "description": "Was du wirklich anbieten kannst",
+              "placeholder": "Aus Backup wiederhergestellt, zwei Monate gutgeschrieben"
+            }
+          },
+          "use_case": "Wenn wirklich etwas kaputtgegangen ist: verlorene Daten, eine falsche Abbuchung, eine verpasste Frist. Für eine einzelne Kundin oder für eine Mail an alle Betroffenen.",
+          "why_it_works": "Wer die tatsächlichen Folgen benennt statt „die Unannehmlichkeit“, zeigt, dass er verstanden hat, was passiert ist. Aktive Sätze und das Verbot von „falls Sie betroffen waren“ nehmen der Entschuldigung den Ton einer Rechtsabteilung, und die gleich genannte Entschädigung erspart eine zweite Mail.",
+          "examples": {
+            "issue": "Ein Sync-Fehler hat am 14. Oktober drei Stunden lang geteilte Kalendertermine mit älteren Versionen überschrieben.",
+            "severity": "Die Praxis hat 41 Patiententermine aus dem gemeinsamen Kalender verloren; das Team hat sie telefonisch neu vergeben.",
+            "resolution": "Alle Termine aus dem Backup wiederhergestellt; Versionsprüfung vor dem Sync kommt; zwei Monate gutgeschrieben."
+          },
+          "example_output": "Am 14. Oktober hat ein Fehler in unserem Sync euren gemeinsamen Kalender drei Stunden lang mit einer älteren Version überschrieben.\n\nFür eure Praxis hieß das: 41 Termine waren weg, und euer Team musste Patientinnen und Patienten anrufen, um neu zu buchen. Das waren Stunden Arbeit, die ihr nie hättet haben dürfen.\n\nWir haben alle Termine aus unserem Backup wiederhergestellt; ihr könnt sie jetzt prüfen. Wir bauen eine Versionsprüfung ein, damit der Sync keine ältere Kopie mehr über eine neuere schreiben kann; sie geht am 24. Oktober live.\n\nWir haben euch zwei Monate gutgeschrieben. Dafür müsst ihr nichts tun."
+        }
+      }
     },
     {
       "id": "bug-report-from-a-vague-ticket",
@@ -140,7 +272,37 @@
         "service",
         "email"
       ],
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "use_case": "Tickets like 'it doesn't work' that need to reach engineering. Use it when you hand bugs from support to developers and keep getting asked for the steps you don't have.",
+      "why_it_works": "Making 'what is missing' its own section stops the model from filling gaps with guesses, which is the main way AI-written bug reports mislead. Limiting the follow-up to two questions keeps the customer willing to answer, and keeping their exact wording preserves clues an engineer can search for.",
+      "examples": [
+        {
+          "input": {
+            "customer_message": "Your app keeps logging me out!!! Every time I switch to my other laptop I have to log in again and it's driving me crazy. This started last week."
+          },
+          "output": "1. Title: Session ends when the same account is used on a second laptop\n2. Steps to reproduce (inferred): log in on laptop A; log in on laptop B; return to laptop A, which now asks for a login again.\n3. Expected vs actual: expected both sessions to stay active; actual: switching devices ends the earlier session.\n4. Missing: app version and OS on both laptops; whether both use the desktop app or the browser; the exact date it started (\"last week\").\n5. Follow-up questions: \"Are you using the desktop app or the browser on each laptop, and which version?\" and \"Does it also happen if you only switch between browser tabs on one laptop?\"\n6. Severity: medium. It blocks nothing, but it happens on every device switch and the customer says it started recently, which points to a regression."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Bug-Report aus einem vagen Ticket",
+          "description": "Aus einer frustrierten Nachricht etwas machen, mit dem die Entwicklung arbeiten kann",
+          "content": "Mach aus dieser Kundennachricht einen Bug-Report.\n\nNachricht: {{customer_message}}\n\nErstelle:\n1. Titel: eine Zeile, der sichtbare Fehler\n2. Schritte zum Nachstellen, soweit sie sich ableiten lassen\n3. Erwartet vs. tatsächlich\n4. Welche Informationen FEHLEN, um es nachzustellen\n5. Die genaue Rückfrage an den Kunden: höchstens zwei Fragen\n6. Schweregrad, mit Begründung\n\nRegeln:\n- Erfinde nie Schritte, die der Kunde nicht beschrieben hat. Was fehlt, fehlt.\n- Emotionen raus, Fakten rein, und behalte seine genauen Worte, wo sie für die Diagnose wichtig sind",
+          "variables": {
+            "customer_message": {
+              "label": "Nachricht des Kunden",
+              "description": "Was im Ticket steht",
+              "placeholder": "Ticket hier einfügen"
+            }
+          },
+          "use_case": "Tickets wie „geht nicht“, die bei der Entwicklung landen müssen. Für alle, die Bugs vom Support an Entwickler weitergeben und ständig nach Schritten gefragt werden, die sie nicht haben.",
+          "why_it_works": "Weil „was fehlt“ ein eigener Punkt ist, füllt das Modell Lücken nicht mit Vermutungen, und genau damit führen KI-geschriebene Bug-Reports sonst in die Irre. Zwei Rückfragen halten den Kunden bei der Stange, und seine genauen Worte bleiben als Spur erhalten, nach der jemand suchen kann.",
+          "examples": {
+            "customer_message": "Eure App loggt mich ständig aus!!! Jedes Mal, wenn ich auf meinen anderen Laptop wechsle, muss ich mich neu anmelden, das macht mich wahnsinnig. Das geht seit letzter Woche so."
+          },
+          "example_output": "1. Titel: Sitzung endet, wenn dasselbe Konto auf einem zweiten Laptop genutzt wird\n2. Schritte (abgeleitet): auf Laptop A anmelden; auf Laptop B anmelden; zurück zu Laptop A, der jetzt erneut eine Anmeldung verlangt.\n3. Erwartet vs. tatsächlich: erwartet, dass beide Sitzungen aktiv bleiben; tatsächlich beendet der Gerätewechsel die frühere Sitzung.\n4. Es fehlt: App-Version und Betriebssystem auf beiden Laptops; ob jeweils Desktop-App oder Browser; das genaue Startdatum („letzte Woche“).\n5. Rückfragen: „Nutzt du auf beiden Laptops die Desktop-App oder den Browser, und welche Version?“ und „Passiert es auch, wenn du auf einem Laptop nur zwischen Browser-Tabs wechselst?“\n6. Schweregrad: mittel. Es blockiert nichts, passiert aber bei jedem Gerätewechsel, und laut Kunde erst seit Kurzem, was auf eine Regression hindeutet."
+        }
+      }
     },
     {
       "id": "angry-customer-real-answer",
@@ -172,7 +334,51 @@
         "service",
         "email"
       ],
-      "difficulty": "advanced"
+      "difficulty": "advanced",
+      "use_case": "Hostile or sarcastic messages, public complaints, the customer who threatens to leave. Use it when the urge is to soothe and you would rather fix.",
+      "why_it_works": "Answering the substance in the first sentence signals that you took the complaint seriously, which calms more than any empathy phrase. Conceding where they are right and correcting errors only once keeps the reply credible without turning it into an argument, and the short sentences stop the model from over-explaining.",
+      "examples": [
+        {
+          "input": {
+            "customer_message": "This is the THIRD time your 'automatic' backup failed. I'm paying for a service that doesn't work. Either fix it or I'm gone, and I'll tell everyone why.",
+            "context": "Two failures were ours (storage quota bug, fixed 2 Oct). Today's failure: their disk is full, the backup log says so.",
+            "resolution": "Run a manual backup for them now, free extra storage for 3 months, alert when disk is above 90%."
+          },
+          "output": "You're right that two of those failures were ours: a storage bug we fixed on 2 October. That should never have reached you twice.\n\nToday's failure has a different cause: your disk was full, so there was no room to write the backup. Our error message didn't make that clear, which is also on us.\n\nI've started a manual backup now and will confirm when it finishes. I've added three months of extra storage at no cost, and set an alert that warns you at 90% disk use.\n\nIf any backup fails again, reply to this email and it comes straight to me."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Wütender Kunde, echte Antwort",
+          "description": "Auf Feindseligkeit mit einer Lösung antworten statt mit Beschwichtigung",
+          "content": "Ein Kunde ist wütend.\n\nSeine Nachricht: {{customer_message}}\nWas stimmt: {{context}}\nWas ich tun kann: {{resolution}}\n\nRegeln:\n- Spiegle die Emotion nicht und benenne sie nicht („Ich höre, dass du frustriert bist“)\n- Beantworte zuerst die eigentliche Beschwerde, im ersten Satz\n- Gib ihm ausdrücklich recht, wo er recht hat\n- Korrigiere sachliche Fehler ruhig und nur einmal\n- War er beleidigend, setz eine klare Grenze, ohne zu drohen\n- Kurze Sätze. Unter 130 Wörtern.",
+          "variables": {
+            "customer_message": {
+              "label": "Nachricht des Kunden",
+              "description": "Was im Ticket steht",
+              "placeholder": "Ticket hier einfügen"
+            },
+            "context": {
+              "label": "Was stimmt",
+              "description": "Hintergrund, den das Modell braucht",
+              "placeholder": "Zwei Ausfälle lagen an uns, der heutige an der vollen Festplatte"
+            },
+            "resolution": {
+              "label": "Was ich tun kann",
+              "description": "Was du wirklich anbieten kannst",
+              "placeholder": "Manuelles Backup jetzt, 3 Monate Zusatzspeicher"
+            }
+          },
+          "use_case": "Feindselige oder sarkastische Nachrichten, öffentliche Beschwerden, der Kunde, der mit Kündigung droht. Für Momente, in denen du beschwichtigen willst, aber lieber das Problem löst.",
+          "why_it_works": "Wer im ersten Satz auf den Inhalt eingeht, zeigt, dass er die Beschwerde ernst nimmt, und das beruhigt mehr als jede Empathie-Floskel. Recht geben, wo es stimmt, und Fehler nur einmal korrigieren hält die Antwort glaubwürdig, ohne einen Streit daraus zu machen; die kurzen Sätze bremsen das Erklären.",
+          "examples": {
+            "customer_message": "Das ist das DRITTE Mal, dass euer „automatisches“ Backup fehlschlägt. Ich zahle für einen Dienst, der nicht funktioniert. Entweder ihr behebt das, oder ich bin weg, und ich erzähle allen, warum.",
+            "context": "Zwei Ausfälle lagen an uns (Speicherkontingent-Fehler, behoben am 2. Oktober). Der heutige: Seine Festplatte ist voll, das steht im Backup-Protokoll.",
+            "resolution": "Jetzt ein manuelles Backup starten, drei Monate Zusatzspeicher gratis, Warnung ab 90 % Plattenbelegung."
+          },
+          "example_output": "Du hast recht: Zwei dieser Ausfälle lagen an uns, an einem Speicherfehler, den wir am 2. Oktober behoben haben. Das hätte dich nicht zweimal treffen dürfen.\n\nDer heutige Ausfall hat eine andere Ursache: Deine Festplatte war voll, also war kein Platz für das Backup. Unsere Fehlermeldung hat das nicht klar gesagt, auch das geht auf uns.\n\nIch habe gerade ein manuelles Backup gestartet und melde mich, sobald es durch ist. Du bekommst drei Monate Zusatzspeicher gratis und eine Warnung, sobald die Platte zu 90 % voll ist.\n\nFalls noch ein Backup fehlschlägt, antworte auf diese Mail. Sie landet direkt bei mir."
+        }
+      }
     },
     {
       "id": "outage-or-incident-notice",
@@ -210,7 +416,58 @@
         "service",
         "email"
       ],
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "use_case": "The first status update during an outage, and every update after it. Use it for a status page, an in-app banner or an email to affected customers while the cause is still unknown.",
+      "why_it_works": "Publishing before the cause is known is the rule most teams break; the prompt makes stated uncertainty the expected format. Banning 'degraded performance' for an outage keeps the update honest, and a fixed time for the next update is what readers check first.",
+      "examples": [
+        {
+          "input": {
+            "issue": "Online appointment booking is down; the booking page shows an error after choosing a time.",
+            "audience": "Practice staff using the booking system, mostly non-technical.",
+            "context": "Started 09:12. Existing appointments and the calendar view work. The cause is not yet known; the team is investigating.",
+            "deadline": "10:30"
+          },
+          "output": "Online booking is down. Patients get an error after choosing a time and cannot complete a booking.\n\nThis affects every practice using online booking. Your calendar and all existing appointments work normally. Until it's fixed, please take bookings by phone and enter them in the calendar as usual.\n\nWhat we know: the problem started at 09:12 and only affects new online bookings. What we don't know yet: the cause.\n\nNext update by 10:30, even if nothing has changed."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Störungsmeldung",
+          "description": "Allen sagen, was kaputt ist, solange es noch kaputt ist",
+          "content": "Schreib ein Status-Update für eine laufende Störung.\n\nWas kaputt ist: {{issue}}\nWer betroffen ist: {{audience}}\nWas wir bisher wissen: {{context}}\nNächstes Update: {{deadline}}\n\nAufbau:\n1. Was nicht funktioniert, in klaren Worten\n2. Wen es betrifft und was die Betroffenen in der Zwischenzeit tun sollen\n3. Was wir wissen und was nicht\n4. Wann das nächste Update kommt: immer mit Uhrzeit\n\nRegeln:\n- Veröffentliche, bevor du die Ursache kennst. Ausgesprochene Unsicherheit ist besser als Schweigen.\n- Kein „eingeschränkte Leistung“, wenn es „ausgefallen“ heißt\n- Keine Schuldzuweisung, keine Dienstleisternamen, keine Spekulation über die Ursache\n- Unter 120 Wörtern",
+          "variables": {
+            "issue": {
+              "label": "Was kaputt ist",
+              "description": "Das Problem in einer Zeile",
+              "placeholder": "Online-Terminbuchung fällt aus"
+            },
+            "audience": {
+              "label": "Wer betroffen ist",
+              "description": "Wer das liest",
+              "placeholder": "Praxispersonal, überwiegend nicht technisch"
+            },
+            "context": {
+              "label": "Was wir wissen",
+              "description": "Hintergrund, den das Modell braucht",
+              "placeholder": "Seit 09:12, bestehende Termine funktionieren"
+            },
+            "deadline": {
+              "label": "Nächstes Update",
+              "description": "Uhrzeit oder Zeitraum",
+              "placeholder": "10:30 Uhr"
+            }
+          },
+          "use_case": "Das erste Status-Update während eines Ausfalls und jedes weitere. Für die Statusseite, ein Banner in der App oder eine Mail an Betroffene, solange die Ursache noch unklar ist.",
+          "why_it_works": "Vor der Ursache veröffentlichen ist die Regel, die die meisten Teams brechen; der Prompt macht ausgesprochene Unsicherheit zum erwarteten Format. Das Verbot von „eingeschränkter Leistung“ für einen Ausfall hält das Update ehrlich, und die feste Uhrzeit fürs nächste Update ist das, wonach Leser zuerst schauen.",
+          "examples": {
+            "issue": "Die Online-Terminbuchung fällt aus; nach der Wahl einer Uhrzeit zeigt die Buchungsseite einen Fehler.",
+            "audience": "Praxispersonal, das das Buchungssystem nutzt, überwiegend nicht technisch.",
+            "context": "Beginn 09:12. Bestehende Termine und die Kalenderansicht funktionieren. Die Ursache ist noch unbekannt; das Team sucht.",
+            "deadline": "10:30 Uhr"
+          },
+          "example_output": "Die Online-Buchung ist ausgefallen. Patientinnen und Patienten bekommen nach der Wahl einer Uhrzeit einen Fehler und können nicht buchen.\n\nDas betrifft alle Praxen mit Online-Buchung. Euer Kalender und alle bestehenden Termine funktionieren normal. Bis es behoben ist, nehmt Buchungen bitte telefonisch an und tragt sie wie gewohnt in den Kalender ein.\n\nWas wir wissen: Der Fehler begann um 09:12 und betrifft nur neue Online-Buchungen. Was wir noch nicht wissen: die Ursache.\n\nNächstes Update spätestens um 10:30 Uhr, auch wenn sich nichts geändert hat."
+        }
+      }
     },
     {
       "id": "refund-decision-reply",
@@ -242,7 +499,51 @@
         "service",
         "email"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "use_case": "Every refund request, granted or refused. Use it when you want the decision to read as fair even when the answer is no.",
+      "why_it_works": "Decision first means the customer reads the outcome before any explanation. Spelling out amount, method and timing for a yes prevents the 'when do I get it' follow-up, and anchoring a no to a specific rule and date makes it checkable, which customers accept more readily than a reference to policy.",
+      "examples": [
+        {
+          "input": {
+            "customer_message": "I renewed for another year by accident. I only noticed today on my bank statement. Can I get my money back? I haven't used the app since.",
+            "policy": "Annual renewals refundable within 14 days; after that, pro-rated refunds only for unused months on request.",
+            "resolution": "Renewal was 9 days ago: full refund of €96 to the original card, 5–10 business days."
+          },
+          "output": "Yes, you'll get the full €96 back. Your renewal was 9 days ago, within our 14-day window.\n\nThe refund goes to the card you paid with and usually arrives within 5 to 10 business days, depending on your bank. Your account switches to the free plan today, and your data stays where it is.\n\nIf you'd rather not renew automatically again, you can turn that off under Settings → Billing."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Antwort auf eine Erstattungsanfrage",
+          "description": "Eine Erstattung so gewähren oder ablehnen, dass es fair wirkt",
+          "content": "Beantworte eine Erstattungsanfrage.\n\nAnfrage: {{customer_message}}\nRegel: {{policy}}\nEntscheidung: {{resolution}}\n\nRegeln:\n- Immer zuerst die Entscheidung\n- Bei Zusage: Betrag, Weg und Zeitpunkt nennen. Keine Bedingungen hinterher.\n- Bei Absage: die konkrete Regel und das Datum oder die Tatsache, an der es hängt, plus alles, was wir DOCH tun können\n- Lass niemanden zweimal fragen\n- Keine Belehrung über die Regel, die er hätte lesen sollen",
+          "variables": {
+            "customer_message": {
+              "label": "Anfrage des Kunden",
+              "description": "Was im Ticket steht",
+              "placeholder": "Ticket hier einfügen"
+            },
+            "policy": {
+              "label": "Erstattungsregel",
+              "description": "Die Regel, innerhalb der du bleiben musst",
+              "placeholder": "Erstattung innerhalb von 14 Tagen"
+            },
+            "resolution": {
+              "label": "Entscheidung",
+              "description": "Was du wirklich anbieten kannst",
+              "placeholder": "Volle Erstattung von 96 € auf die Karte"
+            }
+          },
+          "use_case": "Jede Erstattungsanfrage, ob zugesagt oder abgelehnt. Für Fälle, in denen die Entscheidung fair wirken soll, auch wenn sie Nein lautet.",
+          "why_it_works": "Entscheidung zuerst heißt: Der Kunde liest das Ergebnis vor jeder Erklärung. Betrag, Weg und Zeitpunkt bei einer Zusage verhindern die Nachfrage „wann kommt das Geld“, und eine Absage, die an einer konkreten Regel und einem Datum hängt, lässt sich nachprüfen. Das akzeptieren Kunden eher als einen Verweis auf „die Richtlinie“.",
+          "examples": {
+            "customer_message": "Ich habe aus Versehen um ein Jahr verlängert. Gemerkt habe ich es erst heute auf dem Kontoauszug. Kann ich das Geld zurückbekommen? Ich habe die App seitdem nicht genutzt.",
+            "policy": "Jahresverlängerungen sind innerhalb von 14 Tagen erstattbar; danach nur anteilig für ungenutzte Monate auf Anfrage.",
+            "resolution": "Verlängerung vor 9 Tagen: volle Erstattung von 96 € auf die ursprüngliche Karte, 5–10 Werktage."
+          },
+          "example_output": "Ja, du bekommst die vollen 96 € zurück. Deine Verlängerung war vor 9 Tagen und liegt damit in unserer 14-Tage-Frist.\n\nDie Erstattung geht auf die Karte, mit der du bezahlt hast, und kommt je nach Bank meist innerhalb von 5 bis 10 Werktagen an. Dein Konto wechselt heute in den kostenlosen Plan, deine Daten bleiben, wo sie sind.\n\nWenn du nicht noch einmal automatisch verlängern willst, kannst du das unter Einstellungen → Abrechnung abschalten."
+        }
+      }
     },
     {
       "id": "feature-request-reply",
@@ -268,7 +569,44 @@
         "service",
         "email"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "use_case": "'Can you add X?' messages. Use it when you want to give a straight answer about your roadmap and learn what problem is actually behind the request.",
+      "why_it_works": "Forcing one of three honest answers removes the vague 'I'll pass it on', which customers read as a polite no. The single question about the underlying problem often reveals that a different, existing feature solves it, and the date-range rule stops promises the team can't keep.",
+      "examples": [
+        {
+          "input": {
+            "customer_message": "Any plans for a dark mode? Working late at night with a white screen is painful.",
+            "context": "Dark mode is not on the roadmap for this year. The app follows the system's increased-contrast setting, and the browser version works with browser dark-mode extensions."
+          },
+          "output": "Dark mode isn't planned for this year. We're focused on offline sync and have no date range for it we could stand behind.\n\nTwo things that help today:\n1. In the browser, our web app works with dark-mode extensions.\n2. On Mac, System Settings → Accessibility → Display → Increase contrast also tones down our white backgrounds.\n\nOne question: is it mostly the brightness at night, or the contrast while reading long notes? The answer changes which fix we'd look at."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Antwort auf einen Feature-Wunsch",
+          "description": "Ehrlich auf „Könnt ihr X bauen?“ antworten",
+          "content": "Ein Kunde wünscht sich ein Feature.\n\nWunsch: {{customer_message}}\nRealität: {{context}}\n\nWähl genau eine ehrliche Antwort:\n- Geplant, mit einem groben Zeitraum, den wir vertreten können\n- Nicht geplant, mit Grund\n- Heute schon über einen Umweg möglich: zeig die Schritte\n\nRegeln:\n- Sag nie „Toller Vorschlag, ich gebe das ans Team weiter“, wenn du Nein meinst\n- Keine Roadmap-Versprechen ohne einen Zeitraum, den du auch unter Druck wiederholen würdest\n- Stell eine Frage zum eigentlichen Problem: Das gewünschte Feature ist oft nicht die Lösung\n- Unter 100 Wörtern",
+          "variables": {
+            "customer_message": {
+              "label": "Wunsch des Kunden",
+              "description": "Was im Ticket steht",
+              "placeholder": "Ticket hier einfügen"
+            },
+            "context": {
+              "label": "Realität",
+              "description": "Hintergrund, den das Modell braucht",
+              "placeholder": "Dark Mode ist dieses Jahr nicht geplant"
+            }
+          },
+          "use_case": "Nachrichten nach dem Muster „Könnt ihr X einbauen?“. Für eine klare Antwort zur Roadmap und um herauszufinden, welches Problem eigentlich hinter dem Wunsch steckt.",
+          "why_it_works": "Weil genau eine von drei ehrlichen Antworten Pflicht ist, fällt das vage „Ich gebe es weiter“ weg, das Kunden als höfliches Nein lesen. Die eine Frage nach dem eigentlichen Problem zeigt oft, dass ein vorhandenes Feature es schon löst, und die Zeitraum-Regel verhindert Versprechen, die das Team nicht halten kann.",
+          "examples": {
+            "customer_message": "Gibt es Pläne für einen Dark Mode? Spät abends mit weißem Bildschirm zu arbeiten tut echt weh.",
+            "context": "Dark Mode steht dieses Jahr nicht auf der Roadmap. Die App folgt der System-Einstellung „Kontrast erhöhen“, und die Browser-Version funktioniert mit Dark-Mode-Erweiterungen."
+          },
+          "example_output": "Ein Dark Mode ist für dieses Jahr nicht geplant. Wir konzentrieren uns auf Offline-Sync und haben dafür keinen Zeitraum, den wir versprechen könnten.\n\nZwei Dinge helfen heute schon:\n1. Im Browser funktioniert unsere Web-App mit einer Dark-Mode-Erweiterung.\n2. Auf dem Mac dämpft Systemeinstellungen → Bedienungshilfen → Anzeige → „Kontrast erhöhen“ auch unsere weißen Flächen.\n\nEine Frage: Geht es dir vor allem um die Helligkeit am Abend oder um den Kontrast beim Lesen langer Notizen? Davon hängt ab, welche Lösung wir uns ansehen."
+        }
+      }
     },
     {
       "id": "help-article-from-a-repeated-ticket",
@@ -300,7 +638,51 @@
         "service",
         "email"
       ],
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "use_case": "The question that arrives every week. Use it to turn your best ticket answer into a help-center article that ends the repeat questions.",
+      "why_it_works": "A title phrased the way users search makes the article findable, and the answer in the first two sentences means most readers never need the rest. The 'if that didn't work' branches cover the cases that would otherwise come back as tickets.",
+      "examples": [
+        {
+          "input": {
+            "issue": "Customers can't find where to change the invoice address after it has been issued.",
+            "context": "Issued invoices can't be edited. Settings → Billing → Address applies to future invoices; for an issued one, support cancels it and issues a corrected copy within 1 business day.",
+            "audience": "Small business owners, not technical."
+          },
+          "output": "How do I change the address on an invoice?\n\nFor future invoices, change your address under Settings → Billing → Address. An invoice that has already been issued can't be edited, but we can replace it with a corrected one within one business day.\n\nTo change the address for future invoices:\n1. Open Settings.\n2. Go to Billing → Address.\n3. Enter the new address and save.\n\nIf that didn't work:\n- The change didn't appear on your latest invoice: invoices keep the address they were issued with. Write to us with the invoice number and we'll send a corrected copy.\n- You can't see the Billing tab: only account owners can. Ask the owner of your account to make the change.\n\nGood to know: a corrected invoice gets a new invoice number, and the original is marked as cancelled."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Hilfeartikel aus einem wiederkehrenden Ticket",
+          "description": "Den Artikel schreiben, der dieselbe Frage nicht mehr kommen lässt",
+          "content": "Schreib einen Hilfeartikel zu dieser wiederkehrenden Frage.\n\nFrage: {{issue}}\nDie Antwort: {{context}}\nZielgruppe: {{audience}}\n\nAufbau:\n1. Titel so formuliert, wie Nutzer danach suchen würden\n2. Die Antwort in den ersten zwei Sätzen, vor jeder Erklärung\n3. Schritte, nummeriert, je eine Handlung\n4. „Falls das nicht geklappt hat“: die zwei wahrscheinlichsten Abzweigungen\n5. Eine verwandte Einstellung oder Grenze, die Leute überrascht\n\nRegeln:\n- Keine Einleitung darüber, warum es die Funktion gibt\n- Screenshots als [Screenshot: was er zeigt] markieren\n- Du-Form, Präsens, kein „einfach“ oder „nur“",
+          "variables": {
+            "issue": {
+              "label": "Die wiederkehrende Frage",
+              "description": "Das Problem in einer Zeile",
+              "placeholder": "Rechnungsadresse nachträglich ändern"
+            },
+            "context": {
+              "label": "Die Antwort",
+              "description": "Hintergrund, den das Modell braucht",
+              "placeholder": "Ausgestellte Rechnungen sind nicht änderbar; Korrektur über den Support"
+            },
+            "audience": {
+              "label": "Zielgruppe",
+              "description": "Wer das liest",
+              "placeholder": "Inhaber kleiner Betriebe, nicht technisch"
+            }
+          },
+          "use_case": "Die Frage, die jede Woche wieder kommt. Mach aus deiner besten Ticket-Antwort einen Artikel fürs Hilfecenter, der die Wiederholungen beendet.",
+          "why_it_works": "Ein Titel in der Sprache, in der Nutzer suchen, macht den Artikel auffindbar, und die Antwort in den ersten zwei Sätzen heißt, dass die meisten den Rest nie brauchen. Die „Falls das nicht geklappt hat“-Zweige decken genau die Fälle ab, die sonst als Ticket zurückkämen.",
+          "examples": {
+            "issue": "Kunden finden nicht, wo sie die Rechnungsadresse ändern, nachdem die Rechnung ausgestellt ist.",
+            "context": "Ausgestellte Rechnungen lassen sich nicht bearbeiten. Einstellungen → Abrechnung → Adresse gilt für künftige Rechnungen; für eine ausgestellte storniert der Support sie und schickt binnen 1 Werktag eine korrigierte.",
+            "audience": "Inhaberinnen und Inhaber kleiner Betriebe, nicht technisch."
+          },
+          "example_output": "Wie ändere ich die Adresse auf einer Rechnung?\n\nFür künftige Rechnungen änderst du die Adresse unter Einstellungen → Abrechnung → Adresse. Eine bereits ausgestellte Rechnung lässt sich nicht bearbeiten, wir ersetzen sie dir aber innerhalb eines Werktags durch eine korrigierte.\n\nSo änderst du die Adresse für künftige Rechnungen:\n1. Öffne die Einstellungen.\n2. Geh auf Abrechnung → Adresse.\n3. Trag die neue Adresse ein und speichere.\n\nFalls das nicht geklappt hat:\n- Die Änderung steht nicht auf deiner letzten Rechnung: Rechnungen behalten die Adresse, mit der sie ausgestellt wurden. Schreib uns die Rechnungsnummer, dann schicken wir dir eine korrigierte.\n- Du siehst den Bereich Abrechnung nicht: Den sehen nur Konto-Inhaber. Bitte die Inhaberin deines Kontos, die Änderung zu machen.\n\nGut zu wissen: Eine korrigierte Rechnung bekommt eine neue Rechnungsnummer, die ursprüngliche wird als storniert markiert."
+        }
+      }
     },
     {
       "id": "cancellation-reply",
@@ -326,7 +708,44 @@
         "service",
         "email"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "use_case": "Replies to cancellation requests. Use it when you want people to leave on good terms, and to learn why without a survey.",
+      "why_it_works": "Confirming the cancellation, its date and what happens to the data first removes the fear that leaving will be hard. One optional question gets more honest answers than a form, and allowing at most one matching offer avoids the retention gauntlet that makes people never come back.",
+      "examples": [
+        {
+          "input": {
+            "product": "the Pro plan",
+            "customer_message": "Please cancel my subscription. We're a small team and honestly we just don't use it enough to justify the cost."
+          },
+          "output": "Done: your Pro plan is cancelled and ends on 31 October. Until then everything works as usual; after that your account moves to the free plan and all your data stays.\n\nOne question, only if you feel like answering: was there something you expected to use more that didn't fit your team?\n\nSince cost was the reason: the free plan covers up to three people, which may already be enough for you.\n\nIf you want Pro back later, you can switch on Settings → Billing in a minute."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Antwort auf eine Kündigung",
+          "description": "Jemanden sauber gehen lassen und erfahren, warum",
+          "content": "Ein Kunde möchte {{product}} kündigen.\n\nSeine Nachricht: {{customer_message}}\n\nRegeln:\n- Bestätige die Kündigung im ersten Satz, mit Enddatum und was mit seinen Daten passiert\n- Genau eine Frage nach dem Warum: freiwillig, kein Formular\n- Höchstens ein Angebot, und nur, wenn es klar zu seinem Grund passt. Kein Halte-Parcours.\n- Sag in einer Zeile, wie er zurückkommen kann\n- Unter 90 Wörtern",
+          "variables": {
+            "product": {
+              "label": "Produkt oder Plan",
+              "description": "Name des Produkts oder Dienstes",
+              "placeholder": "den Pro-Plan"
+            },
+            "customer_message": {
+              "label": "Nachricht des Kunden",
+              "description": "Was im Ticket steht",
+              "placeholder": "Ticket hier einfügen"
+            }
+          },
+          "use_case": "Antworten auf Kündigungen. Für einen Abschied im Guten und um ohne Umfrage zu erfahren, warum jemand geht.",
+          "why_it_works": "Wer zuerst Kündigung, Datum und den Verbleib der Daten bestätigt, nimmt die Sorge, dass Gehen schwer gemacht wird. Eine freiwillige Frage bringt ehrlichere Antworten als ein Formular, und höchstens ein passendes Angebot vermeidet den Halte-Parcours, nach dem niemand zurückkommt.",
+          "examples": {
+            "product": "den Pro-Plan",
+            "customer_message": "Bitte kündigen Sie mein Abo. Wir sind ein kleines Team und nutzen es ehrlich gesagt zu wenig, als dass sich der Preis lohnt."
+          },
+          "example_output": "Erledigt: Ihr Pro-Plan ist gekündigt und endet am 31. Oktober. Bis dahin läuft alles wie gewohnt, danach wechselt Ihr Konto in den kostenlosen Plan, und alle Daten bleiben erhalten.\n\nEine Frage, nur wenn Sie mögen: Gab es etwas, das Sie mehr nutzen wollten, das aber nicht zu Ihrem Team gepasst hat?\n\nWeil der Preis der Grund war: Der kostenlose Plan reicht für bis zu drei Personen, vielleicht genügt Ihnen das schon.\n\nFalls Sie Pro später wieder möchten, schalten Sie es unter Einstellungen → Abrechnung in einer Minute ein."
+        }
+      }
     },
     {
       "id": "macro-set-for-one-issue-type",
@@ -352,7 +771,44 @@
         "service",
         "email"
       ],
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "use_case": "Building saved replies (macros) for a help desk around one recurring issue. Use it when your current macros sound templated and agents rewrite them every time.",
+      "why_it_works": "Four variants cover the states one issue actually goes through, so agents pick instead of improvising. Square-bracket slots mark exactly what must be personalised, and leaving greetings out of the macro keeps the agent's own voice around it.",
+      "examples": [
+        {
+          "input": {
+            "issue": "Password reset email doesn't arrive.",
+            "resolution": "Check spam; corporate filters often hold it; we can trigger a reset from support; an email delivery delay was fixed on 12 October."
+          },
+          "output": "1. Quick fix confirmed\nThe reset email was in your [spam folder / company quarantine]. I've sent a new one to [email]; the link works for 60 minutes. If it lands in spam again, marking it as \"not spam\" helps future emails.\n\n2. Needs more information\nTo find the email, I need two things: the exact address you entered on the reset page, and whether you use a company email that goes through a filter. With that I can check our delivery log.\n\n3. Known bug, fix in progress\nUntil [date], some reset emails were delayed by up to [hours] because of a problem on our side. That's fixed now. I've sent you a fresh link to [email].\n\n4. Works as intended, expectation reasonable\nReset emails only go to the address on the account, which is [masked email]. Expecting it at your new address makes sense; I can change the account address once you confirm from the old one or verify another way."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Textbausteine für einen Fehlertyp",
+          "description": "Wiederverwendbare Antworten, die trotzdem menschlich klingen",
+          "content": "Schreib einen Satz wiederverwendbarer Antworten für dieses wiederkehrende Problem: {{issue}}\n\nBekannte Lösungen: {{resolution}}\n\nErstelle vier Varianten:\n1. Schnelle Lösung bestätigt\n2. Braucht mehr Informationen: mit den zwei Fragen, auf die es ankommt\n3. Bekannter Fehler, Fix in Arbeit\n4. Funktioniert wie vorgesehen, aber die Erwartung war nachvollziehbar\n\nJede unter 80 Wörtern, mit [eckigen Klammern] für die Teile, die angepasst werden müssen.\n\nRegeln:\n- Keine Begrüßung und keine Grußformel im Baustein, das übernimmt die Person im Support\n- Jede Variante muss wörtlich verwendbar sein, ohne nach Vorlage zu klingen",
+          "variables": {
+            "issue": {
+              "label": "Das wiederkehrende Problem",
+              "description": "Das Problem in einer Zeile",
+              "placeholder": "Passwort-Mail kommt nicht an"
+            },
+            "resolution": {
+              "label": "Bekannte Lösungen",
+              "description": "Was du wirklich anbieten kannst",
+              "placeholder": "Spam prüfen; Reset über den Support auslösen"
+            }
+          },
+          "use_case": "Gespeicherte Antworten (Makros) im Helpdesk für ein wiederkehrendes Problem aufbauen. Für Teams, deren Makros nach Vorlage klingen und jedes Mal umgeschrieben werden.",
+          "why_it_works": "Vier Varianten decken die Zustände ab, die ein Problem tatsächlich durchläuft, also wählt das Team aus statt zu improvisieren. Eckige Klammern markieren genau, was angepasst werden muss, und ohne Begrüßung im Baustein bleibt drumherum die eigene Stimme der Person im Support.",
+          "examples": {
+            "issue": "Die Mail zum Zurücksetzen des Passworts kommt nicht an.",
+            "resolution": "Spam prüfen; Firmenfilter halten sie oft zurück; Support kann einen Reset auslösen; eine Zustellverzögerung wurde am 12. Oktober behoben."
+          },
+          "example_output": "1. Schnelle Lösung bestätigt\nDie Mail zum Zurücksetzen lag in deinem [Spam-Ordner / Firmen-Quarantäne]. Ich habe dir eine neue an [E-Mail] geschickt; der Link gilt 60 Minuten. Falls sie wieder im Spam landet, hilft „Kein Spam“ für künftige Mails.\n\n2. Braucht mehr Informationen\nUm die Mail zu finden, brauche ich zwei Dinge: die genaue Adresse, die du auf der Reset-Seite eingegeben hast, und ob du eine Firmenadresse mit Filter nutzt. Damit kann ich unser Versandprotokoll prüfen.\n\n3. Bekannter Fehler, Fix in Arbeit\nBis [Datum] kamen manche Reset-Mails wegen eines Problems bei uns bis zu [Stunden] verspätet an. Das ist behoben. Ich habe dir einen neuen Link an [E-Mail] geschickt.\n\n4. Funktioniert wie vorgesehen, Erwartung nachvollziehbar\nReset-Mails gehen nur an die Adresse im Konto, das ist [maskierte Adresse]. Dass du sie an deiner neuen Adresse erwartest, ist verständlich; ich ändere die Kontoadresse, sobald du das von der alten bestätigst oder dich anders verifizierst."
+        }
+      }
     },
     {
       "id": "weekly-support-summary",
@@ -372,7 +828,37 @@
         "service",
         "email"
       ],
-      "difficulty": "advanced"
+      "difficulty": "advanced",
+      "use_case": "A weekly report from support to product. Use it when you have a pile of tickets or notes and need to show what costs customers the most and what would remove it.",
+      "why_it_works": "Counts instead of adjectives make the summary something product can prioritise, and the customer's own phrasing keeps the problem concrete. Splitting 'what they asked for' from 'what would fix it' stops feature requests from being mistaken for solutions, and marking estimates keeps the numbers honest.",
+      "examples": [
+        {
+          "input": {
+            "input": "Week 42, 214 tickets. Tags: login/2FA 41, invoice PDF blank 37, how to add team member 29, sync slow 18, data export request 9, account deleted by mistake 2 (both restored from backup, ~3h each). Agents often reply 'it should work now' for sync without a fix."
+          },
+          "output": "1. Top three by volume\n- Login / 2FA: 41 tickets. \"The code never comes.\"\n- Blank invoice PDF: 37 tickets. \"My invoice is just a white page.\"\n- Adding a team member: 29 tickets. \"Where do I invite my colleague?\"\n\n2. Highest damage per occurrence\nAccounts deleted by mistake: 2 tickets, about 3 hours of restore work each, and both customers had no access during that time.\n\n3. What we should stop saying\n\"It should work now\" for slow sync, when nothing was changed. 18 sync tickets this week, and the customers come back.\n\n4. The single change that removes the most tickets\nFix the blank PDF export: about 37 tickets per week (estimate, based on this week alone).\n\nAsked for vs. would fix it: customers ask for SMS codes for 2FA; most of the 41 login tickets look like delayed emails, so faster code delivery would fix more than a new channel."
+        }
+      ],
+      "translations": {
+        "de": {
+          "title": "Wöchentliche Support-Zusammenfassung",
+          "description": "Aus einer Woche Tickets etwas machen, mit dem das Produktteam arbeiten kann",
+          "content": "Fass diese Support-Woche für das Produktteam zusammen.\n\nTickets: {{input}}\n\nErstelle:\n1. Die drei Themen mit dem meisten Volumen, jeweils mit der Formulierung der Kunden\n2. Das eine Thema mit dem größten Schaden pro Fall, auch wenn es selten ist\n3. Was wir Kunden gesagt haben und nicht mehr sagen sollten\n4. Die eine Änderung, die die meisten Tickets wegnimmt, mit geschätzter Zahl eingesparter Tickets\n\nRegeln:\n- Zahlen statt Adjektive. „17 Tickets“, nicht „viele Beschwerden“.\n- Trenne, wonach Kunden gefragt haben, von dem, was ihr Problem tatsächlich lösen würde\n- Markiere jede Schätzung als Schätzung",
+          "variables": {
+            "input": {
+              "label": "Tickets oder Notizen",
+              "description": "Das Material, mit dem gearbeitet wird",
+              "placeholder": "Notizen, Export oder Zahlen hier einfügen"
+            }
+          },
+          "use_case": "Ein Wochenbericht vom Support ans Produktteam. Für alle, die einen Stapel Tickets oder Notizen haben und zeigen müssen, was Kunden am meisten kostet und was es beseitigen würde.",
+          "why_it_works": "Zahlen statt Adjektive machen die Zusammenfassung priorisierbar, und die Formulierungen der Kunden halten das Problem konkret. Weil „wonach gefragt wurde“ und „was es lösen würde“ getrennt sind, gelten Feature-Wünsche nicht automatisch als Lösung, und markierte Schätzungen halten die Zahlen ehrlich.",
+          "examples": {
+            "input": "KW 42, 214 Tickets. Tags: Login/2FA 41, Rechnungs-PDF leer 37, Teammitglied hinzufügen 29, Sync langsam 18, Datenexport-Anfrage 9, Konto versehentlich gelöscht 2 (beide aus Backup wiederhergestellt, je ~3 Std.). Beim Sync antworten wir oft „sollte jetzt gehen“, ohne Fix."
+          },
+          "example_output": "1. Die drei größten Themen\n- Login / 2FA: 41 Tickets. „Der Code kommt nie an.“\n- Leeres Rechnungs-PDF: 37 Tickets. „Meine Rechnung ist nur eine weiße Seite.“\n- Teammitglied hinzufügen: 29 Tickets. „Wo lade ich meine Kollegin ein?“\n\n2. Größter Schaden pro Fall\nVersehentlich gelöschte Konten: 2 Tickets, je rund 3 Stunden Wiederherstellung, und beide Kunden hatten so lange keinen Zugriff.\n\n3. Was wir nicht mehr sagen sollten\n„Sollte jetzt gehen“ beim langsamen Sync, obwohl nichts geändert wurde. 18 Sync-Tickets diese Woche, und die Kunden melden sich wieder.\n\n4. Die eine Änderung mit dem größten Effekt\nDen leeren PDF-Export beheben: etwa 37 Tickets pro Woche (Schätzung, nur auf Basis dieser Woche).\n\nGewünscht vs. lösend: Kunden wünschen sich SMS-Codes für 2FA; die meisten der 41 Login-Tickets sehen nach verspäteten Mails aus, also würde schnellere Zustellung mehr lösen als ein neuer Kanal."
+        }
+      }
     }
   ]
 }

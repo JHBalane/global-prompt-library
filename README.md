@@ -20,11 +20,25 @@ Browse and download prompts directly in TextDeck, or clone this repository to co
 ├── packs/
 │   ├── official/          # Official TextDeck prompt packs
 │   └── community/         # Community-contributed packs
+├── enrichment/            # Per-pack extras: use case, worked example, translations
 ├── catalog/
 │   └── index.json         # Auto-generated catalog index
 └── .github/
     └── workflows/         # Automated validation
 ```
+
+## Building
+
+```
+python3 scripts/make-packs.py          # authoring/*.py -> packs/official/
+python3 scripts/apply-enrichment.py    # enrichment/*.json -> into the packs
+python3 scripts/build-index.py         # catalog/index.json
+```
+
+`enrichment/<pack-id>.json` adds, per prompt, a use case, why it works, one worked
+example (input and output) and full translations (title, description, prompt,
+variable labels, example). Translations must use exactly the original prompt's
+`{{variables}}`; the script refuses anything else.
 
 ## Contributing
 
