@@ -50,14 +50,14 @@ LEXICON: dict[str, tuple[str, str]] = {
 
     # --- sales / outreach ---
     "prospect_name": ("Person you are writing to", "Dr. Anke Reuter"),
-    "prospect_company": ("Their company", "Stadtwerke Aalen"),
+    "prospect_company": ("Their company", "Harbor City Utilities"),
     "trigger_event": ("Why you are reaching out now", "they posted three warehouse roles this month"),
     "value_proposition": ("The change you create for them", "cuts shift planning from a day to an hour"),
     "objection": ("The concern they raised", "we already pay for a tool that does this"),
     "competitor": ("Who they compare you to", "an in-house Excel process"),
     "deal_stage": ("Where the deal stands", "demo done, no reply for 12 days"),
     "call_notes": ("Raw notes from the conversation", "paste your notes here"),
-    "proof_point": ("Evidence that you deliver", "Ernst Logistik cut planning time 70% in 4 weeks"),
+    "proof_point": ("Evidence that you deliver", "a 40-person freight forwarder cut weekly planning from 6 hours to 2"),
 
     # --- support ---
     "customer_message": ("What the customer wrote", "paste the ticket here"),
@@ -98,7 +98,7 @@ LEXICON: dict[str, tuple[str, str]] = {
     "asking_price": ("Price asked", "€549,000"),
 
     # --- social / content ---
-    "hook": ("The opening line that stops the scroll", "I shipped 12 apps last year. Nobody used 9."),
+    "hook": ("The opening line that stops the scroll", "Most of our first ideas never made it past week two."),
     "platform": ("Social platform", "TikTok"),
     "content_pillar": ("Recurring theme of the account", "building software alone"),
     "cta": ("What the viewer should do next", "comment 'audit' for the checklist"),

@@ -69,7 +69,7 @@ It also applies when an individual is representing the project or community in p
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at conduct@globalpromptlibrary.org. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at support@balane.tech. All complaints will be reviewed and investigated promptly and fairly.
 
 All project team members are obligated to respect the privacy and security of the reporter of any incident.
 
@@ -101,7 +101,7 @@ Project maintainers will follow these Community Impact Guidelines in determining
 
 If you experience or witness unacceptable behavior, or have any other concerns, please report it by:
 
-- **Email**: conduct@globalpromptlibrary.org
+- **Email**: support@balane.tech
 - **GitHub**: Create a confidential issue (if applicable)
 - **Discord**: Message moderators directly
 
@@ -133,7 +133,7 @@ For answers to common questions about this code of conduct, see the FAQ at https
 ## Contact
 
 For questions about this Code of Conduct, contact:
-- **Email**: conduct@globalpromptlibrary.org
+- **Email**: support@balane.tech
 - **Project Maintainers**: See [MAINTAINERS.md](MAINTAINERS.md)
 
 ---

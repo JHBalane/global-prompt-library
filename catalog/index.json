@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-12T16:48:56.131147Z",
+  "generated_at": "2026-10-20T19:26:51.336934Z",
   "schema_version": "1.0.0",
   "repository": {
-    "url": "https://github.com/textdeck/global-prompt-library",
-    "commit": "2916ab1f11720961af286a1f48c46e7bd65f97f0"
+    "url": "https://github.com/JHBalane/global-prompt-library",
+    "commit": "cf50f6ae7227cfbf81e6b80db63a3259ab45d371"
   },
   "stats": {
     "total_packs": 14,
@@ -199,7 +199,7 @@
       ],
       "type": "official",
       "file_path": "packs/official/freelance-client-work.json",
-      "file_hash": "6bdf08dd15db7a5523a79c57afe97bd481e1a22632d3940879ea1a1e784715e3",
+      "file_hash": "c03750b272e51d2b6c6437b2bca5eb8d92fba54bb9078559c7eb407e5576c732",
       "created": "2026-08-12",
       "updated": "2026-08-12",
       "stats": {
@@ -515,7 +515,7 @@
       ],
       "type": "official",
       "file_path": "packs/official/sales-outreach.json",
-      "file_hash": "7b589862e2e08f6ff8c76c2eed9125c3b6c6911756d12b970d7babbef88e7a20",
+      "file_hash": "0363dc99b9c8c5d9b60b61ad14252c6892699ed492a0400637b8ade428aef5d2",
       "created": "2026-08-12",
       "updated": "2026-08-12",
       "stats": {

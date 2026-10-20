@@ -323,7 +323,7 @@ Contributors are credited in:
 
 - **GitHub Issues**: Technical problems
 - **Discord**: `#contributors` channel
-- **Email**: contribute@globalpromptlibrary.org
+- **Email**: support@balane.tech
 
 ### Common Issues
 

@@ -371,7 +371,7 @@
         {
           "name": "proof_point",
           "description": "Evidence that you deliver",
-          "example": "Ernst Logistik cut planning time 70% in 4 weeks",
+          "example": "a 40-person freight forwarder cut weekly planning from 6 hours to 2",
           "required": true
         }
       ],

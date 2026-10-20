@@ -162,7 +162,7 @@ class IndexBuilder:
             "generated_at": datetime.utcnow().isoformat() + "Z",
             "schema_version": "1.0.0",
             "repository": {
-                "url": "https://github.com/textdeck/global-prompt-library",
+                "url": "https://github.com/JHBalane/global-prompt-library",
                 "commit": self._get_git_commit() or "unknown"
             },
             "stats": {
